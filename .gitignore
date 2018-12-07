@@ -27,3 +27,6 @@
 
 ### Spring
 /.env
+
+### Docker
+/db/mysql_data/
