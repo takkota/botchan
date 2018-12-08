@@ -14,6 +14,7 @@ import net.onlybiz.botchan.model.line.LinkToken
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.client.RestOperations
 import org.springframework.web.util.UriComponentsBuilder
+import java.net.InetAddress
 
 @LineMessageHandler
 class LineEventHandler {
@@ -39,8 +40,18 @@ class LineEventHandler {
                             .build())
                     .build()
         }
-        val imageUri = UriComponentsBuilder.fromPath("/static/image/thank_you.png").build().toUri()
-        val actionUri = UriComponentsBuilder.fromPath("/account/link?linkToken=${reseponse.linkToken}").build().toUri()
+        val hostName = InetAddress.getLocalHost().hostName
+        val imageUri = UriComponentsBuilder.newInstance()
+                .scheme("https")
+                .host(hostName)
+                .path("/static/image/thank_you.png")
+                .build()
+        val actionUri = UriComponentsBuilder.newInstance()
+                .scheme("https")
+                .host(hostName)
+                .path("/account/link")
+                .uriVariables(mapOf(Pair("linkToken", reseponse.linkToken)))
+                .build()
         println("testd:imageUri:${imageUri.toString()}")
         println("testd:actionUri:${actionUri.toString()}")
         return TemplateMessage.builder()
