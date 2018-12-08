@@ -1,6 +1,6 @@
 package net.onlybiz.botchan.controller.api
 
-import net.onlybiz.botchan.domain.TestRepository
+import net.onlybiz.botchan.database.TestRepository
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
