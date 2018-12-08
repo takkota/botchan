@@ -15,6 +15,7 @@ data class AppUser(
         @Column(name = "line_id")
         var lineId: String? = null,
 
+        @Column(unique = true)
         var nonce: String? = null,
 
         @Column(name = "link_date_time")

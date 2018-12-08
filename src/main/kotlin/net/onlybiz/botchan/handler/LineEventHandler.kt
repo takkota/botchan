@@ -1,6 +1,7 @@
 package net.onlybiz.botchan.api
 
 import com.linecorp.bot.model.action.URIAction
+import com.linecorp.bot.model.event.AccountLinkEvent
 import com.linecorp.bot.model.event.Event
 import com.linecorp.bot.model.event.FollowEvent
 import com.linecorp.bot.spring.boot.annotation.LineMessageHandler
@@ -8,8 +9,11 @@ import com.linecorp.bot.spring.boot.annotation.EventMapping
 import com.linecorp.bot.model.message.TextMessage
 import com.linecorp.bot.model.event.message.TextMessageContent
 import com.linecorp.bot.model.event.MessageEvent
+import com.linecorp.bot.model.event.link.LinkContent
 import com.linecorp.bot.model.message.TemplateMessage
 import com.linecorp.bot.model.message.template.ButtonsTemplate
+import net.onlybiz.botchan.database.AppUser
+import net.onlybiz.botchan.database.AppUserRepository
 import net.onlybiz.botchan.model.line.LinkToken
 import net.onlybiz.botchan.settings.Server
 import org.springframework.beans.factory.annotation.Autowired
@@ -18,6 +22,7 @@ import org.springframework.web.context.request.RequestContextHolder
 import org.springframework.web.context.request.ServletRequestAttributes
 import org.springframework.web.util.UriComponentsBuilder
 import java.net.InetAddress
+import java.util.*
 
 @LineMessageHandler
 class LineEventHandler {
@@ -27,6 +32,9 @@ class LineEventHandler {
 
     @Autowired
     lateinit var server: Server
+
+    @Autowired
+    lateinit var appUserRepository: AppUserRepository
 
     // BotをFollowした(アプリから or 直接)
     @EventMapping
@@ -70,6 +78,46 @@ class LineEventHandler {
                         .build()
                 )
                 .build()
+    }
+
+    @EventMapping
+    fun handleAccountLinkEvent(event: AccountLinkEvent): TemplateMessage {
+        return if (event.link.result == LinkContent.Result.OK) {
+            val appUser = appUserRepository.findByNonce(event.link.nonce)
+            println("teestd:userNonce" + appUser.nonce)
+            println("teestd:userId" + appUser.lineId)
+            appUser.linkDateTime = Date()
+            appUser.lineId = event.source.userId
+            appUserRepository.save(appUser)
+            val actionUri = UriComponentsBuilder.newInstance()
+                    .scheme("https")
+                    .host(server.hostName)
+                    .path("/account/link")
+                    .build()
+            TemplateMessage.builder()
+                .template(ButtonsTemplate.builder()
+                        .title("連携が完了しました")
+                        .text("アプリに戻って自分好みのボットを作りましょう！")
+                        .actions(listOf(URIAction("アプリへ", actionUri.toString())))
+                        .build()
+                )
+                .build()
+        } else {
+            val actionUri = UriComponentsBuilder.newInstance()
+                    .scheme("https")
+                    .host(server.hostName)
+                    .path("/account/link")
+                    .build()
+            TemplateMessage.builder()
+                    .altText("連携に失敗しました。")
+                    .template(ButtonsTemplate.builder()
+                            .title("連携に失敗しました。")
+                            .text("もう一度最初からやり直してください")
+                            .actions(listOf(URIAction("アプリへ", actionUri.toString())))
+                            .build()
+                    )
+                    .build()
+        }
     }
 
     @EventMapping
