@@ -6,7 +6,7 @@ import javax.persistence.*
 
 @Entity
 @Table(name = "app_users")
-class AppUser(
+data class AppUser(
         @Id
         @Column(name = "app_user_id")
         var id: String,
@@ -18,4 +18,6 @@ class AppUser(
 
         @Column(name = "link_date_time")
         var linkDateTime: Date? = null
+
 ) : CommonEntity()
+
