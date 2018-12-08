@@ -18,11 +18,11 @@ class AccountController {
     lateinit var appUserRepository: AppUserRepository
 
     @RequestMapping(value = ["/link"], method = [RequestMethod.POST])
-    fun generateLinkAppUrl(@RequestParam param: LinkTokenParameter): LinkAppResponse {
+    fun generateLinkAppUrl(@RequestBody body: LinkTokenParameter): LinkAppResponse {
         val uuid = UUID.randomUUID().toString()
         val nonce = Base64.getEncoder().encodeToString(uuid.toByteArray())
         // userIdとnonceを紐付ける
-        appUserRepository.save(AppUser(param.userId, null, nonce, null))
-        return LinkAppResponse("https://access.line.me/dialog/bot/accountLink?linkToken=${param.linkToken}&nonce=${nonce}")
+        appUserRepository.save(AppUser(body.userId, null, nonce, null))
+        return LinkAppResponse("https://access.line.me/dialog/bot/accountLink?linkToken=${body.linkToken}&nonce=${nonce}")
     }
 }
