@@ -13,7 +13,7 @@ class SwaggerConfiguration {
     @Bean
     fun customDocket(): Docket {
         return Docket(DocumentationType.SWAGGER_2).select()
-                .apis(RequestHandlerSelectors.basePackage("kota.net.onlybiz.botchan.controller.api"))
+                .apis(RequestHandlerSelectors.basePackage("net.onlybiz.botchan.controller.api"))
                 .build()
     }
 
