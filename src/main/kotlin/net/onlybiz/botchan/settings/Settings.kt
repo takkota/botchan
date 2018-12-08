@@ -1,0 +1,12 @@
+package net.onlybiz.botchan.settings
+
+import org.springframework.boot.context.properties.ConfigurationProperties
+import org.springframework.stereotype.Component
+
+
+@Component
+@ConfigurationProperties(prefix = "line.bot")
+class LineSetting {
+    lateinit var channelToken: String
+    lateinit var channelSecret: String
+}

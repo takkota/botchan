@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired
 
 
 @RestController
-@RequestMapping(value = ["api"])
+@RequestMapping(value = ["/"])
 class ApiController {
     @Autowired
     lateinit var testRepository: TestRepository

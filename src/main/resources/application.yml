@@ -1,0 +1,20 @@
+# mysql
+spring:
+  datasource:
+    url: ${SPRING_DATASOURCE_URL}
+    username: ${SPRING_DATABASE_USERNAME}
+    password: ${SPRING_DATABASE_PASSWORD}
+  jpa:
+    database: MYSQL
+    hibernate:
+      ddl-auto: update
+logging:
+  level:
+    jdbc: OFF
+    sqltiming: DEBUG
+
+# line
+line:
+  bot:
+    channelToken: ${LINE_BOT_CHANNEL_TOKEN}
+    channelSecret: ${LINE_BOT_CHANNEL_SECRET}

@@ -1,4 +1,4 @@
-package net.onlybiz.botchan.bean
+package net.onlybiz.botchan.settings
 
 import com.google.gson.FieldNamingPolicy
 import com.google.gson.GsonBuilder
@@ -13,14 +13,14 @@ import org.springframework.http.converter.json.GsonHttpMessageConverter
 import org.springframework.web.client.RestOperations
 import org.springframework.web.client.RestTemplate
 import org.springframework.web.util.DefaultUriBuilderFactory
-import org.springframework.web.util.DefaultUriTemplateHandler
 
 @Configuration
-class Configuration {
+class Beans {
 
     @Bean
-    fun lineTemplate(builder: RestTemplateBuilder): RestOperations {
-        val accessToken = ""
+    fun lineTemplate(builder: RestTemplateBuilder, lineSetting: LineSetting): RestOperations {
+        val accessToken = lineSetting.channelToken
+        println("accessToken: $accessToken")
         return builder
                 .requestFactory { OkHttp3ClientHttpRequestFactory(
                         OkHttpClient.Builder()
@@ -39,7 +39,7 @@ class Configuration {
                 .uriTemplateHandler(DefaultUriBuilderFactory().apply {
                     encodingMode = DefaultUriBuilderFactory.EncodingMode.TEMPLATE_AND_VALUES
                 })
-                .rootUri("https://handler.line.me/v2")
+                .rootUri("https://api.line.me/v2")
                 .build()
     }
 

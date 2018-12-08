@@ -1,4 +1,4 @@
-package net.onlybiz.botchan.repository
+package net.onlybiz.botchan.database
 
 import javax.persistence.*
 
