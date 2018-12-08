@@ -129,7 +129,10 @@ class LineEventHandler {
             }
             is GroupSource -> {
                 val groupId = (event.source as GroupSource).groupId
-                println("join event group_id: " + groupId)
+                val senderId = (event.source as GroupSource).senderId
+                val userId = (event.source as GroupSource).userId
+                println("join event senderId: " + senderId)
+                println("join event userId: " + userId)
             }
             else -> {
                 println("no id")
