@@ -1,12 +1,18 @@
 package net.onlybiz.botchan.controller.api
 
+import net.onlybiz.botchan.domain.TestRepository
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
+import org.springframework.beans.factory.annotation.Autowired
+
+
 
 @RestController
 @RequestMapping(value = ["api"])
 class ApiController {
+    @Autowired
+    lateinit var testRepository: TestRepository
 
     //@RequestMapping(value = ["/query"], method = [RequestMethod.POST])
     //fun queryResponse(@RequestBody query: QueryMessage): ResponseMessage {
@@ -21,7 +27,8 @@ class ApiController {
 
     @GetMapping
     fun helloWorld(): String {
-        return "helloWorld"
+        val test = testRepository.findById(1)
+        return if (test.isPresent) test.get().name!! else "ないよ"
     }
 
 }
