@@ -12,7 +12,7 @@ data class AppUser(
         // dataクラスで定義する場合、デフォルト値を入れておかないとInstantiationException: No default constructor for entityが発生する
         var id: String = UUID.randomUUID().toString(),
 
-        @Column(name = "line_id")
+        @Column(name = "line_id", unique = true)
         var lineId: String? = null,
 
         @Column(unique = true)

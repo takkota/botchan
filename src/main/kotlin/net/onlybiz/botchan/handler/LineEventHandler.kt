@@ -1,15 +1,15 @@
 package net.onlybiz.botchan.api
 
 import com.linecorp.bot.model.action.URIAction
-import com.linecorp.bot.model.event.AccountLinkEvent
-import com.linecorp.bot.model.event.Event
-import com.linecorp.bot.model.event.FollowEvent
+import com.linecorp.bot.model.event.*
 import com.linecorp.bot.spring.boot.annotation.LineMessageHandler
 import com.linecorp.bot.spring.boot.annotation.EventMapping
 import com.linecorp.bot.model.message.TextMessage
 import com.linecorp.bot.model.event.message.TextMessageContent
-import com.linecorp.bot.model.event.MessageEvent
 import com.linecorp.bot.model.event.link.LinkContent
+import com.linecorp.bot.model.event.source.GroupSource
+import com.linecorp.bot.model.event.source.RoomSource
+import com.linecorp.bot.model.event.source.UserSource
 import com.linecorp.bot.model.message.TemplateMessage
 import com.linecorp.bot.model.message.template.ButtonsTemplate
 import net.onlybiz.botchan.database.AppUser
@@ -22,6 +22,7 @@ import org.springframework.web.context.request.RequestContextHolder
 import org.springframework.web.context.request.ServletRequestAttributes
 import org.springframework.web.util.UriComponentsBuilder
 import java.net.InetAddress
+import java.security.acl.Group
 import java.util.*
 
 @LineMessageHandler
@@ -65,7 +66,6 @@ class LineEventHandler {
                 .path("/account/link")
                 .queryParam("linkToken", reseponse.linkToken)
                 .build()
-        println("testd:imageUri:${imageUri.toString()}")
         println("testd:actionUri:${actionUri.toString()}")
         return TemplateMessage.builder()
                 .altText("友たち追加ありがとうございます。以下のボタンをタップして、アプリとの連携を完了させてください。")
@@ -84,8 +84,6 @@ class LineEventHandler {
     fun handleAccountLinkEvent(event: AccountLinkEvent): TemplateMessage {
         return if (event.link.result == LinkContent.Result.OK) {
             val appUser = appUserRepository.findByNonce(event.link.nonce)
-            println("teestd:userNonce" + appUser.nonce)
-            println("teestd:userId" + appUser.lineId)
             appUser.linkDateTime = Date()
             appUser.lineId = event.source.userId
             appUserRepository.save(appUser)
@@ -95,11 +93,12 @@ class LineEventHandler {
                     .path("/account/link")
                     .build()
             TemplateMessage.builder()
-                .template(ButtonsTemplate.builder()
-                        .title("連携が完了しました")
-                        .text("アプリに戻って自分好みのボットを作りましょう！")
-                        .actions(listOf(URIAction("アプリへ", actionUri.toString())))
-                        .build()
+                    .altText("アプリに戻って自分好みのボットを作りましょう！")
+                    .template(ButtonsTemplate.builder()
+                            .title("連携が完了しました")
+                            .text("アプリに戻って自分好みのボットを作りましょう！")
+                            .actions(listOf(URIAction("アプリへ", actionUri.toString())))
+                            .build()
                 )
                 .build()
         } else {
@@ -117,6 +116,24 @@ class LineEventHandler {
                             .build()
                     )
                     .build()
+        }
+    }
+
+    @EventMapping
+    fun handleJoinEvent(event: JoinEvent) {
+        println("join event user_id: " + event.source.userId)
+        when (event.source) {
+            is RoomSource -> {
+                val roomId = (event.source as RoomSource).roomId
+                println("join event room_id: " + roomId)
+            }
+            is GroupSource -> {
+                val groupId = (event.source as GroupSource).groupId
+                println("join event group_id: " + groupId)
+            }
+            else -> {
+                println("no id")
+            }
         }
     }
 
