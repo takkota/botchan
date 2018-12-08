@@ -40,7 +40,7 @@ class LineEventHandler {
                     .build()
         }
         val imageUri = UriComponentsBuilder.fromPath("/static/image/thank_you.png").build().toUri()
-        val actionUri = UriComponentsBuilder.fromPath("/account/link").build().toUri()
+        val actionUri = UriComponentsBuilder.fromPath("/account/link?linkToken=${reseponse.linkToken}").build().toUri()
         println("testd:imageUri:${imageUri.toString()}")
         println("testd:actionUri:${actionUri.toString()}")
         return TemplateMessage.builder()
