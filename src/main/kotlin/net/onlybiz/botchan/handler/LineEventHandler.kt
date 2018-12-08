@@ -11,8 +11,11 @@ import com.linecorp.bot.model.event.MessageEvent
 import com.linecorp.bot.model.message.TemplateMessage
 import com.linecorp.bot.model.message.template.ButtonsTemplate
 import net.onlybiz.botchan.model.line.LinkToken
+import net.onlybiz.botchan.settings.Server
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.client.RestOperations
+import org.springframework.web.context.request.RequestContextHolder
+import org.springframework.web.context.request.ServletRequestAttributes
 import org.springframework.web.util.UriComponentsBuilder
 import java.net.InetAddress
 
@@ -21,6 +24,9 @@ class LineEventHandler {
 
     @Autowired
     lateinit var restOperations: RestOperations
+
+    @Autowired
+    lateinit var server: Server
 
     // BotをFollowした(アプリから or 直接)
     @EventMapping
@@ -40,17 +46,16 @@ class LineEventHandler {
                             .build())
                     .build()
         }
-        val hostName = InetAddress.getLocalHost().hostName
         val imageUri = UriComponentsBuilder.newInstance()
                 .scheme("https")
-                .host(hostName)
+                .host(server.hostName)
                 .path("/static/image/thank_you.png")
                 .build()
         val actionUri = UriComponentsBuilder.newInstance()
                 .scheme("https")
-                .host(hostName)
+                .host(server.hostName)
                 .path("/account/link")
-                .uriVariables(mapOf(Pair("linkToken", reseponse.linkToken)))
+                .queryParam("linkToken", reseponse.linkToken)
                 .build()
         println("testd:imageUri:${imageUri.toString()}")
         println("testd:actionUri:${actionUri.toString()}")

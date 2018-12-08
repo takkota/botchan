@@ -10,3 +10,10 @@ class LineSetting {
     lateinit var channelToken: String
     lateinit var channelSecret: String
 }
+
+
+@Component
+@ConfigurationProperties(prefix = "server")
+class Server {
+    lateinit var hostName: String
+}

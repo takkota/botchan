@@ -20,7 +20,6 @@ class Beans {
     @Bean
     fun lineTemplate(builder: RestTemplateBuilder, lineSetting: LineSetting): RestOperations {
         val accessToken = lineSetting.channelToken
-        println("accessToken: $accessToken")
         return builder
                 .requestFactory { OkHttp3ClientHttpRequestFactory(
                         OkHttpClient.Builder()

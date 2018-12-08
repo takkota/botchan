@@ -18,3 +18,7 @@ line:
   bot:
     channelToken: ${LINE_BOT_CHANNEL_TOKEN}
     channelSecret: ${LINE_BOT_CHANNEL_SECRET}
+
+# server
+server:
+  hostName: "sheltered-scrubland-23764.herokuapp.com"
