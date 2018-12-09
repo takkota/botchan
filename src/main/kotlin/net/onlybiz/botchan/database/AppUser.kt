@@ -22,7 +22,7 @@ data class AppUser(
 ) : CommonEntity() {
 
         @OneToMany(mappedBy = "appUser", cascade = [CascadeType.ALL], orphanRemoval = true) // 中間テーブルとのリレーション
-        lateinit var appUserGroups: Set<AppUserGroup>
+        var appUserGroups: Set<AppUserGroup>? = null
 
 }
 
