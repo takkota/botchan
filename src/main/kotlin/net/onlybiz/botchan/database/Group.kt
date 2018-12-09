@@ -12,6 +12,6 @@ data class Group(
         var id: String? = null
 ) : CommonEntity() {
 
-        @OneToMany // 中間テーブルとのリレーション
+        @OneToMany(mappedBy = "group", cascade = [CascadeType.ALL], orphanRemoval = true) // 中間テーブルとのリレーション
         lateinit var appUserGroups: Set<AppUserGroup>
 }

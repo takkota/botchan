@@ -22,7 +22,7 @@ data class AppUser(
         var linkDateTime: Date? = null
 ) : CommonEntity() {
 
-        @OneToMany // 中間テーブルとのリレーション
+        @OneToMany(mappedBy = "appUser", cascade = [CascadeType.ALL], orphanRemoval = true) // 中間テーブルとのリレーション
         lateinit var appUserGroups: Set<AppUserGroup>
 
 }

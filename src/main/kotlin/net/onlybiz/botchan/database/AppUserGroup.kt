@@ -9,13 +9,13 @@ import javax.persistence.*
 data class AppUserGroup(
         @Id
         @ManyToOne
-        @Column(name = "app_user_id", nullable = false)
-        var appUserId: AppUser? = null,
+        @JoinColumn(name = "app_user_id", nullable = false)
+        var appUser: AppUser? = null,
 
         @Id
         @ManyToOne
-        @Column(name = "group_id", nullable = false)
-        var groupId: Group? = null,
+        @JoinColumn(name = "group_id", nullable = false)
+        var group: Group? = null,
 
         @Column(name="display_name")
         var displayName: String? = null
