@@ -8,7 +8,6 @@ import javax.persistence.*
 @Table(name = "app_users")
 data class AppUser(
         @Id
-        @Column(name = "app_user_id", unique = true, nullable = false)
         // dataクラスで定義する場合、デフォルト値を入れておかないとInstantiationException: No default constructor for entityが発生する
         var id: String = UUID.randomUUID().toString(),
 

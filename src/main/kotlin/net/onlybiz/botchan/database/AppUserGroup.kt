@@ -1,5 +1,6 @@
 package net.onlybiz.botchan.database
 
+import java.io.Serializable
 import java.util.*
 import javax.persistence.*
 
@@ -20,4 +21,4 @@ data class AppUserGroup(
         @Column(name="display_name")
         var displayName: String? = null
 
-) : CommonEntity()
+) : CommonEntity(), Serializable
