@@ -17,6 +17,7 @@ class AccountController {
     @Autowired
     lateinit var appUserRepository: AppUserRepository
 
+    // Lineと連携するためのリンクを発行する。
     @RequestMapping(value = ["/link"], method = [RequestMethod.POST])
     fun generateLinkAppUrl(@RequestBody body: LinkTokenParameter): LinkAppResponse {
         val uuid = UUID.randomUUID().toString()

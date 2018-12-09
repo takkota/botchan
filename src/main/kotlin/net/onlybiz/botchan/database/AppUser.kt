@@ -20,6 +20,10 @@ data class AppUser(
 
         @Column(name = "link_date_time")
         var linkDateTime: Date? = null
+) : CommonEntity() {
 
-) : CommonEntity()
+        @OneToMany // 中間テーブルとのリレーション
+        lateinit var appUserGroups: Set<AppUserGroup>
+
+}
 

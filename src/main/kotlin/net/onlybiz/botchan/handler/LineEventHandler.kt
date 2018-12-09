@@ -1,5 +1,6 @@
 package net.onlybiz.botchan.api
 
+import com.linecorp.bot.model.Multicast
 import com.linecorp.bot.model.action.URIAction
 import com.linecorp.bot.model.event.*
 import com.linecorp.bot.spring.boot.annotation.LineMessageHandler
@@ -9,20 +10,17 @@ import com.linecorp.bot.model.event.message.TextMessageContent
 import com.linecorp.bot.model.event.link.LinkContent
 import com.linecorp.bot.model.event.source.GroupSource
 import com.linecorp.bot.model.event.source.RoomSource
-import com.linecorp.bot.model.event.source.UserSource
 import com.linecorp.bot.model.message.TemplateMessage
 import com.linecorp.bot.model.message.template.ButtonsTemplate
-import net.onlybiz.botchan.database.AppUser
+import net.onlybiz.botchan.database.AppUserGroup
+import net.onlybiz.botchan.database.Group
 import net.onlybiz.botchan.database.AppUserRepository
-import net.onlybiz.botchan.model.line.LinkToken
+import net.onlybiz.botchan.model.line.response.GroupMember
+import net.onlybiz.botchan.model.line.response.LinkToken
 import net.onlybiz.botchan.settings.Server
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.client.RestOperations
-import org.springframework.web.context.request.RequestContextHolder
-import org.springframework.web.context.request.ServletRequestAttributes
 import org.springframework.web.util.UriComponentsBuilder
-import java.net.InetAddress
-import java.security.acl.Group
 import java.util.*
 
 @LineMessageHandler
@@ -122,20 +120,40 @@ class LineEventHandler {
     @EventMapping
     fun handleJoinEvent(event: JoinEvent) {
         println("join event user_id: " + event.source.userId)
+        var groupId: String? = null
         when (event.source) {
             is RoomSource -> {
-                val roomId = (event.source as RoomSource).roomId
-                println("join event room_id: " + roomId)
+                groupId = (event.source as RoomSource).roomId
             }
             is GroupSource -> {
-                val groupId = (event.source as GroupSource).groupId
-                val senderId = (event.source as GroupSource).senderId
-                val userId = (event.source as GroupSource).userId
-                println("join event senderId: " + senderId)
-                println("join event userId: " + userId)
+                groupId = (event.source as GroupSource).groupId
             }
             else -> {
                 println("no id")
+            }
+        }
+        if (groupId != null) {
+            val reseponse = restOperations.getForObject("/bot/group/$groupId/members/ids", GroupMember::class.java)
+            if (reseponse != null) {
+                // joinしたらメンバーを全員スキャン & ボットを持っている人であれば、group_idを紐付け
+                var appUsers = appUserRepository.findAllById(reseponse.memberIds)
+                appUsers = appUsers.map { appUser ->
+                    appUser.appUserGroups.plus(AppUserGroup(appUser, Group(groupId), "グループ"))
+                    appUser
+                }
+                appUserRepository.saveAll(appUsers)
+
+                // それとは別にLinePushでグループにボットが入ったことを教えてあげる。(アプリへのリンク付きで)
+                // (アプリ側でグループ名を設定させる。)
+                val message = TemplateMessage.builder()
+                        .altText("参加しているグループにボットが入室しました。アプリでグループに名前をつけてください。(ボットを招待した記憶がない場合、グループ内の他の誰かがボットを招待した可能性もあります。)")
+                        .template(ButtonsTemplate.builder()
+                                .title("Thank you!!")
+                                .text("参加しているグループにボットが入室しました。アプリでグループに名前をつけてください。(ボットを招待した記憶がない場合、グループ内の他の誰かがボットを招待した可能性もあります。")
+                                .build())
+                        .build()
+                val lineIds = appUsers.map { it.lineId }.toSet()
+                restOperations.postForObject("bot/message/multicast", Multicast(lineIds, message), Void::class.java)
             }
         }
     }
