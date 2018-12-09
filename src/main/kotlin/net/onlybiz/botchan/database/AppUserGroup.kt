@@ -24,15 +24,7 @@ data class AppUserGroup(
 
 ) : CommonEntity(), Serializable
 
-@Embeddable
 class AppUserGroupKey: Serializable {
-        @Id
-        @ManyToOne
-        @JoinColumn(name = "app_user_id", nullable = false)
         var appUser: AppUser? = null
-
-        @Id
-        @ManyToOne
-        @JoinColumn(name = "group_id", nullable = false)
         var group: Group? = null
 }
