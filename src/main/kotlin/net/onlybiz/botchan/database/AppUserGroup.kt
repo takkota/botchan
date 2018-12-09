@@ -7,7 +7,6 @@ import javax.persistence.*
 
 @Entity
 @Table(name = "groups")
-@IdClass(AppUserGroupKey::class)
 data class AppUserGroup(
         @Id
         @ManyToOne
@@ -23,8 +22,3 @@ data class AppUserGroup(
         var displayName: String? = null
 
 ) : CommonEntity(), Serializable
-
-class AppUserGroupKey: Serializable {
-        var appUser: AppUser? = null
-        var group: Group? = null
-}

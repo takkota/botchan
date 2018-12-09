@@ -18,11 +18,9 @@ data class AppUser(
         var nonce: String? = null,
 
         @Column(name = "link_date_time")
-        var linkDateTime: Date? = null
-) : CommonEntity() {
+        var linkDateTime: Date? = null,
 
         @OneToMany(mappedBy = "appUser", cascade = [CascadeType.ALL], orphanRemoval = true) // 中間テーブルとのリレーション
         var appUserGroups: Set<AppUserGroup>? = null
-
-}
+) : CommonEntity()
 

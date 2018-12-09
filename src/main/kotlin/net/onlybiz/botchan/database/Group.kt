@@ -9,9 +9,8 @@ import javax.persistence.*
 data class Group(
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
-        var id: String? = null
-) : CommonEntity() {
+        var id: String? = null,
 
         @OneToMany(mappedBy = "group", cascade = [CascadeType.ALL], orphanRemoval = true) // 中間テーブルとのリレーション
         var appUserGroups: Set<AppUserGroup>? = null
-}
+) : CommonEntity()
