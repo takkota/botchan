@@ -13,15 +13,23 @@ class AppUserGroup : CommonEntity(), Serializable {
 
     @Column(name="display_name")
     var displayName: String? = null
+
+    @MapsId("appUserId") //AppUserGroupId(PK)のappUserを切り出してfieldとしているよ
+    @JoinColumn(name = "app_user_id") // 外テーブルからJoinされる時のカラムはapp_user_idだよ
+    @ManyToOne
+    var appUser: AppUser? = null
+
+    @MapsId("groupId") //AppUserGroupId(PK)のappUserを切り出してfieldとしているよ
+    @JoinColumn(name = "group_id") // 外テーブルからJoinされる時のカラムはapp_user_idだよ
+    @ManyToOne
+    var group: Group? = null
 }
 
 @Embeddable
 class AppUserGroupId(
-        @ManyToOne
-        @JoinColumn(name = "app_user_id", nullable = false)
-        var appUser: AppUser? = null,
+        @Column(name="app_user_id")
+        var appUserId: String? = null,
 
-        @ManyToOne
-        @JoinColumn(name = "group_id", nullable = false)
-        var group: Group? = null
+        @Column(name="group_id")
+        var groupId: String? = null
 ): Serializable
