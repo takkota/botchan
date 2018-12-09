@@ -15,12 +15,12 @@ class AppUserGroup : CommonEntity(), Serializable {
     var displayName: String? = null
 
     @MapsId("appUserId") //AppUserGroupId(PK)のappUserを切り出してfieldとしているよ
-    @JoinColumn(name = "app_user_id") // 外テーブルからJoinされる時のカラムはapp_user_idだよ
+    @JoinColumn(name = "app_user_id", referencedColumnName = "id") // 外テーブルからJoinされる時のカラムはapp_user_idだよ
     @ManyToOne
     var appUser: AppUser? = null
 
     @MapsId("groupId") //AppUserGroupId(PK)のappUserを切り出してfieldとしているよ
-    @JoinColumn(name = "group_id") // 外テーブルからJoinされる時のカラムはapp_user_idだよ
+    @JoinColumn(name = "group_id", referencedColumnName = "id") // 外テーブルからJoinされる時のカラムはapp_user_idだよ
     @ManyToOne
     var group: Group? = null
 }
