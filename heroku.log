@@ -1,0 +1,279 @@
+2018-12-09T17:17:13.323181+00:00 app[web.1]: at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.buildRecursiveOrderedFkSecondPasses(InFlightMetadataCollectorImpl.java:1807) ~[hibernate-core-5.3.7.Final.jar!/:5.3.7.Final]
+2018-12-09T17:17:13.323182+00:00 app[web.1]: at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.buildRecursiveOrderedFkSecondPasses(InFlightMetadataCollectorImpl.java:1807) ~[hibernate-core-5.3.7.Final.jar!/:5.3.7.Final]
+2018-12-09T17:17:13.323184+00:00 app[web.1]: at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.buildRecursiveOrderedFkSecondPasses(InFlightMetadataCollectorImpl.java:1807) ~[hibernate-core-5.3.7.Final.jar!/:5.3.7.Final]
+2018-12-09T17:17:13.323185+00:00 app[web.1]: at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.buildRecursiveOrderedFkSecondPasses(InFlightMetadataCollectorImpl.java:1807) ~[hibernate-core-5.3.7.Final.jar!/:5.3.7.Final]
+2018-12-09T17:17:13.323186+00:00 app[web.1]: at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.buildRecursiveOrderedFkSecondPasses(InFlightMetadataCollectorImpl.java:1807) ~[hibernate-core-5.3.7.Final.jar!/:5.3.7.Final]
+2018-12-09T17:17:13.323188+00:00 app[web.1]: at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.buildRecursiveOrderedFkSecondPasses(InFlightMetadataCollectorImpl.java:1807) ~[hibernate-core-5.3.7.Final.jar!/:5.3.7.Final]
+2018-12-09T17:17:13.323189+00:00 app[web.1]: at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.buildRecursiveOrderedFkSecondPasses(InFlightMetadataCollectorImpl.java:1807) ~[hibernate-core-5.3.7.Final.jar!/:5.3.7.Final]
+2018-12-09T17:17:13.323191+00:00 app[web.1]: at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.buildRecursiveOrderedFkSecondPasses(InFlightMetadataCollectorImpl.java:1807) ~[hibernate-core-5.3.7.Final.jar!/:5.3.7.Final]
+2018-12-09T17:17:13.323192+00:00 app[web.1]: at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.buildRecursiveOrderedFkSecondPasses(InFlightMetadataCollectorImpl.java:1807) ~[hibernate-core-5.3.7.Final.jar!/:5.3.7.Final]
+2018-12-09T17:17:13.323194+00:00 app[web.1]: at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.buildRecursiveOrderedFkSecondPasses(InFlightMetadataCollectorImpl.java:1807) ~[hibernate-core-5.3.7.Final.jar!/:5.3.7.Final]
+2018-12-09T17:17:13.323195+00:00 app[web.1]: at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.buildRecursiveOrderedFkSecondPasses(InFlightMetadataCollectorImpl.java:1807) ~[hibernate-core-5.3.7.Final.jar!/:5.3.7.Final]
+2018-12-09T17:17:13.323196+00:00 app[web.1]: at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.buildRecursiveOrderedFkSecondPasses(InFlightMetadataCollectorImpl.java:1807) ~[hibernate-core-5.3.7.Final.jar!/:5.3.7.Final]
+2018-12-09T17:17:13.323198+00:00 app[web.1]: at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.buildRecursiveOrderedFkSecondPasses(InFlightMetadataCollectorImpl.java:1807) ~[hibernate-core-5.3.7.Final.jar!/:5.3.7.Final]
+2018-12-09T17:17:13.323200+00:00 app[web.1]: at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.buildRecursiveOrderedFkSecondPasses(InFlightMetadataCollectorImpl.java:1807) ~[hibernate-core-5.3.7.Final.jar!/:5.3.7.Final]
+2018-12-09T17:17:13.323201+00:00 app[web.1]: at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.buildRecursiveOrderedFkSecondPasses(InFlightMetadataCollectorImpl.java:1807) ~[hibernate-core-5.3.7.Final.jar!/:5.3.7.Final]
+2018-12-09T17:17:13.323203+00:00 app[web.1]: at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.buildRecursiveOrderedFkSecondPasses(InFlightMetadataCollectorImpl.java:1807) ~[hibernate-core-5.3.7.Final.jar!/:5.3.7.Final]
+2018-12-09T17:17:13.323204+00:00 app[web.1]: at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.buildRecursiveOrderedFkSecondPasses(InFlightMetadataCollectorImpl.java:1807) ~[hibernate-core-5.3.7.Final.jar!/:5.3.7.Final]
+2018-12-09T17:17:13.323206+00:00 app[web.1]: at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.buildRecursiveOrderedFkSecondPasses(InFlightMetadataCollectorImpl.java:1807) ~[hibernate-core-5.3.7.Final.jar!/:5.3.7.Final]
+2018-12-09T17:17:13.323207+00:00 app[web.1]: at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.buildRecursiveOrderedFkSecondPasses(InFlightMetadataCollectorImpl.java:1807) ~[hibernate-core-5.3.7.Final.jar!/:5.3.7.Final]
+2018-12-09T17:17:13.323213+00:00 app[web.1]: at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.buildRecursiveOrderedFkSecondPasses(InFlightMetadataCollectorImpl.java:1807) ~[hibernate-core-5.3.7.Final.jar!/:5.3.7.Final]
+2018-12-09T17:17:13.323215+00:00 app[web.1]: at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.buildRecursiveOrderedFkSecondPasses(InFlightMetadataCollectorImpl.java:1807) ~[hibernate-core-5.3.7.Final.jar!/:5.3.7.Final]
+2018-12-09T17:17:13.323217+00:00 app[web.1]: at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.buildRecursiveOrderedFkSecondPasses(InFlightMetadataCollectorImpl.java:1807) ~[hibernate-core-5.3.7.Final.jar!/:5.3.7.Final]
+2018-12-09T17:17:13.323218+00:00 app[web.1]: at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.buildRecursiveOrderedFkSecondPasses(InFlightMetadataCollectorImpl.java:1807) ~[hibernate-core-5.3.7.Final.jar!/:5.3.7.Final]
+2018-12-09T17:17:13.323220+00:00 app[web.1]: at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.buildRecursiveOrderedFkSecondPasses(InFlightMetadataCollectorImpl.java:1807) ~[hibernate-core-5.3.7.Final.jar!/:5.3.7.Final]
+2018-12-09T17:17:13.323221+00:00 app[web.1]: at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.buildRecursiveOrderedFkSecondPasses(InFlightMetadataCollectorImpl.java:1807) ~[hibernate-core-5.3.7.Final.jar!/:5.3.7.Final]
+2018-12-09T17:17:13.323223+00:00 app[web.1]: at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.buildRecursiveOrderedFkSecondPasses(InFlightMetadataCollectorImpl.java:1807) ~[hibernate-core-5.3.7.Final.jar!/:5.3.7.Final]
+2018-12-09T17:17:13.323224+00:00 app[web.1]: at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.buildRecursiveOrderedFkSecondPasses(InFlightMetadataCollectorImpl.java:1807) ~[hibernate-core-5.3.7.Final.jar!/:5.3.7.Final]
+2018-12-09T17:17:13.323225+00:00 app[web.1]: at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.buildRecursiveOrderedFkSecondPasses(InFlightMetadataCollectorImpl.java:1807) ~[hibernate-core-5.3.7.Final.jar!/:5.3.7.Final]
+2018-12-09T17:17:13.323227+00:00 app[web.1]: at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.buildRecursiveOrderedFkSecondPasses(InFlightMetadataCollectorImpl.java:1807) ~[hibernate-core-5.3.7.Final.jar!/:5.3.7.Final]
+2018-12-09T17:17:13.323228+00:00 app[web.1]: at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.buildRecursiveOrderedFkSecondPasses(InFlightMetadataCollectorImpl.java:1807) ~[hibernate-core-5.3.7.Final.jar!/:5.3.7.Final]
+2018-12-09T17:17:13.323233+00:00 app[web.1]: at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.buildRecursiveOrderedFkSecondPasses(InFlightMetadataCollectorImpl.java:1807) ~[hibernate-core-5.3.7.Final.jar!/:5.3.7.Final]
+2018-12-09T17:17:13.323235+00:00 app[web.1]: at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.buildRecursiveOrderedFkSecondPasses(InFlightMetadataCollectorImpl.java:1807) ~[hibernate-core-5.3.7.Final.jar!/:5.3.7.Final]
+2018-12-09T17:17:13.323236+00:00 app[web.1]: at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.buildRecursiveOrderedFkSecondPasses(InFlightMetadataCollectorImpl.java:1807) ~[hibernate-core-5.3.7.Final.jar!/:5.3.7.Final]
+2018-12-09T17:17:13.323238+00:00 app[web.1]: at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.buildRecursiveOrderedFkSecondPasses(InFlightMetadataCollectorImpl.java:1807) ~[hibernate-core-5.3.7.Final.jar!/:5.3.7.Final]
+2018-12-09T17:17:13.323239+00:00 app[web.1]: at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.buildRecursiveOrderedFkSecondPasses(InFlightMetadataCollectorImpl.java:1807) ~[hibernate-core-5.3.7.Final.jar!/:5.3.7.Final]
+2018-12-09T17:17:13.323241+00:00 app[web.1]: at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.buildRecursiveOrderedFkSecondPasses(InFlightMetadataCollectorImpl.java:1807) ~[hibernate-core-5.3.7.Final.jar!/:5.3.7.Final]
+2018-12-09T17:17:13.323354+00:00 app[web.1]: at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.buildRecursiveOrderedFkSecondPasses(InFlightMetadataCollectorImpl.java:1807) ~[hibernate-core-5.3.7.Final.jar!/:5.3.7.Final]
+2018-12-09T17:17:13.323364+00:00 app[web.1]: at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.buildRecursiveOrderedFkSecondPasses(InFlightMetadataCollectorImpl.java:1807) ~[hibernate-core-5.3.7.Final.jar!/:5.3.7.Final]
+2018-12-09T17:17:13.323366+00:00 app[web.1]: at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.buildRecursiveOrderedFkSecondPasses(InFlightMetadataCollectorImpl.java:1807) ~[hibernate-core-5.3.7.Final.jar!/:5.3.7.Final]
+2018-12-09T17:17:13.323367+00:00 app[web.1]: at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.buildRecursiveOrderedFkSecondPasses(InFlightMetadataCollectorImpl.java:1807) ~[hibernate-core-5.3.7.Final.jar!/:5.3.7.Final]
+2018-12-09T17:17:13.323375+00:00 app[web.1]: at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.buildRecursiveOrderedFkSecondPasses(InFlightMetadataCollectorImpl.java:1807) ~[hibernate-core-5.3.7.Final.jar!/:5.3.7.Final]
+2018-12-09T17:17:13.323376+00:00 app[web.1]: at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.buildRecursiveOrderedFkSecondPasses(InFlightMetadataCollectorImpl.java:1807) ~[hibernate-core-5.3.7.Final.jar!/:5.3.7.Final]
+2018-12-09T17:17:13.323378+00:00 app[web.1]: at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.buildRecursiveOrderedFkSecondPasses(InFlightMetadataCollectorImpl.java:1807) ~[hibernate-core-5.3.7.Final.jar!/:5.3.7.Final]
+2018-12-09T17:17:13.323379+00:00 app[web.1]: at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.buildRecursiveOrderedFkSecondPasses(InFlightMetadataCollectorImpl.java:1807) ~[hibernate-core-5.3.7.Final.jar!/:5.3.7.Final]
+2018-12-09T17:17:13.323381+00:00 app[web.1]: at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.buildRecursiveOrderedFkSecondPasses(InFlightMetadataCollectorImpl.java:1807) ~[hibernate-core-5.3.7.Final.jar!/:5.3.7.Final]
+2018-12-09T17:17:13.323382+00:00 app[web.1]: at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.buildRecursiveOrderedFkSecondPasses(InFlightMetadataCollectorImpl.java:1807) ~[hibernate-core-5.3.7.Final.jar!/:5.3.7.Final]
+2018-12-09T17:17:13.323384+00:00 app[web.1]: at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.buildRecursiveOrderedFkSecondPasses(InFlightMetadataCollectorImpl.java:1807) ~[hibernate-core-5.3.7.Final.jar!/:5.3.7.Final]
+2018-12-09T17:17:13.323385+00:00 app[web.1]: at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.buildRecursiveOrderedFkSecondPasses(InFlightMetadataCollectorImpl.java:1807) ~[hibernate-core-5.3.7.Final.jar!/:5.3.7.Final]
+2018-12-09T17:17:13.323387+00:00 app[web.1]: at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.buildRecursiveOrderedFkSecondPasses(InFlightMetadataCollectorImpl.java:1807) ~[hibernate-core-5.3.7.Final.jar!/:5.3.7.Final]
+2018-12-09T17:17:13.323388+00:00 app[web.1]: at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.buildRecursiveOrderedFkSecondPasses(InFlightMetadataCollectorImpl.java:1807) ~[hibernate-core-5.3.7.Final.jar!/:5.3.7.Final]
+2018-12-09T17:17:13.323389+00:00 app[web.1]: at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.buildRecursiveOrderedFkSecondPasses(InFlightMetadataCollectorImpl.java:1807) ~[hibernate-core-5.3.7.Final.jar!/:5.3.7.Final]
+2018-12-09T17:17:13.323391+00:00 app[web.1]: at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.buildRecursiveOrderedFkSecondPasses(InFlightMetadataCollectorImpl.java:1807) ~[hibernate-core-5.3.7.Final.jar!/:5.3.7.Final]
+2018-12-09T17:17:13.323392+00:00 app[web.1]: at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.buildRecursiveOrderedFkSecondPasses(InFlightMetadataCollectorImpl.java:1807) ~[hibernate-core-5.3.7.Final.jar!/:5.3.7.Final]
+2018-12-09T17:17:13.323394+00:00 app[web.1]: at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.buildRecursiveOrderedFkSecondPasses(InFlightMetadataCollectorImpl.java:1807) ~[hibernate-core-5.3.7.Final.jar!/:5.3.7.Final]
+2018-12-09T17:17:13.323395+00:00 app[web.1]: at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.buildRecursiveOrderedFkSecondPasses(InFlightMetadataCollectorImpl.java:1807) ~[hibernate-core-5.3.7.Final.jar!/:5.3.7.Final]
+2018-12-09T17:17:13.323396+00:00 app[web.1]: at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.buildRecursiveOrderedFkSecondPasses(InFlightMetadataCollectorImpl.java:1807) ~[hibernate-core-5.3.7.Final.jar!/:5.3.7.Final]
+2018-12-09T17:17:13.323398+00:00 app[web.1]: at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.buildRecursiveOrderedFkSecondPasses(InFlightMetadataCollectorImpl.java:1807) ~[hibernate-core-5.3.7.Final.jar!/:5.3.7.Final]
+2018-12-09T17:17:13.323399+00:00 app[web.1]: at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.buildRecursiveOrderedFkSecondPasses(InFlightMetadataCollectorImpl.java:1807) ~[hibernate-core-5.3.7.Final.jar!/:5.3.7.Final]
+2018-12-09T17:17:13.323401+00:00 app[web.1]: at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.buildRecursiveOrderedFkSecondPasses(InFlightMetadataCollectorImpl.java:1807) ~[hibernate-core-5.3.7.Final.jar!/:5.3.7.Final]
+2018-12-09T17:17:13.323402+00:00 app[web.1]: at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.buildRecursiveOrderedFkSecondPasses(InFlightMetadataCollectorImpl.java:1807) ~[hibernate-core-5.3.7.Final.jar!/:5.3.7.Final]
+2018-12-09T17:17:13.323403+00:00 app[web.1]: at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.buildRecursiveOrderedFkSecondPasses(InFlightMetadataCollectorImpl.java:1807) ~[hibernate-core-5.3.7.Final.jar!/:5.3.7.Final]
+2018-12-09T17:17:13.323408+00:00 app[web.1]: at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.buildRecursiveOrderedFkSecondPasses(InFlightMetadataCollectorImpl.java:1807) ~[hibernate-core-5.3.7.Final.jar!/:5.3.7.Final]
+2018-12-09T17:17:13.323410+00:00 app[web.1]: at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.buildRecursiveOrderedFkSecondPasses(InFlightMetadataCollectorImpl.java:1807) ~[hibernate-core-5.3.7.Final.jar!/:5.3.7.Final]
+2018-12-09T17:17:13.323411+00:00 app[web.1]: at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.buildRecursiveOrderedFkSecondPasses(InFlightMetadataCollectorImpl.java:1807) ~[hibernate-core-5.3.7.Final.jar!/:5.3.7.Final]
+2018-12-09T17:17:13.323413+00:00 app[web.1]: at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.buildRecursiveOrderedFkSecondPasses(InFlightMetadataCollectorImpl.java:1807) ~[hibernate-core-5.3.7.Final.jar!/:5.3.7.Final]
+2018-12-09T17:17:13.323414+00:00 app[web.1]: at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.buildRecursiveOrderedFkSecondPasses(InFlightMetadataCollectorImpl.java:1807) ~[hibernate-core-5.3.7.Final.jar!/:5.3.7.Final]
+2018-12-09T17:17:13.323416+00:00 app[web.1]: at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.buildRecursiveOrderedFkSecondPasses(InFlightMetadataCollectorImpl.java:1807) ~[hibernate-core-5.3.7.Final.jar!/:5.3.7.Final]
+2018-12-09T17:17:13.323417+00:00 app[web.1]: at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.buildRecursiveOrderedFkSecondPasses(InFlightMetadataCollectorImpl.java:1807) ~[hibernate-core-5.3.7.Final.jar!/:5.3.7.Final]
+2018-12-09T17:17:13.323419+00:00 app[web.1]: at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.buildRecursiveOrderedFkSecondPasses(InFlightMetadataCollectorImpl.java:1807) ~[hibernate-core-5.3.7.Final.jar!/:5.3.7.Final]
+2018-12-09T17:17:13.323420+00:00 app[web.1]: at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.buildRecursiveOrderedFkSecondPasses(InFlightMetadataCollectorImpl.java:1807) ~[hibernate-core-5.3.7.Final.jar!/:5.3.7.Final]
+2018-12-09T17:17:13.323421+00:00 app[web.1]: at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.buildRecursiveOrderedFkSecondPasses(InFlightMetadataCollectorImpl.java:1807) ~[hibernate-core-5.3.7.Final.jar!/:5.3.7.Final]
+2018-12-09T17:17:13.323423+00:00 app[web.1]: at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.buildRecursiveOrderedFkSecondPasses(InFlightMetadataCollectorImpl.java:1807) ~[hibernate-core-5.3.7.Final.jar!/:5.3.7.Final]
+2018-12-09T17:17:13.323428+00:00 app[web.1]: at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.buildRecursiveOrderedFkSecondPasses(InFlightMetadataCollectorImpl.java:1807) ~[hibernate-core-5.3.7.Final.jar!/:5.3.7.Final]
+2018-12-09T17:17:13.323430+00:00 app[web.1]: at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.buildRecursiveOrderedFkSecondPasses(InFlightMetadataCollectorImpl.java:1807) ~[hibernate-core-5.3.7.Final.jar!/:5.3.7.Final]
+2018-12-09T17:17:13.323432+00:00 app[web.1]: at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.buildRecursiveOrderedFkSecondPasses(InFlightMetadataCollectorImpl.java:1807) ~[hibernate-core-5.3.7.Final.jar!/:5.3.7.Final]
+2018-12-09T17:17:13.323433+00:00 app[web.1]: at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.buildRecursiveOrderedFkSecondPasses(InFlightMetadataCollectorImpl.java:1807) ~[hibernate-core-5.3.7.Final.jar!/:5.3.7.Final]
+2018-12-09T17:17:13.323434+00:00 app[web.1]: at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.buildRecursiveOrderedFkSecondPasses(InFlightMetadataCollectorImpl.java:1807) ~[hibernate-core-5.3.7.Final.jar!/:5.3.7.Final]
+2018-12-09T17:17:13.323436+00:00 app[web.1]: at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.buildRecursiveOrderedFkSecondPasses(InFlightMetadataCollectorImpl.java:1807) ~[hibernate-core-5.3.7.Final.jar!/:5.3.7.Final]
+2018-12-09T17:17:13.323437+00:00 app[web.1]: at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.buildRecursiveOrderedFkSecondPasses(InFlightMetadataCollectorImpl.java:1807) ~[hibernate-core-5.3.7.Final.jar!/:5.3.7.Final]
+2018-12-09T17:17:13.323439+00:00 app[web.1]: at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.buildRecursiveOrderedFkSecondPasses(InFlightMetadataCollectorImpl.java:1807) ~[hibernate-core-5.3.7.Final.jar!/:5.3.7.Final]
+2018-12-09T17:17:13.323440+00:00 app[web.1]: at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.buildRecursiveOrderedFkSecondPasses(InFlightMetadataCollectorImpl.java:1807) ~[hibernate-core-5.3.7.Final.jar!/:5.3.7.Final]
+2018-12-09T17:17:13.323442+00:00 app[web.1]: at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.buildRecursiveOrderedFkSecondPasses(InFlightMetadataCollectorImpl.java:1807) ~[hibernate-core-5.3.7.Final.jar!/:5.3.7.Final]
+2018-12-09T17:17:13.323447+00:00 app[web.1]: at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.buildRecursiveOrderedFkSecondPasses(InFlightMetadataCollectorImpl.java:1807) ~[hibernate-core-5.3.7.Final.jar!/:5.3.7.Final]
+2018-12-09T17:17:13.323448+00:00 app[web.1]: at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.buildRecursiveOrderedFkSecondPasses(InFlightMetadataCollectorImpl.java:1807) ~[hibernate-core-5.3.7.Final.jar!/:5.3.7.Final]
+2018-12-09T17:17:13.323450+00:00 app[web.1]: at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.buildRecursiveOrderedFkSecondPasses(InFlightMetadataCollectorImpl.java:1807) ~[hibernate-core-5.3.7.Final.jar!/:5.3.7.Final]
+2018-12-09T17:17:13.323451+00:00 app[web.1]: at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.buildRecursiveOrderedFkSecondPasses(InFlightMetadataCollectorImpl.java:1807) ~[hibernate-core-5.3.7.Final.jar!/:5.3.7.Final]
+2018-12-09T17:17:13.323452+00:00 app[web.1]: at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.buildRecursiveOrderedFkSecondPasses(InFlightMetadataCollectorImpl.java:1807) ~[hibernate-core-5.3.7.Final.jar!/:5.3.7.Final]
+2018-12-09T17:17:13.323454+00:00 app[web.1]: at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.buildRecursiveOrderedFkSecondPasses(InFlightMetadataCollectorImpl.java:1807) ~[hibernate-core-5.3.7.Final.jar!/:5.3.7.Final]
+2018-12-09T17:17:13.323455+00:00 app[web.1]: at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.buildRecursiveOrderedFkSecondPasses(InFlightMetadataCollectorImpl.java:1807) ~[hibernate-core-5.3.7.Final.jar!/:5.3.7.Final]
+2018-12-09T17:17:13.323456+00:00 app[web.1]: at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.buildRecursiveOrderedFkSecondPasses(InFlightMetadataCollectorImpl.java:1807) ~[hibernate-core-5.3.7.Final.jar!/:5.3.7.Final]
+2018-12-09T17:17:13.323458+00:00 app[web.1]: at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.buildRecursiveOrderedFkSecondPasses(InFlightMetadataCollectorImpl.java:1807) ~[hibernate-core-5.3.7.Final.jar!/:5.3.7.Final]
+2018-12-09T17:17:13.323459+00:00 app[web.1]: at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.buildRecursiveOrderedFkSecondPasses(InFlightMetadataCollectorImpl.java:1807) ~[hibernate-core-5.3.7.Final.jar!/:5.3.7.Final]
+2018-12-09T17:17:13.323461+00:00 app[web.1]: at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.buildRecursiveOrderedFkSecondPasses(InFlightMetadataCollectorImpl.java:1807) ~[hibernate-core-5.3.7.Final.jar!/:5.3.7.Final]
+2018-12-09T17:17:13.323462+00:00 app[web.1]: at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.buildRecursiveOrderedFkSecondPasses(InFlightMetadataCollectorImpl.java:1807) ~[hibernate-core-5.3.7.Final.jar!/:5.3.7.Final]
+2018-12-09T17:17:13.323463+00:00 app[web.1]: at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.buildRecursiveOrderedFkSecondPasses(InFlightMetadataCollectorImpl.java:1807) ~[hibernate-core-5.3.7.Final.jar!/:5.3.7.Final]
+2018-12-09T17:17:13.323465+00:00 app[web.1]: at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.buildRecursiveOrderedFkSecondPasses(InFlightMetadataCollectorImpl.java:1807) ~[hibernate-core-5.3.7.Final.jar!/:5.3.7.Final]
+2018-12-09T17:17:13.323467+00:00 app[web.1]: 
+2018-12-09T17:17:13.419629+00:00 heroku[web.1]: Process exited with status 1
+2018-12-09T17:17:13.436070+00:00 heroku[web.1]: State changed from starting to crashed
+2018-12-09T17:24:02.000000+00:00 app[api]: Build started by user kota.taka@onlybiz.net
+2018-12-09T17:24:44.746064+00:00 app[api]: Release v31 created by user kota.taka@onlybiz.net
+2018-12-09T17:24:44.746064+00:00 app[api]: Deploy adb89773 by user kota.taka@onlybiz.net
+2018-12-09T17:24:45.601797+00:00 heroku[web.1]: State changed from crashed to starting
+2018-12-09T17:24:49.577945+00:00 heroku[web.1]: Starting process with command `java -Dserver.port=29307 $JAVA_OPTS -jar build/libs/*.jar`
+2018-12-09T17:24:51.795855+00:00 app[web.1]: Setting JAVA_TOOL_OPTIONS defaults based on dyno size. Custom settings will override them.
+2018-12-09T17:24:51.802019+00:00 app[web.1]: Picked up JAVA_TOOL_OPTIONS: -Xmx300m -Xss512k -XX:CICompilerCount=2 -Dfile.encoding=UTF-8
+2018-12-09T17:24:55.559566+00:00 app[web.1]: 
+2018-12-09T17:24:55.559613+00:00 app[web.1]: .   ____          _            __ _ _
+2018-12-09T17:24:55.559662+00:00 app[web.1]: /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+2018-12-09T17:24:55.559718+00:00 app[web.1]: ( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+2018-12-09T17:24:55.559759+00:00 app[web.1]: \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+2018-12-09T17:24:55.559835+00:00 app[web.1]: '  |____| .__|_| |_|_| |_\__, | / / / /
+2018-12-09T17:24:55.559883+00:00 app[web.1]: =========|_|==============|___/=/_/_/_/
+2018-12-09T17:24:55.561352+00:00 app[web.1]: :: Spring Boot ::        (v2.1.1.RELEASE)
+2018-12-09T17:24:55.561403+00:00 app[web.1]: 
+2018-12-09T17:24:55.949504+00:00 app[web.1]: 2018-12-09 17:24:55.940  INFO 4 --- [           main] n.onlybiz.botchan.BotchanApplicationKt   : Starting BotchanApplicationKt on 80762a35-7514-41a5-83cd-5c08d927f2a5 with PID 4 (/app/build/libs/botchan-0.0.1-SNAPSHOT.jar started by u36396 in /app)
+2018-12-09T17:24:55.962337+00:00 app[web.1]: 2018-12-09 17:24:55.962  INFO 4 --- [           main] n.onlybiz.botchan.BotchanApplicationKt   : No active profile set, falling back to default profiles: default
+2018-12-09T17:24:59.208783+00:00 app[web.1]: 2018-12-09 17:24:59.206  INFO 4 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2018-12-09T17:24:59.447526+00:00 app[web.1]: 2018-12-09 17:24:59.447  INFO 4 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 227ms. Found 2 repository interfaces.
+2018-12-09T17:25:00.624511+00:00 app[web.1]: 2018-12-09 17:25:00.624  INFO 4 --- [           main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$a8f93d5] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-09T17:25:02.098913+00:00 app[web.1]: 2018-12-09 17:25:02.098  INFO 4 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 29307 (http)
+2018-12-09T17:25:02.161604+00:00 app[web.1]: 2018-12-09 17:25:02.161  INFO 4 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-12-09T17:25:02.161828+00:00 app[web.1]: 2018-12-09 17:25:02.161  INFO 4 --- [           main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/9.0.13
+2018-12-09T17:25:02.182479+00:00 app[web.1]: 2018-12-09 17:25:02.182  INFO 4 --- [           main] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/app/.jdk/jre/lib/amd64/server::/usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib]
+2018-12-09T17:25:02.420098+00:00 app[web.1]: 2018-12-09 17:25:02.419  INFO 4 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-12-09T17:25:02.420385+00:00 app[web.1]: 2018-12-09 17:25:02.420  INFO 4 --- [           main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 6277 ms
+2018-12-09T17:25:03.028365+00:00 app[web.1]: 2018-12-09 17:25:03.028  INFO 4 --- [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+2018-12-09T17:25:03.028389+00:00 app[web.1]: name: default
+2018-12-09T17:25:03.028391+00:00 app[web.1]: ...]
+2018-12-09T17:25:03.183680+00:00 app[web.1]: 2018-12-09 17:25:03.183  INFO 4 --- [           main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.7.Final}
+2018-12-09T17:25:03.186692+00:00 app[web.1]: 2018-12-09 17:25:03.186  INFO 4 --- [           main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2018-12-09T17:25:03.760695+00:00 app[web.1]: 2018-12-09 17:25:03.760  INFO 4 --- [           main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2018-12-09T17:25:04.309266+00:00 app[web.1]: 2018-12-09 17:25:04.308  INFO 4 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2018-12-09T17:25:04.975679+00:00 app[web.1]: 2018-12-09 17:25:04.975  INFO 4 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2018-12-09T17:25:05.013937+00:00 app[web.1]: 2018-12-09 17:25:05.013  INFO 4 --- [           main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2018-12-09T17:25:05.535993+00:00 app[web.1]: 2018-12-09 17:25:05.534  WARN 4 --- [           main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Invocation of init method failed; nested exception is org.hibernate.MappingException: Foreign key (FKeck94qxgkh97vnh6qcow1tvy:groups [group_id])) must have same number of columns as the referenced primary key (groups [group_id,app_user_id])
+2018-12-09T17:25:05.536483+00:00 app[web.1]: 2018-12-09 17:25:05.536  INFO 4 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2018-12-09T17:25:05.611426+00:00 app[web.1]: 2018-12-09 17:25:05.611  INFO 4 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2018-12-09T17:25:05.615985+00:00 app[web.1]: 2018-12-09 17:25:05.615  INFO 4 --- [           main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2018-12-09T17:25:05.644974+00:00 app[web.1]: 2018-12-09 17:25:05.644  INFO 4 --- [           main] ConditionEvaluationReportLoggingListener :
+2018-12-09T17:25:05.644978+00:00 app[web.1]: 
+2018-12-09T17:25:05.644980+00:00 app[web.1]: Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2018-12-09T17:25:05.656564+00:00 app[web.1]: 2018-12-09 17:25:05.655 ERROR 4 --- [           main] o.s.boot.SpringApplication               : Application run failed
+2018-12-09T17:25:05.656567+00:00 app[web.1]: 
+2018-12-09T17:25:05.656582+00:00 app[web.1]: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Invocation of init method failed; nested exception is org.hibernate.MappingException: Foreign key (FKeck94qxgkh97vnh6qcow1tvy:groups [group_id])) must have same number of columns as the referenced primary key (groups [group_id,app_user_id])
+2018-12-09T17:25:05.656585+00:00 app[web.1]: at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1745) ~[spring-beans-5.1.3.RELEASE.jar!/:5.1.3.RELEASE]
+2018-12-09T17:25:05.656587+00:00 app[web.1]: at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:576) ~[spring-beans-5.1.3.RELEASE.jar!/:5.1.3.RELEASE]
+2018-12-09T17:25:05.656588+00:00 app[web.1]: at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:498) ~[spring-beans-5.1.3.RELEASE.jar!/:5.1.3.RELEASE]
+2018-12-09T17:25:05.656591+00:00 app[web.1]: at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:320) ~[spring-beans-5.1.3.RELEASE.jar!/:5.1.3.RELEASE]
+2018-12-09T17:25:05.656593+00:00 app[web.1]: at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222) ~[spring-beans-5.1.3.RELEASE.jar!/:5.1.3.RELEASE]
+2018-12-09T17:25:05.656597+00:00 app[web.1]: at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:318) ~[spring-beans-5.1.3.RELEASE.jar!/:5.1.3.RELEASE]
+2018-12-09T17:25:05.656598+00:00 app[web.1]: at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199) ~[spring-beans-5.1.3.RELEASE.jar!/:5.1.3.RELEASE]
+2018-12-09T17:25:05.656600+00:00 app[web.1]: at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1083) ~[spring-context-5.1.3.RELEASE.jar!/:5.1.3.RELEASE]
+2018-12-09T17:25:05.656602+00:00 app[web.1]: at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:853) ~[spring-context-5.1.3.RELEASE.jar!/:5.1.3.RELEASE]
+2018-12-09T17:25:05.656603+00:00 app[web.1]: at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:546) ~[spring-context-5.1.3.RELEASE.jar!/:5.1.3.RELEASE]
+2018-12-09T17:25:05.656605+00:00 app[web.1]: at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:142) ~[spring-boot-2.1.1.RELEASE.jar!/:2.1.1.RELEASE]
+2018-12-09T17:25:05.656607+00:00 app[web.1]: at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:775) [spring-boot-2.1.1.RELEASE.jar!/:2.1.1.RELEASE]
+2018-12-09T17:25:05.656608+00:00 app[web.1]: at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:397) [spring-boot-2.1.1.RELEASE.jar!/:2.1.1.RELEASE]
+2018-12-09T17:25:05.656610+00:00 app[web.1]: at org.springframework.boot.SpringApplication.run(SpringApplication.java:316) [spring-boot-2.1.1.RELEASE.jar!/:2.1.1.RELEASE]
+2018-12-09T17:25:05.656611+00:00 app[web.1]: at org.springframework.boot.SpringApplication.run(SpringApplication.java:1260) [spring-boot-2.1.1.RELEASE.jar!/:2.1.1.RELEASE]
+2018-12-09T17:25:05.656613+00:00 app[web.1]: at org.springframework.boot.SpringApplication.run(SpringApplication.java:1248) [spring-boot-2.1.1.RELEASE.jar!/:2.1.1.RELEASE]
+2018-12-09T17:25:05.656616+00:00 app[web.1]: at net.onlybiz.botchan.BotchanApplicationKt.main(BotchanApplication.kt:18) [classes!/:na]
+2018-12-09T17:25:05.656617+00:00 app[web.1]: at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_191-heroku]
+2018-12-09T17:25:05.656619+00:00 app[web.1]: at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_191-heroku]
+2018-12-09T17:25:05.656621+00:00 app[web.1]: at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_191-heroku]
+2018-12-09T17:25:05.656623+00:00 app[web.1]: at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_191-heroku]
+2018-12-09T17:25:05.656625+00:00 app[web.1]: at org.springframework.boot.loader.MainMethodRunner.run(MainMethodRunner.java:48) [botchan-0.0.1-SNAPSHOT.jar:na]
+2018-12-09T17:25:05.656626+00:00 app[web.1]: at org.springframework.boot.loader.Launcher.launch(Launcher.java:87) [botchan-0.0.1-SNAPSHOT.jar:na]
+2018-12-09T17:25:05.656628+00:00 app[web.1]: at org.springframework.boot.loader.Launcher.launch(Launcher.java:50) [botchan-0.0.1-SNAPSHOT.jar:na]
+2018-12-09T17:25:05.656629+00:00 app[web.1]: at org.springframework.boot.loader.JarLauncher.main(JarLauncher.java:51) [botchan-0.0.1-SNAPSHOT.jar:na]
+2018-12-09T17:25:05.656640+00:00 app[web.1]: Caused by: org.hibernate.MappingException: Foreign key (FKeck94qxgkh97vnh6qcow1tvy:groups [group_id])) must have same number of columns as the referenced primary key (groups [group_id,app_user_id])
+2018-12-09T17:25:05.656641+00:00 app[web.1]: at org.hibernate.mapping.ForeignKey.alignColumns(ForeignKey.java:148) ~[hibernate-core-5.3.7.Final.jar!/:5.3.7.Final]
+2018-12-09T17:25:05.656643+00:00 app[web.1]: at org.hibernate.mapping.ForeignKey.alignColumns(ForeignKey.java:130) ~[hibernate-core-5.3.7.Final.jar!/:5.3.7.Final]
+2018-12-09T17:25:05.656645+00:00 app[web.1]: at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.secondPassCompileForeignKeys(InFlightMetadataCollectorImpl.java:1933) ~[hibernate-core-5.3.7.Final.jar!/:5.3.7.Final]
+2018-12-09T17:25:05.656646+00:00 app[web.1]: at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.secondPassCompileForeignKeys(InFlightMetadataCollectorImpl.java:1849) ~[hibernate-core-5.3.7.Final.jar!/:5.3.7.Final]
+2018-12-09T17:25:05.656648+00:00 app[web.1]: at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.processSecondPasses(InFlightMetadataCollectorImpl.java:1668) ~[hibernate-core-5.3.7.Final.jar!/:5.3.7.Final]
+2018-12-09T17:25:05.656650+00:00 app[web.1]: at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:287) ~[hibernate-core-5.3.7.Final.jar!/:5.3.7.Final]
+2018-12-09T17:25:05.656651+00:00 app[web.1]: at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:904) ~[hibernate-core-5.3.7.Final.jar!/:5.3.7.Final]
+2018-12-09T17:25:05.656653+00:00 app[web.1]: at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:935) ~[hibernate-core-5.3.7.Final.jar!/:5.3.7.Final]
+2018-12-09T17:25:05.656654+00:00 app[web.1]: at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:57) ~[spring-orm-5.1.3.RELEASE.jar!/:5.1.3.RELEASE]
+2018-12-09T17:25:05.656656+00:00 app[web.1]: at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:365) ~[spring-orm-5.1.3.RELEASE.jar!/:5.1.3.RELEASE]
+2018-12-09T17:25:05.656658+00:00 app[web.1]: at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:390) ~[spring-orm-5.1.3.RELEASE.jar!/:5.1.3.RELEASE]
+2018-12-09T17:25:05.656660+00:00 app[web.1]: at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:377) ~[spring-orm-5.1.3.RELEASE.jar!/:5.1.3.RELEASE]
+2018-12-09T17:25:05.656661+00:00 app[web.1]: at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:341) ~[spring-orm-5.1.3.RELEASE.jar!/:5.1.3.RELEASE]
+2018-12-09T17:25:05.656663+00:00 app[web.1]: at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1804) ~[spring-beans-5.1.3.RELEASE.jar!/:5.1.3.RELEASE]
+2018-12-09T17:25:05.656665+00:00 app[web.1]: at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1741) ~[spring-beans-5.1.3.RELEASE.jar!/:5.1.3.RELEASE]
+2018-12-09T17:25:05.656667+00:00 app[web.1]: ... 24 common frames omitted
+2018-12-09T17:25:05.656668+00:00 app[web.1]: 
+2018-12-09T17:25:05.786218+00:00 heroku[web.1]: Process exited with status 1
+2018-12-09T17:25:05.802118+00:00 heroku[web.1]: State changed from starting to crashed
+2018-12-09T17:25:05.804027+00:00 heroku[web.1]: State changed from crashed to starting
+2018-12-09T17:25:05.000000+00:00 app[api]: Build succeeded
+2018-12-09T17:25:11.024522+00:00 heroku[web.1]: Starting process with command `java -Dserver.port=15549 $JAVA_OPTS -jar build/libs/*.jar`
+2018-12-09T17:25:13.567371+00:00 app[web.1]: Setting JAVA_TOOL_OPTIONS defaults based on dyno size. Custom settings will override them.
+2018-12-09T17:25:13.572529+00:00 app[web.1]: Picked up JAVA_TOOL_OPTIONS: -Xmx300m -Xss512k -XX:CICompilerCount=2 -Dfile.encoding=UTF-8
+2018-12-09T17:25:19.339608+00:00 app[web.1]: 
+2018-12-09T17:25:19.339658+00:00 app[web.1]: .   ____          _            __ _ _
+2018-12-09T17:25:19.339690+00:00 app[web.1]: /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+2018-12-09T17:25:19.342822+00:00 app[web.1]: ( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+2018-12-09T17:25:19.342909+00:00 app[web.1]: \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+2018-12-09T17:25:19.342991+00:00 app[web.1]: '  |____| .__|_| |_|_| |_\__, | / / / /
+2018-12-09T17:25:19.343076+00:00 app[web.1]: =========|_|==============|___/=/_/_/_/
+2018-12-09T17:25:19.356428+00:00 app[web.1]: :: Spring Boot ::        (v2.1.1.RELEASE)
+2018-12-09T17:25:19.356526+00:00 app[web.1]: 
+2018-12-09T17:25:19.885225+00:00 app[web.1]: 2018-12-09 17:25:19.862  INFO 4 --- [           main] n.onlybiz.botchan.BotchanApplicationKt   : Starting BotchanApplicationKt on 6a2616b8-dc30-443b-ba60-00a9f1d4693c with PID 4 (/app/build/libs/botchan-0.0.1-SNAPSHOT.jar started by u48861 in /app)
+2018-12-09T17:25:19.900751+00:00 app[web.1]: 2018-12-09 17:25:19.900  INFO 4 --- [           main] n.onlybiz.botchan.BotchanApplicationKt   : No active profile set, falling back to default profiles: default
+2018-12-09T17:25:26.707160+00:00 app[web.1]: 2018-12-09 17:25:26.704  INFO 4 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2018-12-09T17:25:26.964353+00:00 app[web.1]: 2018-12-09 17:25:26.963  INFO 4 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 238ms. Found 2 repository interfaces.
+2018-12-09T17:25:29.096660+00:00 app[web.1]: 2018-12-09 17:25:29.096  INFO 4 --- [           main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$4f076672] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-09T17:25:31.193306+00:00 app[web.1]: 2018-12-09 17:25:31.191  INFO 4 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 15549 (http)
+2018-12-09T17:25:31.567017+00:00 app[web.1]: 2018-12-09 17:25:31.565  INFO 4 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-12-09T17:25:31.569976+00:00 app[web.1]: 2018-12-09 17:25:31.569  INFO 4 --- [           main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/9.0.13
+2018-12-09T17:25:31.616793+00:00 app[web.1]: 2018-12-09 17:25:31.616  INFO 4 --- [           main] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/app/.jdk/jre/lib/amd64/server::/usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib]
+2018-12-09T17:25:32.244351+00:00 app[web.1]: 2018-12-09 17:25:32.239  INFO 4 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-12-09T17:25:32.249247+00:00 app[web.1]: 2018-12-09 17:25:32.249  INFO 4 --- [           main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 11940 ms
+2018-12-09T17:25:33.290911+00:00 app[web.1]: 2018-12-09 17:25:33.290  INFO 4 --- [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+2018-12-09T17:25:33.290929+00:00 app[web.1]: name: default
+2018-12-09T17:25:33.290932+00:00 app[web.1]: ...]
+2018-12-09T17:25:33.598725+00:00 app[web.1]: 2018-12-09 17:25:33.598  INFO 4 --- [           main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.7.Final}
+2018-12-09T17:25:33.615257+00:00 app[web.1]: 2018-12-09 17:25:33.608  INFO 4 --- [           main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2018-12-09T17:25:34.471383+00:00 app[web.1]: 2018-12-09 17:25:34.471  INFO 4 --- [           main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2018-12-09T17:25:35.729149+00:00 app[web.1]: 2018-12-09 17:25:35.728  INFO 4 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2018-12-09T17:25:38.148888+00:00 app[web.1]: 2018-12-09 17:25:38.148  INFO 4 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2018-12-09T17:25:38.587433+00:00 app[web.1]: 2018-12-09 17:25:38.586  INFO 4 --- [           main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2018-12-09T17:25:39.958918+00:00 app[web.1]: 2018-12-09 17:25:39.956  WARN 4 --- [           main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Invocation of init method failed; nested exception is org.hibernate.MappingException: Foreign key (FKeck94qxgkh97vnh6qcow1tvy:groups [group_id])) must have same number of columns as the referenced primary key (groups [group_id,app_user_id])
+2018-12-09T17:25:39.959338+00:00 app[web.1]: 2018-12-09 17:25:39.959  INFO 4 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2018-12-09T17:25:40.059098+00:00 app[web.1]: 2018-12-09 17:25:40.058  INFO 4 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2018-12-09T17:25:40.073730+00:00 app[web.1]: 2018-12-09 17:25:40.071  INFO 4 --- [           main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2018-12-09T17:25:40.120320+00:00 app[web.1]: 2018-12-09 17:25:40.120  INFO 4 --- [           main] ConditionEvaluationReportLoggingListener :
+2018-12-09T17:25:40.120323+00:00 app[web.1]: 
+2018-12-09T17:25:40.120326+00:00 app[web.1]: Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2018-12-09T17:25:40.144936+00:00 app[web.1]: 2018-12-09 17:25:40.143 ERROR 4 --- [           main] o.s.boot.SpringApplication               : Application run failed
+2018-12-09T17:25:40.144940+00:00 app[web.1]: 
+2018-12-09T17:25:40.144952+00:00 app[web.1]: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Invocation of init method failed; nested exception is org.hibernate.MappingException: Foreign key (FKeck94qxgkh97vnh6qcow1tvy:groups [group_id])) must have same number of columns as the referenced primary key (groups [group_id,app_user_id])
+2018-12-09T17:25:40.144955+00:00 app[web.1]: at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1745) ~[spring-beans-5.1.3.RELEASE.jar!/:5.1.3.RELEASE]
+2018-12-09T17:25:40.144957+00:00 app[web.1]: at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:576) ~[spring-beans-5.1.3.RELEASE.jar!/:5.1.3.RELEASE]
+2018-12-09T17:25:40.144958+00:00 app[web.1]: at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:498) ~[spring-beans-5.1.3.RELEASE.jar!/:5.1.3.RELEASE]
+2018-12-09T17:25:40.144961+00:00 app[web.1]: at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:320) ~[spring-beans-5.1.3.RELEASE.jar!/:5.1.3.RELEASE]
+2018-12-09T17:25:40.144962+00:00 app[web.1]: at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222) ~[spring-beans-5.1.3.RELEASE.jar!/:5.1.3.RELEASE]
+2018-12-09T17:25:40.144964+00:00 app[web.1]: at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:318) ~[spring-beans-5.1.3.RELEASE.jar!/:5.1.3.RELEASE]
+2018-12-09T17:25:40.144966+00:00 app[web.1]: at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199) ~[spring-beans-5.1.3.RELEASE.jar!/:5.1.3.RELEASE]
+2018-12-09T17:25:40.144968+00:00 app[web.1]: at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1083) ~[spring-context-5.1.3.RELEASE.jar!/:5.1.3.RELEASE]
+2018-12-09T17:25:40.144969+00:00 app[web.1]: at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:853) ~[spring-context-5.1.3.RELEASE.jar!/:5.1.3.RELEASE]
+2018-12-09T17:25:40.144971+00:00 app[web.1]: at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:546) ~[spring-context-5.1.3.RELEASE.jar!/:5.1.3.RELEASE]
+2018-12-09T17:25:40.144973+00:00 app[web.1]: at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:142) ~[spring-boot-2.1.1.RELEASE.jar!/:2.1.1.RELEASE]
+2018-12-09T17:25:40.144975+00:00 app[web.1]: at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:775) [spring-boot-2.1.1.RELEASE.jar!/:2.1.1.RELEASE]
+2018-12-09T17:25:40.144976+00:00 app[web.1]: at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:397) [spring-boot-2.1.1.RELEASE.jar!/:2.1.1.RELEASE]
+2018-12-09T17:25:40.144978+00:00 app[web.1]: at org.springframework.boot.SpringApplication.run(SpringApplication.java:316) [spring-boot-2.1.1.RELEASE.jar!/:2.1.1.RELEASE]
+2018-12-09T17:25:40.144980+00:00 app[web.1]: at org.springframework.boot.SpringApplication.run(SpringApplication.java:1260) [spring-boot-2.1.1.RELEASE.jar!/:2.1.1.RELEASE]
+2018-12-09T17:25:40.144981+00:00 app[web.1]: at org.springframework.boot.SpringApplication.run(SpringApplication.java:1248) [spring-boot-2.1.1.RELEASE.jar!/:2.1.1.RELEASE]
+2018-12-09T17:25:40.144983+00:00 app[web.1]: at net.onlybiz.botchan.BotchanApplicationKt.main(BotchanApplication.kt:18) [classes!/:na]
+2018-12-09T17:25:40.144985+00:00 app[web.1]: at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_191-heroku]
+2018-12-09T17:25:40.144987+00:00 app[web.1]: at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_191-heroku]
+2018-12-09T17:25:40.144988+00:00 app[web.1]: at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_191-heroku]
+2018-12-09T17:25:40.144990+00:00 app[web.1]: at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_191-heroku]
+2018-12-09T17:25:40.144992+00:00 app[web.1]: at org.springframework.boot.loader.MainMethodRunner.run(MainMethodRunner.java:48) [botchan-0.0.1-SNAPSHOT.jar:na]
+2018-12-09T17:25:40.144993+00:00 app[web.1]: at org.springframework.boot.loader.Launcher.launch(Launcher.java:87) [botchan-0.0.1-SNAPSHOT.jar:na]
+2018-12-09T17:25:40.144995+00:00 app[web.1]: at org.springframework.boot.loader.Launcher.launch(Launcher.java:50) [botchan-0.0.1-SNAPSHOT.jar:na]
+2018-12-09T17:25:40.144997+00:00 app[web.1]: at org.springframework.boot.loader.JarLauncher.main(JarLauncher.java:51) [botchan-0.0.1-SNAPSHOT.jar:na]
+2018-12-09T17:25:40.145007+00:00 app[web.1]: Caused by: org.hibernate.MappingException: Foreign key (FKeck94qxgkh97vnh6qcow1tvy:groups [group_id])) must have same number of columns as the referenced primary key (groups [group_id,app_user_id])
+2018-12-09T17:25:40.145009+00:00 app[web.1]: at org.hibernate.mapping.ForeignKey.alignColumns(ForeignKey.java:148) ~[hibernate-core-5.3.7.Final.jar!/:5.3.7.Final]
+2018-12-09T17:25:40.145010+00:00 app[web.1]: at org.hibernate.mapping.ForeignKey.alignColumns(ForeignKey.java:130) ~[hibernate-core-5.3.7.Final.jar!/:5.3.7.Final]
+2018-12-09T17:25:40.145012+00:00 app[web.1]: at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.secondPassCompileForeignKeys(InFlightMetadataCollectorImpl.java:1933) ~[hibernate-core-5.3.7.Final.jar!/:5.3.7.Final]
+2018-12-09T17:25:40.145014+00:00 app[web.1]: at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.secondPassCompileForeignKeys(InFlightMetadataCollectorImpl.java:1849) ~[hibernate-core-5.3.7.Final.jar!/:5.3.7.Final]
+2018-12-09T17:25:40.145015+00:00 app[web.1]: at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.processSecondPasses(InFlightMetadataCollectorImpl.java:1668) ~[hibernate-core-5.3.7.Final.jar!/:5.3.7.Final]
+2018-12-09T17:25:40.145017+00:00 app[web.1]: at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:287) ~[hibernate-core-5.3.7.Final.jar!/:5.3.7.Final]
+2018-12-09T17:25:40.145019+00:00 app[web.1]: at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:904) ~[hibernate-core-5.3.7.Final.jar!/:5.3.7.Final]
+2018-12-09T17:25:40.145021+00:00 app[web.1]: at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:935) ~[hibernate-core-5.3.7.Final.jar!/:5.3.7.Final]
+2018-12-09T17:25:40.145022+00:00 app[web.1]: at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:57) ~[spring-orm-5.1.3.RELEASE.jar!/:5.1.3.RELEASE]
+2018-12-09T17:25:40.145024+00:00 app[web.1]: at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:365) ~[spring-orm-5.1.3.RELEASE.jar!/:5.1.3.RELEASE]
+2018-12-09T17:25:40.145025+00:00 app[web.1]: at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:390) ~[spring-orm-5.1.3.RELEASE.jar!/:5.1.3.RELEASE]
+2018-12-09T17:25:40.145027+00:00 app[web.1]: at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:377) ~[spring-orm-5.1.3.RELEASE.jar!/:5.1.3.RELEASE]
+2018-12-09T17:25:40.145029+00:00 app[web.1]: at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:341) ~[spring-orm-5.1.3.RELEASE.jar!/:5.1.3.RELEASE]
+2018-12-09T17:25:40.145031+00:00 app[web.1]: at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1804) ~[spring-beans-5.1.3.RELEASE.jar!/:5.1.3.RELEASE]
+2018-12-09T17:25:40.145033+00:00 app[web.1]: at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1741) ~[spring-beans-5.1.3.RELEASE.jar!/:5.1.3.RELEASE]
+2018-12-09T17:25:40.145034+00:00 app[web.1]: ... 24 common frames omitted
+2018-12-09T17:25:40.145036+00:00 app[web.1]: 
+2018-12-09T17:25:40.256006+00:00 heroku[web.1]: State changed from starting to crashed
+2018-12-09T17:25:40.238421+00:00 heroku[web.1]: Process exited with status 1

@@ -7,18 +7,21 @@ import javax.persistence.*
 
 @Entity
 @Table(name = "groups")
-data class AppUserGroup(
-        @Id
+class AppUserGroup : CommonEntity(), Serializable {
+    @EmbeddedId
+    var appUserGroupId: AppUserGroupId? = null
+
+    @Column(name="display_name")
+    var displayName: String? = null
+}
+
+@Embeddable
+class AppUserGroupId(
         @ManyToOne
         @JoinColumn(name = "app_user_id", nullable = false)
         var appUser: AppUser? = null,
 
-        @Id
         @ManyToOne
         @JoinColumn(name = "group_id", nullable = false)
-        var group: Group? = null,
-
-        @Column(name="display_name")
-        var displayName: String? = null
-
-) : CommonEntity(), Serializable
+        var group: Group? = null
+): Serializable
