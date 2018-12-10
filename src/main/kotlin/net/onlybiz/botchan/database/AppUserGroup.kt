@@ -6,7 +6,7 @@ import javax.persistence.*
 
 
 @Entity
-@Table(name = "groups")
+@Table(name = "app_user_groups")
 data class AppUserGroup(
         @AttributeOverrides(
                 AttributeOverride(name = "appUserId",column = Column(name = "app_user_id")),
