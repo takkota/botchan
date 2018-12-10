@@ -12,6 +12,9 @@ logging:
   level:
     jdbc: OFF
     sqltiming: DEBUG
+hibernate:
+  dialect:
+    storage_engine: "innodb"
 
 # line
 line:
