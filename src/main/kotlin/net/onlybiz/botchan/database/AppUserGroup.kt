@@ -19,11 +19,11 @@ data class AppUserGroup(
         var displayName: String? = null,
 
         @ManyToOne
-        @JoinColumn(name = "appUserId")
+        @MapsId("appUserId")
         var appUser: AppUser? = null,
 
         @ManyToOne
-        @JoinColumn(name = "groupId")
+        @MapsId("groupId")
         var group: Group? = null
 
 ) : CommonEntity()
