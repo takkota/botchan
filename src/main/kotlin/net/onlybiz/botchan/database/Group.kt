@@ -8,7 +8,7 @@ import javax.persistence.*
 @Table(name = "groups")
 data class Group(
         @Id
-        @GeneratedValue(strategy = GenerationType.IDENTITY)
+        @Column(length = 36)
         var id: String? = null,
 
         @OneToMany(mappedBy = "group", cascade = [CascadeType.ALL], orphanRemoval = true) // 中間テーブルとのリレーション

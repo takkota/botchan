@@ -9,8 +9,8 @@ import javax.persistence.*
 @Table(name = "app_user_groups")
 data class AppUserGroup(
         @AttributeOverrides(
-                AttributeOverride(name = "appUserId",column = Column(name = "app_user_id")),
-                AttributeOverride(name = "groupId",column = Column(name = "group_id"))
+                AttributeOverride(name = "appUserId",column = Column(name = "app_user_id", length = 36)),
+                AttributeOverride(name = "groupId",column = Column(name = "group_id", length = 36))
         )
         @EmbeddedId
         var appUserGroupId: AppUserGroupId? = null,
