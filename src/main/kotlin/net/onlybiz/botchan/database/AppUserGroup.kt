@@ -30,9 +30,6 @@ data class AppUserGroup(
 
 @Embeddable
 class AppUserGroupId(
-        @Column(name="app_user_id")
         var appUserId: String? = null,
-
-        @Column(name="group_id")
         var groupId: String? = null
 ): Serializable
