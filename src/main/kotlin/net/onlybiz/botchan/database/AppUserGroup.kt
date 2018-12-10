@@ -7,23 +7,26 @@ import javax.persistence.*
 
 @Entity
 @Table(name = "groups")
-class AppUserGroup : CommonEntity(), Serializable {
-    @EmbeddedId
-    var appUserGroupId: AppUserGroupId? = null
+data class AppUserGroup(
+        @AttributeOverrides(
+                AttributeOverride(name = "appUserId",column = Column(name = "app_user_id")),
+                AttributeOverride(name = "groupId",column = Column(name = "group_id"))
+        )
+        @EmbeddedId
+        var appUserGroupId: AppUserGroupId? = null,
 
-    @Column(name="display_name")
-    var displayName: String? = null
+        @Column(name="display_name")
+        var displayName: String? = null,
 
-    @MapsId("appUserId") //AppUserGroupId(PK)のappUserを切り出してfieldとしているよ
-    @JoinColumn(name = "app_user_id", referencedColumnName = "id") // 外テーブルからJoinされる時のカラムはapp_user_idだよ
-    @ManyToOne
-    var appUser: AppUser? = null
+        @ManyToOne
+        @JoinColumn(name = "appUserId")
+        var appUser: AppUser? = null,
 
-    @MapsId("groupId") //AppUserGroupId(PK)のappUserを切り出してfieldとしているよ
-    @JoinColumn(name = "group_id", referencedColumnName = "id") // 外テーブルからJoinされる時のカラムはapp_user_idだよ
-    @ManyToOne
-    var group: Group? = null
-}
+        @ManyToOne
+        @JoinColumn(name = "groupId")
+        var group: Group? = null
+
+) : CommonEntity()
 
 @Embeddable
 class AppUserGroupId(
