@@ -5,17 +5,13 @@ spring:
     username: ${SPRING_DATABASE_USERNAME}
     password: ${SPRING_DATABASE_PASSWORD}
     hikari:
-      leak-detection-threshold: 5000
       connection-test-query: SELECT 1
       minimum-idle: 5
       maximum-pool-size: 10
-      auto-commit: false
       maxLifetime: 80000
-    dbcp2:
-      test-on-borrow: true
-      test-while-idle: true
-      validation-query: SELECT 1
-
+      idleTimeout: 40000
+      leak-detection-threshold: 7000
+      auto-commit: true
   jpa:
     database: MYSQL
     hibernate:
