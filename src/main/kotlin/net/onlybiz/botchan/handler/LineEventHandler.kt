@@ -190,6 +190,7 @@ class LineEventHandler {
         println("testd:alreadyCombined" + alreadyCombined)
         if (appUser != null && !alreadyCombined) {
             // user_idとgroup_idを紐付ける
+            println("testd:save")
             appUserGroupRepository.saveAndFlush(AppUserGroup(appUser = appUser, group = Group()))
             println("testd:success")
             // それとは別にLinePushでグループにボットが入ったことを教えてあげる。(アプリへのリンク付きで)
