@@ -36,7 +36,7 @@ class LineEventHandler {
     lateinit var appUserRepository: AppUserRepository
 
     @Autowired
-    lateinit var appUserGroupRepository: AppUserGroupRepository
+    lateinit var userService: UserService
 
     // BotをFollowした(アプリから or 直接)
     @EventMapping
@@ -182,19 +182,10 @@ class LineEventHandler {
     @EventMapping
     fun handleTextMessageEvent(event: MessageEvent<TextMessageContent>): TextMessage {
         println("event: messageEvent")
-        var groupId  = event.source.senderId
-        var lineId = event.source.userId
-        var appUser = appUserRepository.findByLineId(lineId)
+        val lineId = event.source.userId
+        val groupId  = event.source.senderId
 
-        val alreadyCombined = appUser?.appUserGroups?.count { it.group?.id == groupId } ?: 0 > 0
-        println("testd:alreadyCombined" + alreadyCombined)
-        if (appUser != null && !alreadyCombined) {
-            // user_idとgroup_idを紐付ける
-            println("testd:save")
-            appUserGroupRepository.saveAndFlush(AppUserGroup(appUser = appUser, group = Group()))
-            println("testd:success")
-            // それとは別にLinePushでグループにボットが入ったことを教えてあげる。(アプリへのリンク付きで)
-            // (アプリ側でグループ名を設定させる。)
+        if (userService.saveAppUserGroupFromLineId(lineId, groupId)) {
             val message = TemplateMessage.builder()
                     .altText("参加しているグループにボットが入室しました。アプリでグループに名前をつけてください。(ボットを招待した記憶がない場合、グループ内の他の誰かがボットを招待した可能性もあります。)")
                     .template(ButtonsTemplate.builder()
