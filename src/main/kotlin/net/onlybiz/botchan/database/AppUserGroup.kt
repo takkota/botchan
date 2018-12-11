@@ -14,9 +14,9 @@ import javax.persistence.*
 )
 data class AppUserGroup(
         @Id
-        @Column
+        @Column(name="id")
         @GeneratedValue(strategy= GenerationType.IDENTITY)
-        var id: String? = null,
+        var id: Long? = null,
 
         @ManyToOne
         var appUser: AppUser? = null,
