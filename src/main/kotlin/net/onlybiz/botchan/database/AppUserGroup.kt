@@ -1,5 +1,6 @@
 package net.onlybiz.botchan.database
 
+import org.hibernate.annotations.Cascade
 import java.io.Serializable
 import java.util.*
 import javax.persistence.*
@@ -17,10 +18,12 @@ data class AppUserGroup(
         @GeneratedValue(strategy= GenerationType.IDENTITY)
         var id: Long? = null,
 
+        // AppUserは登録ずみの前提なので、CascadeTypeはAllにしない
         @ManyToOne
         var appUser: AppUser? = null,
 
-        @ManyToOne
+        // Groupを新規で登録できるように
+        @ManyToOne(cascade = [CascadeType.ALL])
         var group: Group? = null,
 
         @Column(name="display_name")
