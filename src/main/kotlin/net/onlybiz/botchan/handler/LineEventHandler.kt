@@ -138,8 +138,14 @@ class LineEventHandler {
                 // joinしたらメンバーを全員スキャン & ボットを持っている人であれば、group_idを紐付け
                 var appUsers = appUserRepository.findAllById(reseponse.memberIds)
                 appUsers = appUsers.map { appUser ->
-                    //appUser.appUserGroups?.plus(AppUserGroup(appUser, Group(groupId), "グループ").apply {
-                    //})
+                    println("testd:lineId" + appUser.lineId)
+                    val currentGroupNumber = appUser.appUserGroups?.size ?: 0
+                    appUser.appUserGroups?.plus(AppUserGroup(
+                            appUser = appUser,
+                            group = Group(groupId),
+                            displayName = "グループ${currentGroupNumber + 1}")
+                    )
+                    println("testd:appUserGroupCount:" + appUser.appUserGroups?.size)
                     appUser
                 }
                 appUserRepository.saveAll(appUsers)

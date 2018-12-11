@@ -14,7 +14,6 @@ import javax.persistence.*
 )
 data class AppUserGroup(
         @Id
-        @Column(name="id")
         @GeneratedValue(strategy= GenerationType.IDENTITY)
         var id: Long? = null,
 
