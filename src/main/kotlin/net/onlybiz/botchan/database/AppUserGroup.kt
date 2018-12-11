@@ -19,9 +19,11 @@ data class AppUserGroup(
         var id: String? = null,
 
         @ManyToOne
+        @Column(name="app_user_id")
         var appUser: AppUser? = null,
 
         @ManyToOne
+        @Column(name="group_id")
         var group: Group? = null,
 
         @Column(name="display_name")
