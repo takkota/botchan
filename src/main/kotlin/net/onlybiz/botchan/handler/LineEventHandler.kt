@@ -1,6 +1,7 @@
 package net.onlybiz.botchan.api
 
 import com.linecorp.bot.model.Multicast
+import com.linecorp.bot.model.PushMessage
 import com.linecorp.bot.model.action.URIAction
 import com.linecorp.bot.model.event.*
 import com.linecorp.bot.spring.boot.annotation.LineMessageHandler
@@ -13,9 +14,7 @@ import com.linecorp.bot.model.event.source.RoomSource
 import com.linecorp.bot.model.event.source.UserSource
 import com.linecorp.bot.model.message.TemplateMessage
 import com.linecorp.bot.model.message.template.ButtonsTemplate
-import net.onlybiz.botchan.database.AppUserGroup
-import net.onlybiz.botchan.database.Group
-import net.onlybiz.botchan.database.AppUserRepository
+import net.onlybiz.botchan.database.*
 import net.onlybiz.botchan.model.line.response.GroupMember
 import net.onlybiz.botchan.model.line.response.LinkToken
 import net.onlybiz.botchan.settings.Server
@@ -35,6 +34,9 @@ class LineEventHandler {
 
     @Autowired
     lateinit var appUserRepository: AppUserRepository
+
+    @Autowired
+    lateinit var appUserGroupRepository: AppUserGroupRepository
 
     // BotをFollowした(アプリから or 直接)
     @EventMapping
@@ -83,23 +85,34 @@ class LineEventHandler {
     fun handleAccountLinkEvent(event: AccountLinkEvent): TemplateMessage {
         return if (event.link.result == LinkContent.Result.OK) {
             val appUser = appUserRepository.findByNonce(event.link.nonce)
-            appUser.linkDateTime = Date()
-            appUser.lineId = event.source.userId
-            appUserRepository.save(appUser)
-            val actionUri = UriComponentsBuilder.newInstance()
-                    .scheme("https")
-                    .host(server.hostName)
-                    .path("/account/link")
-                    .build()
-            TemplateMessage.builder()
-                    .altText("アプリに戻って自分好みのボットを作りましょう！")
-                    .template(ButtonsTemplate.builder()
-                            .title("連携が完了しました")
-                            .text("アプリに戻って自分好みのボットを作りましょう！")
-                            .actions(listOf(URIAction("アプリへ", actionUri.toString())))
-                            .build()
-                )
-                .build()
+            if (appUser != null) {
+                appUser.linkDateTime = Date()
+                appUser.lineId = event.source.userId
+                appUserRepository.save(appUser)
+                val actionUri = UriComponentsBuilder.newInstance()
+                        .scheme("https")
+                        .host(server.hostName)
+                        .path("/account/link")
+                        .build()
+                TemplateMessage.builder()
+                        .altText("アプリに戻って自分好みのボットを作りましょう！")
+                        .template(ButtonsTemplate.builder()
+                                .title("連携が完了しました")
+                                .text("アプリに戻って自分好みのボットを作りましょう！")
+                                .actions(listOf(URIAction("アプリへ", actionUri.toString())))
+                                .build()
+                        )
+                        .build()
+            } else {
+                TemplateMessage.builder()
+                        .altText("失敗しました")
+                        .template(ButtonsTemplate.builder()
+                                .title("失敗しました")
+                                .text("失敗しました")
+                                .build()
+                        )
+                        .build()
+            }
         } else {
             val actionUri = UriComponentsBuilder.newInstance()
                     .scheme("https")
@@ -169,22 +182,28 @@ class LineEventHandler {
     @EventMapping
     fun handleTextMessageEvent(event: MessageEvent<TextMessageContent>): TextMessage {
         println("event: messageEvent")
-        var groupId: String? = null
-        println("testd:id" + event.source)
-        when (event.source) {
-            is RoomSource -> {
-                groupId = (event.source as RoomSource).roomId
-                println("testd:room" + groupId)
-            }
-            is GroupSource -> {
-                groupId = (event.source as GroupSource).groupId
-                println("testd:group" + groupId)
-            }
-            else -> {
-                groupId = (event.source as UserSource).userId
-                println("testd:user" + groupId)
-            }
+        var groupId  = event.source.senderId
+        var lineId = event.source.userId
+        var appUser = appUserRepository.findByLineId(lineId)
+
+        val alreadyCombined = appUser?.appUserGroups?.count { it.group?.id == groupId } ?: 0 > 0
+        println("testd:alreadyCombined" + alreadyCombined)
+        if (appUser != null && !alreadyCombined) {
+            // user_idとgroup_idを紐付ける
+            appUserGroupRepository.saveAndFlush(AppUserGroup(appUser = appUser, group = Group()))
+            println("testd:success")
+            // それとは別にLinePushでグループにボットが入ったことを教えてあげる。(アプリへのリンク付きで)
+            // (アプリ側でグループ名を設定させる。)
+            val message = TemplateMessage.builder()
+                    .altText("参加しているグループにボットが入室しました。アプリでグループに名前をつけてください。(ボットを招待した記憶がない場合、グループ内の他の誰かがボットを招待した可能性もあります。)")
+                    .template(ButtonsTemplate.builder()
+                            .title("Thank you!!")
+                            .text("参加しているグループにボットが入室しました。アプリでグループに名前をつけてください。(ボットを招待した記憶がない場合、グループ内の他の誰かがボットを招待した可能性もあります。")
+                            .build())
+                    .build()
+            restOperations.postForObject("bot/message/push", PushMessage(lineId, message), Void::class.java)
         }
+
         return TextMessage(event.message.text)
     }
 
