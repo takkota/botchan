@@ -23,6 +23,6 @@ data class AppUser(
 
         @OneToMany(mappedBy = "appUser", cascade = [CascadeType.ALL]) // 中間テーブルとのリレーション
         // mappedByを使うことでテーブルの作成を抑制する。(こちらはオーナーではないことを示す)
-        var appUserGroups: List<AppUserGroup> = listOf()
+        var appUserGroups: List<AppUserGroup>? = null
 ) : CommonEntity()
 

@@ -2916,3 +2916,96 @@ path: [/app/.jdk/jre/lib/amd64/server::/usr/java/packages/lib/amd64:/usr/lib64:/
 2018-12-11T18:08:20.130211+00:00 app[web.1]: ... 75 common frames omitted
 2018-12-11T18:08:20.130212+00:00 app[web.1]: 
 2018-12-11T18:08:20.250841+00:00 heroku[router]: at=info method=POST path="/callback" host=sheltered-scrubland-23764.herokuapp.com request_id=508fcfb3-8edd-48c8-970f-00f39118b645 fwd="203.104.146.155" dyno=web.1 connect=0ms service=4038ms status=200 bytes=92 protocol=https
+2018-12-11T18:09:51.000000+00:00 app[api]: Build started by user kota.taka@onlybiz.net
+2018-12-11T18:10:34.160440+00:00 heroku[web.1]: Restarting
+2018-12-11T18:10:34.161045+00:00 heroku[web.1]: State changed from up to starting
+2018-12-11T18:10:33.844937+00:00 app[api]: Deploy f618ff79 by user kota.taka@onlybiz.net
+2018-12-11T18:10:33.844937+00:00 app[api]: Release v62 created by user kota.taka@onlybiz.net
+2018-12-11T18:10:35.077270+00:00 heroku[web.1]: Stopping all processes with SIGTERM
+2018-12-11T18:10:35.207390+00:00 app[web.1]: 2018-12-11 18:10:35.207  INFO 4 --- [       Thread-3] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2018-12-11T18:10:35.253867+00:00 app[web.1]: 2018-12-11 18:10:35.253  INFO 4 --- [       Thread-3] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2018-12-11T18:10:35.265271+00:00 app[web.1]: 2018-12-11 18:10:35.264  INFO 4 --- [       Thread-3] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2018-12-11T18:10:35.328514+00:00 app[web.1]: 2018-12-11 18:10:35.328  INFO 4 --- [       Thread-3] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2018-12-11T18:10:35.655514+00:00 heroku[web.1]: Process exited with status 143
+2018-12-11T18:10:38.378384+00:00 heroku[web.1]: Starting process with command `java -Dserver.port=46251 $JAVA_OPTS -jar build/libs/*.jar`
+2018-12-11T18:10:40.342543+00:00 app[web.1]: Setting JAVA_TOOL_OPTIONS defaults based on dyno size. Custom settings will override them.
+2018-12-11T18:10:40.346668+00:00 app[web.1]: Picked up JAVA_TOOL_OPTIONS: -Xmx300m -Xss512k -XX:CICompilerCount=2 -Dfile.encoding=UTF-8
+2018-12-11T18:10:42.783615+00:00 app[web.1]: 
+2018-12-11T18:10:42.783666+00:00 app[web.1]: .   ____          _            __ _ _
+2018-12-11T18:10:42.783671+00:00 app[web.1]: /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+2018-12-11T18:10:42.783748+00:00 app[web.1]: ( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+2018-12-11T18:10:42.783794+00:00 app[web.1]: \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+2018-12-11T18:10:42.783849+00:00 app[web.1]: '  |____| .__|_| |_|_| |_\__, | / / / /
+2018-12-11T18:10:42.783905+00:00 app[web.1]: =========|_|==============|___/=/_/_/_/
+2018-12-11T18:10:42.785374+00:00 app[web.1]: :: Spring Boot ::        (v2.1.1.RELEASE)
+2018-12-11T18:10:42.785414+00:00 app[web.1]: 
+2018-12-11T18:10:43.020202+00:00 app[web.1]: 2018-12-11 18:10:43.014  INFO 4 --- [           main] n.onlybiz.botchan.BotchanApplicationKt   : Starting BotchanApplicationKt on 45a5b9b1-6573-493a-a5de-f1ebdf0a5125 with PID 4 (/app/build/libs/botchan-0.0.1-SNAPSHOT.jar started by u27035 in /app)
+2018-12-11T18:10:43.024456+00:00 app[web.1]: 2018-12-11 18:10:43.024  INFO 4 --- [           main] n.onlybiz.botchan.BotchanApplicationKt   : No active profile set, falling back to default profiles: default
+2018-12-11T18:10:44.696128+00:00 app[web.1]: 2018-12-11 18:10:44.694  INFO 4 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2018-12-11T18:10:44.814666+00:00 app[web.1]: 2018-12-11 18:10:44.814  INFO 4 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 108ms. Found 4 repository interfaces.
+2018-12-11T18:10:45.539390+00:00 app[web.1]: 2018-12-11 18:10:45.539  INFO 4 --- [           main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$4d5f5df9] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-11T18:10:46.365255+00:00 app[web.1]: 2018-12-11 18:10:46.364  INFO 4 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 46251 (http)
+2018-12-11T18:10:46.415001+00:00 app[web.1]: 2018-12-11 18:10:46.414  INFO 4 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-12-11T18:10:46.415262+00:00 app[web.1]: 2018-12-11 18:10:46.415  INFO 4 --- [           main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/9.0.13
+2018-12-11T18:10:46.433732+00:00 app[web.1]: 2018-12-11 18:10:46.433  INFO 4 --- [           main] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/app/.jdk/jre/lib/amd64/server::/usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib]
+2018-12-11T18:10:46.579981+00:00 app[web.1]: 2018-12-11 18:10:46.579  INFO 4 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-12-11T18:10:46.580184+00:00 app[web.1]: 2018-12-11 18:10:46.580  INFO 4 --- [           main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 3435 ms
+2018-12-11T18:10:46.954778+00:00 app[web.1]: 2018-12-11 18:10:46.954  INFO 4 --- [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+2018-12-11T18:10:46.954794+00:00 app[web.1]: name: default
+2018-12-11T18:10:46.954796+00:00 app[web.1]: ...]
+2018-12-11T18:10:47.061624+00:00 app[web.1]: 2018-12-11 18:10:47.061  INFO 4 --- [           main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.7.Final}
+2018-12-11T18:10:47.064090+00:00 app[web.1]: 2018-12-11 18:10:47.063  INFO 4 --- [           main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2018-12-11T18:10:47.332892+00:00 app[web.1]: 2018-12-11 18:10:47.332  INFO 4 --- [           main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2018-12-11T18:10:47.672894+00:00 app[web.1]: 2018-12-11 18:10:47.672  INFO 4 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2018-12-11T18:10:48.221012+00:00 app[web.1]: 2018-12-11 18:10:48.220  INFO 4 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2018-12-11T18:10:48.247415+00:00 app[web.1]: 2018-12-11 18:10:48.247  INFO 4 --- [           main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2018-12-11T18:10:49.408157+00:00 app[web.1]: 2018-12-11 18:10:49.407  INFO 4 --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2018-12-11T18:10:51.895035+00:00 app[web.1]: 2018-12-11 18:10:51.894  WARN 4 --- [           main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2018-12-11T18:10:52.221253+00:00 app[web.1]: 2018-12-11 18:10:52.220  INFO 4 --- [           main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2018-12-11T18:10:52.777127+00:00 app[web.1]: 2018-12-11 18:10:52.776  INFO 4 --- [           main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2018-12-11T18:10:52.802449+00:00 app[web.1]: 2018-12-11 18:10:52.802  INFO 4 --- [           main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2018-12-11T18:10:52.814113+00:00 app[web.1]: 2018-12-11 18:10:52.813  INFO 4 --- [           main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2018-12-11T18:10:53.146745+00:00 app[web.1]: 2018-12-11 18:10:53.146  INFO 4 --- [           main] c.l.b.s.b.s.LineMessageHandlerSupport    : Registered LINE Messaging API event handler: count = 5
+2018-12-11T18:10:53.147595+00:00 app[web.1]: 2018-12-11 18:10:53.147  INFO 4 --- [           main] c.l.b.s.b.s.LineMessageHandlerSupport    : Mapped "[MessageEvent<TextMessageContent>]" onto public com.linecorp.bot.model.message.TextMessage net.onlybiz.botchan.api.LineEventHandler.handleTextMessageEvent(com.linecorp.bot.model.event.MessageEvent<com.linecorp.bot.model.event.message.TextMessageContent>)
+2018-12-11T18:10:53.147715+00:00 app[web.1]: 2018-12-11 18:10:53.147  INFO 4 --- [           main] c.l.b.s.b.s.LineMessageHandlerSupport    : Mapped "[FollowEvent]" onto public com.linecorp.bot.model.message.TemplateMessage net.onlybiz.botchan.api.LineEventHandler.handleFollowEvent(com.linecorp.bot.model.event.FollowEvent)
+2018-12-11T18:10:53.147837+00:00 app[web.1]: 2018-12-11 18:10:53.147  INFO 4 --- [           main] c.l.b.s.b.s.LineMessageHandlerSupport    : Mapped "[AccountLinkEvent]" onto public com.linecorp.bot.model.message.TemplateMessage net.onlybiz.botchan.api.LineEventHandler.handleAccountLinkEvent(com.linecorp.bot.model.event.AccountLinkEvent)
+2018-12-11T18:10:53.147971+00:00 app[web.1]: 2018-12-11 18:10:53.147  INFO 4 --- [           main] c.l.b.s.b.s.LineMessageHandlerSupport    : Mapped "[JoinEvent]" onto public void net.onlybiz.botchan.api.LineEventHandler.handleJoinEvent(com.linecorp.bot.model.event.JoinEvent)
+2018-12-11T18:10:53.148089+00:00 app[web.1]: 2018-12-11 18:10:53.147  INFO 4 --- [           main] c.l.b.s.b.s.LineMessageHandlerSupport    : Mapped "[Event]" onto public void net.onlybiz.botchan.api.LineEventHandler.handleDefaultMessageEvent(com.linecorp.bot.model.event.Event)
+2018-12-11T18:10:53.190491+00:00 app[web.1]: 2018-12-11 18:10:53.190  INFO 4 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 46251 (http) with context path ''
+2018-12-11T18:10:53.193707+00:00 app[web.1]: 2018-12-11 18:10:53.193  INFO 4 --- [           main] n.onlybiz.botchan.BotchanApplicationKt   : Started BotchanApplicationKt in 11.322 seconds (JVM running for 12.847)
+2018-12-11T18:10:53.880037+00:00 heroku[web.1]: State changed from starting to up
+2018-12-11T18:10:57.000000+00:00 app[api]: Build succeeded
+2018-12-11T18:11:10.436723+00:00 app[web.1]: 2018-12-11 18:11:10.436  INFO 4 --- [io-46251-exec-3] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2018-12-11T18:11:10.436909+00:00 app[web.1]: 2018-12-11 18:11:10.436  INFO 4 --- [io-46251-exec-3] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2018-12-11T18:11:10.460220+00:00 app[web.1]: 2018-12-11 18:11:10.459  INFO 4 --- [io-46251-exec-3] o.s.web.servlet.DispatcherServlet        : Completed initialization in 23 ms
+2018-12-11T18:11:10.667502+00:00 app[web.1]: event: messageEvent
+2018-12-11T18:11:10.667784+00:00 app[web.1]: event: lineIdU8b78b1c30b079a0e3a81c4fbdc59d02c
+2018-12-11T18:11:10.667881+00:00 app[web.1]: event: groupIdC8736de53a4a72140954d624a483cb172
+2018-12-11T18:11:10.830962+00:00 app[web.1]: 2018-12-11 18:11:10.830  INFO 4 --- [io-46251-exec-3] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2018-12-11T18:11:11.203181+00:00 app[web.1]: testd:appUserGroups1
+2018-12-11T18:11:11.203309+00:00 app[web.1]: testd:alreadyCombined
+2018-12-11T18:11:11.385503+00:00 app[web.1]: 2018-12-11 18:11:11.385  INFO 4 --- [api.line.me/...] com.linecorp.bot.client.wire             : --> POST https://api.line.me/v2/bot/message/reply
+2018-12-11T18:11:11.385636+00:00 app[web.1]: 2018-12-11 18:11:11.385  INFO 4 --- [api.line.me/...] com.linecorp.bot.client.wire             : Content-Type: application/json; charset=UTF-8
+2018-12-11T18:11:11.385733+00:00 app[web.1]: 2018-12-11 18:11:11.385  INFO 4 --- [api.line.me/...] com.linecorp.bot.client.wire             : Content-Length: 89
+2018-12-11T18:11:11.385876+00:00 app[web.1]: 2018-12-11 18:11:11.385  INFO 4 --- [api.line.me/...] com.linecorp.bot.client.wire             : Authorization: Bearer HexmdmuZKwqHN0kBfDX1xX8z2d9ZvWIknIGtOap6/tnY5mT8bBGH3xF3z9rBEfHv2gtQA/ZSuaDW1CgsveWqdaaU42VILPahBMp4km7PwXBpgb9esoBktssJB++GntqAKINs1lC9dbIdWEjLKTHVPgdB04t89/1O/w1cDnyilFU
+2018-12-11T18:11:11.385944+00:00 app[web.1]: 2018-12-11 18:11:11.385  INFO 4 --- [api.line.me/...] com.linecorp.bot.client.wire             : User-Agent: line-botsdk-java/2.1.0
+2018-12-11T18:11:11.387700+00:00 app[web.1]: 2018-12-11 18:11:11.387  INFO 4 --- [api.line.me/...] com.linecorp.bot.client.wire             :
+2018-12-11T18:11:11.387926+00:00 app[web.1]: 2018-12-11 18:11:11.387  INFO 4 --- [api.line.me/...] com.linecorp.bot.client.wire             : {"replyToken":"b0c3854510b04f0ea311f0b61d03ce54","messages":[{"type":"text","text":"h"}]}
+2018-12-11T18:11:11.388009+00:00 app[web.1]: 2018-12-11 18:11:11.387  INFO 4 --- [api.line.me/...] com.linecorp.bot.client.wire             : --> END POST (89-byte body)
+2018-12-11T18:11:11.401576+00:00 heroku[router]: at=info method=POST path="/callback" host=sheltered-scrubland-23764.herokuapp.com request_id=17ac4693-ea24-454c-a812-5f4fe3459096 fwd="203.104.146.155" dyno=web.1 connect=0ms service=1045ms status=200 bytes=92 protocol=https
+2018-12-11T18:11:12.187918+00:00 app[web.1]: 2018-12-11 18:11:12.175  INFO 4 --- [api.line.me/...] com.linecorp.bot.client.wire             : <-- 200 OK https://api.line.me/v2/bot/message/reply (787ms)
+2018-12-11T18:11:12.188051+00:00 app[web.1]: 2018-12-11 18:11:12.187  INFO 4 --- [api.line.me/...] com.linecorp.bot.client.wire             : Server: nginx
+2018-12-11T18:11:12.188782+00:00 app[web.1]: 2018-12-11 18:11:12.188  INFO 4 --- [api.line.me/...] com.linecorp.bot.client.wire             : Content-Type: application/json;charset=UTF-8
+2018-12-11T18:11:12.188880+00:00 app[web.1]: 2018-12-11 18:11:12.188  INFO 4 --- [api.line.me/...] com.linecorp.bot.client.wire             : X-Line-Request-Id: e33a70b1-1bce-4a2b-8e8e-c4711d795e3d
+2018-12-11T18:11:12.188976+00:00 app[web.1]: 2018-12-11 18:11:12.188  INFO 4 --- [api.line.me/...] com.linecorp.bot.client.wire             : X-Content-Type-Options: nosniff
+2018-12-11T18:11:12.189064+00:00 app[web.1]: 2018-12-11 18:11:12.188  INFO 4 --- [api.line.me/...] com.linecorp.bot.client.wire             : X-XSS-Protection: 1; mode=block
+2018-12-11T18:11:12.189204+00:00 app[web.1]: 2018-12-11 18:11:12.189  INFO 4 --- [api.line.me/...] com.linecorp.bot.client.wire             : X-Frame-Options: DENY
+2018-12-11T18:11:12.189293+00:00 app[web.1]: 2018-12-11 18:11:12.189  INFO 4 --- [api.line.me/...] com.linecorp.bot.client.wire             : Content-Length: 2
+2018-12-11T18:11:12.189382+00:00 app[web.1]: 2018-12-11 18:11:12.189  INFO 4 --- [api.line.me/...] com.linecorp.bot.client.wire             : Expires: Tue, 11 Dec 2018 18:11:12 GMT
+2018-12-11T18:11:12.189468+00:00 app[web.1]: 2018-12-11 18:11:12.189  INFO 4 --- [api.line.me/...] com.linecorp.bot.client.wire             : Cache-Control: max-age=0, no-cache, no-store
+2018-12-11T18:11:12.189596+00:00 app[web.1]: 2018-12-11 18:11:12.189  INFO 4 --- [api.line.me/...] com.linecorp.bot.client.wire             : Pragma: no-cache
+2018-12-11T18:11:12.189683+00:00 app[web.1]: 2018-12-11 18:11:12.189  INFO 4 --- [api.line.me/...] com.linecorp.bot.client.wire             : Date: Tue, 11 Dec 2018 18:11:12 GMT
+2018-12-11T18:11:12.189772+00:00 app[web.1]: 2018-12-11 18:11:12.189  INFO 4 --- [api.line.me/...] com.linecorp.bot.client.wire             : Connection: keep-alive
+2018-12-11T18:11:12.190256+00:00 app[web.1]: 2018-12-11 18:11:12.190  INFO 4 --- [api.line.me/...] com.linecorp.bot.client.wire             :
+2018-12-11T18:11:12.190383+00:00 app[web.1]: 2018-12-11 18:11:12.190  INFO 4 --- [api.line.me/...] com.linecorp.bot.client.wire             : {}
+2018-12-11T18:11:12.190489+00:00 app[web.1]: 2018-12-11 18:11:12.190  INFO 4 --- [api.line.me/...] com.linecorp.bot.client.wire             : <-- END HTTP (2-byte body)
