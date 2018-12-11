@@ -10,6 +10,7 @@ import com.linecorp.bot.model.event.message.TextMessageContent
 import com.linecorp.bot.model.event.link.LinkContent
 import com.linecorp.bot.model.event.source.GroupSource
 import com.linecorp.bot.model.event.source.RoomSource
+import com.linecorp.bot.model.event.source.UserSource
 import com.linecorp.bot.model.message.TemplateMessage
 import com.linecorp.bot.model.message.template.ButtonsTemplate
 import net.onlybiz.botchan.database.AppUserGroup
@@ -119,65 +120,71 @@ class LineEventHandler {
 
     @EventMapping
     fun handleJoinEvent(event: JoinEvent) {
-        println("join event: " + event.source.toString())
-        var groupId: String? = null
-        when (event.source) {
-            is RoomSource -> {
-                groupId = (event.source as RoomSource).roomId
-            }
-            is GroupSource -> {
-                groupId = (event.source as GroupSource).groupId
-            }
-            else -> {
-                println("no id")
-            }
-        }
-        if (groupId != null) {
-            // それとは別にLinePushでグループにボットが入ったことを教えてあげる。(アプリへのリンク付きで)
-            // (アプリ側でグループ名を設定させる。)
-            val message = TemplateMessage.builder()
-                    .altText("参加しているグループにボットが入室しました。アプリでグループに名前をつけてください。(ボットを招待した記憶がない場合、グループ内の他の誰かがボットを招待した可能性もあります。)")
-                    .template(ButtonsTemplate.builder()
-                            .title("Thank you!!")
-                            .text("参加しているグループにボットが入室しました。アプリでグループに名前をつけてください。(ボットを招待した記憶がない場合、グループ内の他の誰かがボットを招待した可能性もあります。")
-                            .build())
-                    .build()
-            //val lineIds = appUsers.map { it.lineId }.toSet()
-            //val reseponse = restOperations.getForObject("/bot/group/$groupId/members/ids", GroupMember::class.java)
-            //if (reseponse != null) {
-            //    // joinしたらメンバーを全員スキャン & ボットを持っている人であれば、group_idを紐付け
-            //    var appUsers = appUserRepository.findAllById(reseponse.memberIds)
-            //    appUsers = appUsers.map { appUser ->
-            //        println("testd:lineId" + appUser.lineId)
-            //        val currentGroupNumber = appUser.appUserGroups?.size ?: 0
-            //        appUser.appUserGroups?.plus(AppUserGroup(
-            //                appUser = appUser,
-            //                group = Group(groupId),
-            //                displayName = "グループ${currentGroupNumber + 1}")
-            //        )
-            //        println("testd:appUserGroupCount:" + appUser.appUserGroups?.size)
-            //        appUser
-            //    }
-            //    appUserRepository.saveAll(appUsers)
+        //println("join event: " + event.source.toString())
+        //var groupId: String? = null
+        //when (event.source) {
+        //    is RoomSource -> {
+        //        groupId = (event.source as RoomSource).roomId
+        //    }
+        //    is GroupSource -> {
+        //        groupId = (event.source as GroupSource).groupId
+        //    }
+        //    else -> {
+        //        println("no id")
+        //    }
+        //}
+        //if (groupId != null) {
+        //    val reseponse = restOperations.getForObject("/bot/group/$groupId/members/ids", GroupMember::class.java)
+        //    if (reseponse != null) {
+        //        // joinしたらメンバーを全員スキャン & ボットを持っている人であれば、group_idを紐付け
+        //        var appUsers = appUserRepository.findAllById(reseponse.memberIds)
+        //        appUsers = appUsers.map { appUser ->
+        //            println("testd:lineId" + appUser.lineId)
+        //            val currentGroupNumber = appUser.appUserGroups?.size ?: 0
+        //            appUser.appUserGroups?.plus(AppUserGroup(
+        //                    appUser = appUser,
+        //                    group = Group(groupId),
+        //                    displayName = "グループ${currentGroupNumber + 1}")
+        //            )
+        //            println("testd:appUserGroupCount:" + appUser.appUserGroups?.size)
+        //            appUser
+        //        }
+        //        appUserRepository.saveAll(appUsers)
 
-            //    // それとは別にLinePushでグループにボットが入ったことを教えてあげる。(アプリへのリンク付きで)
-            //    // (アプリ側でグループ名を設定させる。)
-            //    val message = TemplateMessage.builder()
-            //            .altText("参加しているグループにボットが入室しました。アプリでグループに名前をつけてください。(ボットを招待した記憶がない場合、グループ内の他の誰かがボットを招待した可能性もあります。)")
-            //            .template(ButtonsTemplate.builder()
-            //                    .title("Thank you!!")
-            //                    .text("参加しているグループにボットが入室しました。アプリでグループに名前をつけてください。(ボットを招待した記憶がない場合、グループ内の他の誰かがボットを招待した可能性もあります。")
-            //                    .build())
-            //            .build()
-            //    val lineIds = appUsers.map { it.lineId }.toSet()
-            //    restOperations.postForObject("bot/message/multicast", Multicast(lineIds, message), Void::class.java)
-            //}
-        }
+        //        // それとは別にLinePushでグループにボットが入ったことを教えてあげる。(アプリへのリンク付きで)
+        //        // (アプリ側でグループ名を設定させる。)
+        //        val message = TemplateMessage.builder()
+        //                .altText("参加しているグループにボットが入室しました。アプリでグループに名前をつけてください。(ボットを招待した記憶がない場合、グループ内の他の誰かがボットを招待した可能性もあります。)")
+        //                .template(ButtonsTemplate.builder()
+        //                        .title("Thank you!!")
+        //                        .text("参加しているグループにボットが入室しました。アプリでグループに名前をつけてください。(ボットを招待した記憶がない場合、グループ内の他の誰かがボットを招待した可能性もあります。")
+        //                        .build())
+        //                .build()
+        //        val lineIds = appUsers.map { it.lineId }.toSet()
+        //        restOperations.postForObject("bot/message/multicast", Multicast(lineIds, message), Void::class.java)
+        //    }
+        //}
     }
 
     @EventMapping
     fun handleTextMessageEvent(event: MessageEvent<TextMessageContent>): TextMessage {
         println("event: messageEvent")
+        var groupId: String? = null
+        println("testd:id" + event.source)
+        when (event.source) {
+            is RoomSource -> {
+                groupId = (event.source as RoomSource).roomId
+                println("testd:room" + groupId)
+            }
+            is GroupSource -> {
+                groupId = (event.source as GroupSource).groupId
+                println("testd:group" + groupId)
+            }
+            else -> {
+                groupId = (event.source as UserSource).userId
+                println("testd:user" + groupId)
+            }
+        }
         return TextMessage(event.message.text)
     }
 
