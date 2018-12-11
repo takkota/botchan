@@ -195,7 +195,7 @@ class LineEventHandler {
                             .text("参加しているグループにボットが入室しました。アプリでグループに名前をつけてください。(ボットを招待した記憶がない場合、グループ内の他の誰かがボットを招待した可能性もあります。")
                             .build())
                     .build()
-            restOperations.postForObject("bot/message/push", PushMessage(lineId, message), Void::class.java)
+            restOperations.postForObject("/bot/message/push", PushMessage(lineId, message), Void::class.java)
         }
 
         return TextMessage(event.message.text)

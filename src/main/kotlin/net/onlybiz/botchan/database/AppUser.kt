@@ -21,7 +21,7 @@ data class AppUser(
         @Column(name = "link_date_time")
         var linkDateTime: Date? = null,
 
-        @OneToMany(mappedBy = "appUser", cascade = [CascadeType.ALL], orphanRemoval = true) // 中間テーブルとのリレーション
+        @OneToMany(mappedBy = "appUser", cascade = [CascadeType.ALL]) // 中間テーブルとのリレーション
         // mappedByを使うことでテーブルの作成を抑制する。(こちらはオーナーではないことを示す)
         var appUserGroups: Set<AppUserGroup>? = null
 ) : CommonEntity()

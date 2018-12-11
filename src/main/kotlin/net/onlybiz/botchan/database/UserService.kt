@@ -23,11 +23,11 @@ class UserService {
     fun saveAppUserGroupFromLineId(lineId: String, groupId: String): Boolean {
         val appUser = appUserRepository.findByLineId(lineId)
         appUser ?: return false
-        println("testd:lineUser" + appUser?.lineId)
+        println("testd:lineUser" + appUser.lineId)
 
-        val alreadyCombined = appUser?.appUserGroups?.count { it.group?.id == groupId } ?: 0 > 0
+        val alreadyCombined = appUser.appUserGroups?.count { it.group?.id == groupId } ?: 0 > 0
         println("testd:alreadyCombined" + alreadyCombined)
-        if (appUser != null && !alreadyCombined) {
+        if (!alreadyCombined) {
             println("testd:save")
             appUserGroupRepository.save(AppUserGroup(appUser = appUser, group = Group(id = groupId)))
             return true

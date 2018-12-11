@@ -4,6 +4,15 @@ spring:
     url: ${SPRING_DATASOURCE_URL}
     username: ${SPRING_DATABASE_USERNAME}
     password: ${SPRING_DATABASE_PASSWORD}
+    validationQuery: SELECT 1
+    hikari:
+      leak-detection-threshold: 5000
+      connection-test-query: SELECT 1
+      minimum-idle: 5
+      maximum-pool-size: 10
+      auto-commit: false
+      maxLifetime: 80000
+
   jpa:
     database: MYSQL
     hibernate:
