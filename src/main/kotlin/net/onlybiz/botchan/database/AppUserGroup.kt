@@ -6,7 +6,12 @@ import javax.persistence.*
 
 
 @Entity
-@Table(name = "app_user_groups")
+@Table(
+        name = "app_user_groups",
+        uniqueConstraints = [
+                UniqueConstraint(columnNames = ["app_user_id", "group_id"])
+        ]
+)
 data class AppUserGroup(
         @Id
         @Column
