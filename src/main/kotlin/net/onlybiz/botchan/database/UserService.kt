@@ -29,7 +29,7 @@ class UserService {
         println("testd:alreadyCombined" + alreadyCombined)
         if (appUser != null && !alreadyCombined) {
             println("testd:save")
-            appUserGroupRepository.save(AppUserGroup(appUser = appUser, group = Group()))
+            appUserGroupRepository.save(AppUserGroup(appUser = appUser, group = Group(id = groupId)))
             return true
         }
         return false

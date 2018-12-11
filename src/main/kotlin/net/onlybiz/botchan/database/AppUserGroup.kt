@@ -4,6 +4,8 @@ import org.hibernate.annotations.Cascade
 import java.io.Serializable
 import java.util.*
 import javax.persistence.*
+import javax.validation.Constraint
+import javax.validation.constraints.NotNull
 
 
 @Entity
@@ -20,10 +22,12 @@ data class AppUserGroup(
 
         // AppUserは登録ずみの前提なので、CascadeTypeはAllにしない
         @ManyToOne
+        @NotNull
         var appUser: AppUser? = null,
 
         // Groupを新規で登録できるように
         @ManyToOne(cascade = [CascadeType.ALL])
+        @NotNull
         var group: Group? = null,
 
         @Column(name="display_name")
