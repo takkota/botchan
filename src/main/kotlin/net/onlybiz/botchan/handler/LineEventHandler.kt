@@ -184,6 +184,8 @@ class LineEventHandler {
         println("event: messageEvent")
         val lineId = event.source.userId
         val groupId  = event.source.senderId
+        println("event: lineId" + lineId)
+        println("event: groupId" + groupId)
 
         if (userService.saveAppUserGroupFromLineId(lineId, groupId)) {
             val message = TemplateMessage.builder()
