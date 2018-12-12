@@ -21,7 +21,7 @@ class BotController {
     // Lineと連携するためのリンクを発行する。
     @RequestMapping(value = ["/message"], method = [RequestMethod.POST])
     fun saveBotReply(@RequestBody body: MessageParameter) {
-        println("testd" + body.toString())
+        println("testd" + body.message.toString())
         // appUserRepository.save(AppUser(body.userId, null, nonce, null))
     }
 }
