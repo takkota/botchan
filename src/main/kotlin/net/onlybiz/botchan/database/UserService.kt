@@ -39,7 +39,8 @@ class UserService {
 
     @Transactional(readOnly = true)
     fun test() {
+        println("testd:test")
         val botReply = botReplyMessage.findById(1)
-        println(botReply)
+        println("testd:botReplay" + botReply)
     }
 }
