@@ -1,17 +1,10 @@
 package net.onlybiz.botchan.database
 
-import com.linecorp.bot.model.message.TemplateMessage
-import java.io.Serializable
-import java.util.*
 import javax.persistence.*
 import javax.validation.constraints.NotNull
-import com.google.gson.Gson
 import com.linecorp.bot.model.message.Message
 import com.linecorp.bot.model.objectmapper.ModelObjectMapper
-import sun.plugin2.util.PojoUtil.toJson
 import javax.persistence.AttributeConverter
-
-
 
 
 @Entity
