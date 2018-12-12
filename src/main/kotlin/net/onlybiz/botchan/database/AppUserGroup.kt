@@ -23,12 +23,12 @@ data class AppUserGroup(
         // AppUserは登録ずみの前提なので、CascadeTypeはAllにしない
         @ManyToOne
         @NotNull
-        var appUser: AppUser,
+        var appUser: AppUser? = null,
 
         // Groupを新規で登録できるように
         @ManyToOne(cascade = [CascadeType.ALL])
         @NotNull
-        var group: Group,
+        var group: Group? = null,
 
         @Column(name="display_name")
         var displayName: String? = null
