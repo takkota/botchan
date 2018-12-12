@@ -184,6 +184,7 @@ class LineEventHandler {
         val lineId = event.source.userId
         val groupId  = event.source.senderId
         println("testd:handleMessage")
+        userService.test()
 
         if (userService.saveAppUserGroupFromLineId(lineId, groupId)) {
             println("testd:sendMessage")

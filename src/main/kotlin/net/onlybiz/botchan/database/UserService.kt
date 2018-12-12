@@ -18,6 +18,9 @@ class UserService {
     @Autowired
     private lateinit var groupRepository: GroupRepository
 
+    @Autowired
+    private lateinit var botReplyMessage: BotReplyRepository
+
     // user_idとgroup_idを紐付ける
     @Transactional
     fun saveAppUserGroupFromLineId(lineId: String, groupId: String): Boolean {
@@ -32,5 +35,11 @@ class UserService {
             return true
         }
         return false
+    }
+
+    @Transactional(readOnly = true)
+    fun test() {
+        val botReply = botReplyMessage.findById(1)
+        println(botReply)
     }
 }
