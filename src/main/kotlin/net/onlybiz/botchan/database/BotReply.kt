@@ -20,7 +20,7 @@ data class BotReply(
 
         @ManyToOne(cascade = [CascadeType.ALL])
         @NotNull
-        var user: AppUser? = null,
+        var appUser: AppUser? = null,
 
         @OneToMany(mappedBy = "botReply", cascade = [CascadeType.ALL]) // 中間テーブルとのリレーション
         var botReplayCondition: List<BotReplyCondition>? = null,
@@ -31,6 +31,7 @@ data class BotReply(
 ): CommonEntity()
 
 class MessageConverter: AttributeConverter<Message, String> {
+        // LineSdkで使用しているObjectMapperを使う
         override fun convertToDatabaseColumn(message: Message): String {
                 val mapper = ModelObjectMapper.createNewObjectMapper()
                 return mapper.writeValueAsString(message)
@@ -40,16 +41,3 @@ class MessageConverter: AttributeConverter<Message, String> {
                 return mapper.readValue(source, Message::class.java)
         }
 }
-
-//abstract class Message: Serializable {
-//        var type: String? = null
-//}
-//
-//data class TextMessage(
-//        var text: String? = null
-//): Message()
-//
-//data class StampMessage(
-//        var originalContentUrl: String? = null,
-//        var previewImageUrl: String? = null
-//): Message()

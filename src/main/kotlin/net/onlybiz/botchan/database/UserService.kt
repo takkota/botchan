@@ -39,11 +39,8 @@ class UserService {
 
     @Transactional(readOnly = true)
     fun test() {
-        println("testd:test")
         val botReplies = botReplyRepository.findAll()
-        println("testd:size" + botReplies.size)
         if (botReplies.size > 0) {
-            println("testd:botReplay" + botReplies[0].message)
         }
     }
 }
