@@ -10,6 +10,9 @@ import org.springframework.transaction.annotation.Transactional
 class BotService {
 
     @Autowired
+    private lateinit var appUserGroupRepository: AppUserGroupRepository
+
+    @Autowired
     private lateinit var botReplyRepository: BotReplyRepository
 
     @Transactional(readOnly = true)
@@ -20,9 +23,7 @@ class BotService {
     }
 
     @Transactional
-    fun saveBotReply() {
-        val botReplies = botReplyRepository.findAll()
-        if (botReplies.size > 0) {
-        }
+    fun saveBotReply(userId: String, groupIds: List<String>) {
+        BotReply()
     }
 }

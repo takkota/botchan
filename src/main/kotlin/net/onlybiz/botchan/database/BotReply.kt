@@ -14,9 +14,8 @@ data class BotReply(
         @GeneratedValue(strategy= GenerationType.IDENTITY)
         var id: Long? = null,
 
-        @ManyToOne(cascade = [CascadeType.ALL])
-        @NotNull
-        var group: Group? = null,
+        @ManyToMany(cascade = [CascadeType.ALL])
+        var groups: List<Group>? = null,
 
         @ManyToOne(cascade = [CascadeType.ALL])
         @NotNull

@@ -15,6 +15,6 @@ data class Group(
         // mappedByを使うことでテーブルの作成を抑制する。(こちらはオーナーではないことを示す)
         var appUserGroups: List<AppUserGroup>? = null,
 
-        @OneToMany(mappedBy = "group", cascade = [CascadeType.ALL], orphanRemoval = true) // 中間テーブルとのリレーション
+        @ManyToMany(mappedBy = "groups", cascade = [CascadeType.ALL])
         var botReplies: List<BotReply>? = null
 ) : CommonEntity()
