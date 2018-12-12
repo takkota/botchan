@@ -19,7 +19,7 @@ class UserService {
     private lateinit var groupRepository: GroupRepository
 
     @Autowired
-    private lateinit var botReplyMessage: BotReplyRepository
+    private lateinit var botReplyRepository: BotReplyRepository
 
     // user_idとgroup_idを紐付ける
     @Transactional
@@ -40,7 +40,10 @@ class UserService {
     @Transactional(readOnly = true)
     fun test() {
         println("testd:test")
-        val botReply = botReplyMessage.findById(1)
-        println("testd:botReplay" + botReply)
+        val botReplies = botReplyRepository.findAll()
+        println("testd:size" + botReplies.size)
+        if (botReplies.size > 0) {
+            println("testd:botReplay" + botReplies[0].message)
+        }
     }
 }

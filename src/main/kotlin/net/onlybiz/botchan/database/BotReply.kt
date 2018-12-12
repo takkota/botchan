@@ -37,9 +37,6 @@ class MessageConverter: AttributeConverter<Message, String> {
         }
         override fun convertToEntityAttribute(source: String): Message {
                 val mapper = ModelObjectMapper.createNewObjectMapper()
-                val result = mapper.readValue(source, Message::class.java)
-                println("testd:read" + result)
-                println("testd:read1" + result.toString())
                 return mapper.readValue(source, Message::class.java)
         }
 }
