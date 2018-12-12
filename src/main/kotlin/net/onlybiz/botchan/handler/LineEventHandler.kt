@@ -183,8 +183,10 @@ class LineEventHandler {
     fun handleTextMessageEvent(event: MessageEvent<TextMessageContent>): TextMessage {
         val lineId = event.source.userId
         val groupId  = event.source.senderId
+        println("testd:handleMessage")
 
         if (userService.saveAppUserGroupFromLineId(lineId, groupId)) {
+            println("testd:sendMessage")
             val message = TemplateMessage.builder()
                     .altText("参加しているグループにボットが入室しました。アプリでグループに名前をつけてください。(ボットを招待した記憶がない場合、グループ内の他の誰かがボットを招待した可能性もあります。)")
                     .template(ButtonsTemplate.builder()
