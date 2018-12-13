@@ -5,7 +5,7 @@ import javax.validation.constraints.NotNull
 
 
 @Entity
-@Table(name = "bot_reply_conditions")
+@Table(name = "bot_reply_condition")
 data class BotReplyCondition(
         @Id
         @GeneratedValue(strategy= GenerationType.IDENTITY)

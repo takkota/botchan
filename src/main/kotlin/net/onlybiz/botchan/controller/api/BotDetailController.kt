@@ -18,7 +18,7 @@ class BotDetailController {
     // ボット詳細を保存
     @RequestMapping(value = ["/save"], method = [RequestMethod.POST])
     fun saveBotDetail(@RequestBody body: BotDetailSaveParameter) {
-        botService.saveBotDetail(id = body.id, userId = body.userId, groupIds = body.groupIds, conditions = body.condition, message = body.message)
+        botService.saveBotDetail(id = body.id, userId = body.userId, groupIds = body.groupIds, conditions = body.conditions, message = body.message)
     }
 
     // ボット詳細を取得

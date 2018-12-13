@@ -8,7 +8,7 @@ import javax.persistence.AttributeConverter
 
 
 @Entity
-@Table(name = "bot_details")
+@Table(name = "bot_detail")
 data class BotDetail(
         @Id
         @GeneratedValue(strategy= GenerationType.IDENTITY)

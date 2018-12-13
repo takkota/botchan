@@ -63,7 +63,6 @@ class LineEventHandler {
                 .path("/account/link")
                 .queryParam("linkToken", reseponse.linkToken)
                 .build()
-        println("testd:actionUri:${actionUri.toString()}")
         return TemplateMessage.builder()
                 .altText("友たち追加ありがとうございます。以下のボタンをタップして、アプリとの連携を完了させてください。")
                 .template(ButtonsTemplate.builder()
@@ -79,6 +78,7 @@ class LineEventHandler {
 
     @EventMapping
     fun handleAccountLinkEvent(event: AccountLinkEvent): TemplateMessage {
+        println("event: $event")
         return if (event.link.result == LinkContent.Result.OK) {
             val appUser = appUserRepository.findByNonce(event.link.nonce)
             if (appUser != null) {
@@ -128,20 +128,32 @@ class LineEventHandler {
     }
 
     @EventMapping
-    fun handleTextMessageEvent(event: MessageEvent<TextMessageContent>): TextMessage {
-        val lineId = event.source.userId
+    fun handleJoinEvent(event: JoinEvent): TemplateMessage {
+        println("event: $event")
         val groupId  = event.source.senderId
 
-        if (userService.saveAppUserGroupFromLineId(lineId, groupId)) {
-            val message = TemplateMessage.builder()
-                    .altText("参加しているグループにボットが入室しました。アプリでグループに名前をつけてください。(ボットを招待した記憶がない場合、グループ内の他の誰かがボットを招待した可能性もあります。)")
-                    .template(ButtonsTemplate.builder()
-                            .title("Thank you!!")
-                            .text("参加しているグループにボットが入室しました。アプリでグループに名前をつけてください。(ボットを招待した記憶がない場合、グループ内の他の誰かがボットを招待した可能性もあります。")
-                            .build())
-                    .build()
-            restOperations.postForObject("/bot/message/push", PushMessage(lineId, message), Void::class.java)
-        }
+        val imageUri = UriComponentsBuilder.newInstance()
+                .scheme("https")
+                .host(server.hostName)
+                .path("/static/image/thank_you.png")
+                .queryParam("group_id", groupId)
+                .build()
+        return TemplateMessage.builder()
+                .altText("アプリでBotの設定をしましょう!")
+                .template(ButtonsTemplate.builder()
+                        .title("招待ありがとうございます!")
+                        .text("アプリでBotの設定をしましょう!")
+                        .actions(listOf(URIAction("アプリへ", imageUri.toUriString())))
+                        .build()
+                )
+                .build()
+    }
+
+    @EventMapping
+    fun handleTextMessageEvent(event: MessageEvent<TextMessageContent>): TextMessage {
+        println("event: $event")
+        val lineId = event.source.userId
+        val groupId  = event.source.senderId
 
         return TextMessage(event.message.text)
     }

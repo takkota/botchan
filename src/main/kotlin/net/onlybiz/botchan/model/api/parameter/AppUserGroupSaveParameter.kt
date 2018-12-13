@@ -4,9 +4,8 @@ import com.linecorp.bot.model.message.Message
 import net.onlybiz.botchan.database.BotReplyCondition
 import net.onlybiz.botchan.model.api.parameter.BasicParameter
 
-class BotDetailSaveParameter: BasicParameter() {
+class AppUserGroupSaveParameter: BasicParameter() {
     var id: Long? = null
-    lateinit var groupIds: List<String>
-    lateinit var conditions: List<BotReplyCondition>
-    lateinit var message: Message
+    lateinit var groupId: String
+    var displayName: String? = null
 }

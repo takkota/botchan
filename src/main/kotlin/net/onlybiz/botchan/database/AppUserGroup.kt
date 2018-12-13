@@ -10,7 +10,7 @@ import javax.validation.constraints.NotNull
 
 @Entity
 @Table(
-        name = "app_user_groups",
+        name = "app_user_group",
         uniqueConstraints = [
                 UniqueConstraint(columnNames = ["app_user_id", "group_id"])
         ]
