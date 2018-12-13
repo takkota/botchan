@@ -1,6 +1,5 @@
 package net.onlybiz.botchan.database
 
-import java.util.*
 import javax.persistence.*
 import javax.validation.constraints.NotNull
 
@@ -16,13 +15,9 @@ data class BotReplyCondition(
 
         var matchMethod: String? = null,
 
-        var validTimeFrom: Date? = null,
-
-        var validTimeTo: Date? = null,
-
         var reactToOwnerOnly: Boolean = false,
 
         @ManyToOne(cascade = [CascadeType.ALL])
         @NotNull
-        var botReply: BotReply? = null
+        var botDetail: BotDetail? = null
 ) : CommonEntity()

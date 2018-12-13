@@ -8,8 +8,8 @@ import javax.persistence.AttributeConverter
 
 
 @Entity
-@Table(name = "bot_replies")
-data class BotReply(
+@Table(name = "bot_details")
+data class BotDetail(
         @Id
         @GeneratedValue(strategy= GenerationType.IDENTITY)
         var id: Long? = null,
@@ -21,8 +21,8 @@ data class BotReply(
         @NotNull
         var appUser: AppUser? = null,
 
-        @OneToMany(mappedBy = "botReply", cascade = [CascadeType.ALL]) // 中間テーブルとのリレーション
-        var botReplayCondition: List<BotReplyCondition>? = null,
+        @OneToMany(mappedBy = "botDetail", cascade = [CascadeType.ALL]) // 中間テーブルとのリレーション
+        var botReplyConditions: List<BotReplyCondition>? = null,
 
         @Column(nullable = false)
         @Convert(converter = MessageConverter::class)

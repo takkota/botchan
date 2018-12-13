@@ -26,6 +26,6 @@ data class AppUser(
         var appUserGroups: List<AppUserGroup>? = null,
 
         @OneToMany(mappedBy = "appUser", cascade = [CascadeType.ALL], orphanRemoval = true)
-        var botReplies: List<BotReply>? = null
+        var botDetails: List<BotDetail>? = null
 ) : CommonEntity()
 

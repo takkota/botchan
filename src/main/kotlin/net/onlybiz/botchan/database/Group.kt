@@ -1,6 +1,5 @@
 package net.onlybiz.botchan.database
 
-import java.util.*
 import javax.persistence.*
 
 
@@ -16,5 +15,5 @@ data class Group(
         var appUserGroups: List<AppUserGroup>? = null,
 
         @ManyToMany(mappedBy = "groups", cascade = [CascadeType.ALL])
-        var botReplies: List<BotReply>? = null
+        var botDetails: List<BotDetail>? = null
 ) : CommonEntity()
