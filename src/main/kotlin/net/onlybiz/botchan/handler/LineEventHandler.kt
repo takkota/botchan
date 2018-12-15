@@ -13,6 +13,7 @@ import com.linecorp.bot.model.message.template.ButtonsTemplate
 import net.onlybiz.botchan.database.*
 import net.onlybiz.botchan.model.line.response.LinkToken
 import net.onlybiz.botchan.service.UserService
+import net.onlybiz.botchan.settings.DeepLink
 import net.onlybiz.botchan.settings.Server
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.client.RestOperations
@@ -24,6 +25,9 @@ class LineEventHandler {
 
     @Autowired
     lateinit var restOperations: RestOperations
+
+    @Autowired
+    lateinit var deeplink: DeepLink
 
     @Autowired
     lateinit var server: Server
@@ -54,22 +58,22 @@ class LineEventHandler {
         }
         val imageUri = UriComponentsBuilder.newInstance()
                 .scheme("https")
-                .host(server.hostName)
+                .host(deeplink.domain)
                 .path("/static/image/thank_you.png")
                 .build()
         val actionUri = UriComponentsBuilder.newInstance()
                 .scheme("https")
                 .host(server.hostName)
-                .path("/account/link")
-                .queryParam("linkToken", reseponse.linkToken)
+                .path("link_start")
+                .queryParam("token", reseponse.linkToken)
                 .build()
         return TemplateMessage.builder()
-                .altText("友たち追加ありがとうございます。以下のボタンをタップして、アプリとの連携を完了させてください。")
+                .altText("友たち追加ありがとうございます。以下のボタンをタップして、アプリと連携しましょう!。")
                 .template(ButtonsTemplate.builder()
                         .thumbnailImageUrl(imageUri.toString())
                         .imageSize("contain")
                         .title("Thank you!!")
-                        .text("友たち追加ありがとうございます。以下のボタンをタップして、アプリとの連携を完了させてください。")
+                        .text("友たち追加ありがとうございます。以下のボタンをタップして、アプリと連携しましょう!")
                         .actions(listOf(URIAction("連携する", actionUri.toString())))
                         .build()
                 )
@@ -87,8 +91,8 @@ class LineEventHandler {
                 appUserRepository.save(appUser)
                 val actionUri = UriComponentsBuilder.newInstance()
                         .scheme("https")
-                        .host(server.hostName)
-                        .path("/account/link")
+                        .host(deeplink.domain)
+                        .path("link_complete")
                         .build()
                 TemplateMessage.builder()
                         .altText("アプリに戻って自分好みのボットを作りましょう！")
@@ -113,7 +117,6 @@ class LineEventHandler {
             val actionUri = UriComponentsBuilder.newInstance()
                     .scheme("https")
                     .host(server.hostName)
-                    .path("/account/link")
                     .build()
             TemplateMessage.builder()
                     .altText("連携に失敗しました。")
@@ -136,12 +139,11 @@ class LineEventHandler {
                 .scheme("https")
                 .host(server.hostName)
                 .path("/static/image/thank_you.png")
-                .queryParam("group_id", groupId)
                 .build()
         return TemplateMessage.builder()
                 .altText("アプリでBotの設定をしましょう!")
                 .template(ButtonsTemplate.builder()
-                        .title("招待ありがとうございます!")
+                        .title("グループへ招待ありがとうございます!")
                         .text("アプリでBotの設定をしましょう!")
                         .actions(listOf(URIAction("アプリへ", imageUri.toUriString())))
                         .build()

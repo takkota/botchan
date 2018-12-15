@@ -17,3 +17,9 @@ class LineSetting {
 class Server {
     lateinit var hostName: String
 }
+
+@Component
+@ConfigurationProperties(prefix = "deeplink")
+class DeepLink {
+    lateinit var domain: String
+}

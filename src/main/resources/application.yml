@@ -33,3 +33,7 @@ line:
 # server
 server:
   hostName: "sheltered-scrubland-23764.herokuapp.com"
+
+# deeplink
+deeplink:
+  domain: "botchan.page.link"
