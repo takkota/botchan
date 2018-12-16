@@ -15,8 +15,8 @@ class BotController {
     lateinit var botService: BotService
 
     // ボット一覧を取得
-    @RequestMapping(value = ["/"], method = [RequestMethod.GET])
-    fun getBotList(@RequestParam basicParam: BasicParameter): List<BotDetail>? {
+    @RequestMapping(value = ["/"], method = [RequestMethod.POST])
+    fun getBotList(@RequestBody basicParam: BasicParameter): List<BotDetail>? {
         return botService.findBotList(basicParam.userId)
     }
 }
