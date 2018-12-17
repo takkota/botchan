@@ -27,7 +27,7 @@ class BotDetailController {
                 matchMethod =  body.matchMethod,
                 reactToOwnerOnly = body.reactToOwnerOnly
         )
-        botService.saveBotDetail(id = body.id, userId = body.userId, groupIds = body.groupIds, replyCondition = condition, message = body.message)
+        botService.saveBotDetail(id = body.id, userId = body.userId, groupIds = body.roomIds, replyCondition = condition, message = body.message)
     }
 
     // ボット詳細を保存
@@ -37,7 +37,7 @@ class BotDetailController {
                 id = body.id,
                 scheduleTime = body.scheduleTime
         )
-        botService.saveBotDetail(id = body.id, userId = body.userId, groupIds = body.groupIds, pushCondition = condition, message = body.message)
+        botService.saveBotDetail(id = body.id, userId = body.userId, groupIds = body.roomIds, pushCondition = condition, message = body.message)
     }
 
     // ボット詳細を取得

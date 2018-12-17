@@ -6,6 +6,6 @@ import net.onlybiz.botchan.model.api.parameter.BasicParameter
 
 class AppUserGroupSaveParameter: BasicParameter() {
     var id: Long? = null
-    lateinit var groupId: String
+    lateinit var roomId: String
     var displayName: String? = null
 }

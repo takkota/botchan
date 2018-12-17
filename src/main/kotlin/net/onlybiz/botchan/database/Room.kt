@@ -4,16 +4,16 @@ import javax.persistence.*
 
 
 @Entity
-@Table(name = "group")
-data class Group(
+@Table(name = "room")
+data class Room(
         @Id
         @Column(length = 36)
         var id: String? = null,
 
-        @OneToMany(mappedBy = "group", cascade = [CascadeType.ALL], orphanRemoval = true) // 中間テーブルとのリレーション
+        @OneToMany(mappedBy = "room", cascade = [CascadeType.ALL], orphanRemoval = true) // 中間テーブルとのリレーション
         // mappedByを使うことでテーブルの作成を抑制する。(こちらはオーナーではないことを示す)
-        var appUserGroups: List<AppUserGroup>? = null,
+        var appUserRooms: List<AppUserRoom>? = null,
 
-        @ManyToMany(mappedBy = "groups", cascade = [CascadeType.ALL])
+        @ManyToMany(mappedBy = "rooms", cascade = [CascadeType.ALL])
         var botDetails: List<BotDetail>? = null
 ) : CommonEntity()

@@ -4,6 +4,4 @@ import org.springframework.data.jpa.repository.JpaRepository
 import org.springframework.stereotype.Repository
 
 @Repository
-interface BotReplyRepository: JpaRepository<BotDetail, Long> {
-    fun findByAppUserId(userId: String): List<BotDetail>
-}
+interface AppUserRoomRepository: JpaRepository<AppUserRoom, Int>

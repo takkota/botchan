@@ -14,14 +14,14 @@ class AppUserController {
     lateinit var userService: UserService
 
     // ボット一覧を取得
-    @RequestMapping(value = ["/groups/save"], method = [RequestMethod.POST])
+    @RequestMapping(value = ["/rooms/save"], method = [RequestMethod.POST])
     fun saveAppUserGroup(@RequestBody body: AppUserGroupSaveParameter) {
         if (body.id != null && body.displayName != null) {
             // 表示名更新
-            userService.saveGroupDisplayName(body.id!!, body.displayName!!)
+            userService.saveRoomDisplayName(body.id!!, body.displayName!!)
         } else {
             // user groupの紐付け
-            userService.saveAppUserAndGroupId(body.userId, body.groupId)
+            userService.saveAppUserAndRoomId(body.userId, body.roomId)
         }
     }
 }

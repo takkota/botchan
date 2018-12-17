@@ -14,23 +14,23 @@ class BotService {
     private lateinit var appUserRepository: AppUserRepository
 
     @Autowired
-    private lateinit var groupRepository: GroupRepository
+    private lateinit var roomRepository: RoomRepository
 
     @Autowired
-    private lateinit var botReplyRepository: BotReplyRepository
+    private lateinit var botDetailRepository: BotDetailRepository
 
     @Transactional
     fun saveBotDetail(id: Long? = null, userId: String, groupIds: List<String> = listOf(), replyCondition: BotReplyCondition? = null, pushCondition: BotPushCondition? = null, message: Message) {
         try {
             val appUser = appUserRepository.findById(userId).get()
-            val groups = groupRepository.findAllById(groupIds)
+            val groups = roomRepository.findAllById(groupIds)
             // 新規登録
-            val botDetail = BotDetail(appUser = appUser, groups = groups, botReplyCondition = replyCondition, botPushCondition = pushCondition, message = message)
+            val botDetail = BotDetail(appUser = appUser, rooms = groups, botReplyCondition = replyCondition, botPushCondition = pushCondition, message = message)
             if (id != null) {
                 // 更新
                 botDetail.id = id
             }
-            botReplyRepository.save(botDetail)
+            botDetailRepository.save(botDetail)
         } catch (e: NoSuchElementException) {
             return
         }
@@ -39,7 +39,7 @@ class BotService {
     @Transactional(readOnly = true)
     fun findBotDetail(id: Long): BotDetail? {
         return try {
-            val botDetail = botReplyRepository.findById(id)
+            val botDetail = botDetailRepository.findById(id)
             botDetail.get()
         } catch (e: NoSuchElementException) {
             null
@@ -49,7 +49,7 @@ class BotService {
     @Transactional(readOnly = true)
     fun findBotList(userId: String): List<BotDetail>? {
         return try {
-            botReplyRepository.findByAppUserId(userId)
+            botDetailRepository.findByAppUserId(userId)
         } catch (e: NoSuchElementException) {
             null
         }

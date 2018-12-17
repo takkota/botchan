@@ -13,41 +13,41 @@ class UserService {
     private lateinit var appUserRepository: AppUserRepository
 
     @Autowired
-    private lateinit var appUserGroupRepository: AppUserGroupRepository
+    private lateinit var appUserRoomRepository: AppUserRoomRepository
 
     @Autowired
-    private lateinit var groupRepository: GroupRepository
+    private lateinit var roomRepository: RoomRepository
 
     @Autowired
-    private lateinit var botReplyRepository: BotReplyRepository
+    private lateinit var botDetailRepository: BotDetailRepository
 
-    // userIdとgroup_idを紐付ける
+    // userIdとroom_idを紐付ける
     @Transactional
-    fun saveAppUserAndGroupId(userId: String, groupId: String): Boolean {
+    fun saveAppUserAndRoomId(userId: String, roomId: String): Boolean {
         val appUser = appUserRepository.findById(userId).get()
 
-        val alreadyCombined = appUser.appUserGroups?.count { it.group?.id == groupId } ?: 0 > 0
+        val alreadyCombined = appUser.appUserRooms?.count { it.room?.id == roomId } ?: 0 > 0
         if (!alreadyCombined) {
-            appUserGroupRepository.save(AppUserGroup(appUser = appUser, group = Group(id = groupId)))
+            appUserRoomRepository.save(AppUserRoom(appUser = appUser, room = Room(id = roomId)))
             return true
         }
         return false
     }
 
-    // groupの表示名を更新する
+    // roomの表示名を更新する
     @Transactional
-    fun saveGroupDisplayName(id: Long, displayName: String) {
-        appUserGroupRepository.save(AppUserGroup(id = id, displayName = displayName))
+    fun saveRoomDisplayName(id: Long, displayName: String) {
+        appUserRoomRepository.save(AppUserRoom(id = id, displayName = displayName))
     }
 
-    // line_userIdとgroup_idを紐付ける(未使用)
+    // line_userIdとroom_idを紐付ける(未使用)
     @Transactional
-    fun saveAppUserGroupFromLineId(lineId: String, groupId: String): Boolean {
+    fun saveAppUserRoomFromLineId(lineId: String, roomId: String): Boolean {
         val appUser = appUserRepository.findByLineId(lineId)
 
-        val alreadyCombined = appUser.appUserGroups?.count { it.group?.id == groupId } ?: 0 > 0
+        val alreadyCombined = appUser.appUserRooms?.count { it.room?.id == roomId } ?: 0 > 0
         if (!alreadyCombined) {
-            appUserGroupRepository.save(AppUserGroup(appUser = appUser, group = Group(id = groupId)))
+            appUserRoomRepository.save(AppUserRoom(appUser = appUser, room = Room(id = roomId)))
             return true
         }
         return false
@@ -55,7 +55,7 @@ class UserService {
 
     @Transactional(readOnly = true)
     fun test() {
-        val botReplies = botReplyRepository.findAll()
+        val botReplies = botDetailRepository.findAll()
         if (botReplies.size > 0) {
         }
     }

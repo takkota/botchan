@@ -1,21 +1,17 @@
 package net.onlybiz.botchan.database
 
-import org.hibernate.annotations.Cascade
-import java.io.Serializable
-import java.util.*
 import javax.persistence.*
-import javax.validation.Constraint
 import javax.validation.constraints.NotNull
 
 
 @Entity
 @Table(
-        name = "app_user_group",
+        name = "app_user_room",
         uniqueConstraints = [
-                UniqueConstraint(columnNames = ["app_user_id", "group_id"])
+                UniqueConstraint(columnNames = ["app_user_id", "room_id"])
         ]
 )
-data class AppUserGroup(
+data class AppUserRoom(
         @Id
         @GeneratedValue(strategy= GenerationType.IDENTITY)
         var id: Long? = null,
@@ -25,10 +21,10 @@ data class AppUserGroup(
         @NotNull
         var appUser: AppUser? = null,
 
-        // Groupを新規で登録できるように
+        // Roomを新規で登録できるように
         @ManyToOne(cascade = [CascadeType.ALL])
         @NotNull
-        var group: Group? = null,
+        var room: Room? = null,
 
         @Column(name="display_name")
         var displayName: String? = null
