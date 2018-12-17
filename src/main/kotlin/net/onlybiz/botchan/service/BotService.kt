@@ -29,15 +29,13 @@ class BotService {
             val groups = roomRepository.findAllById(groupIds)
             // 新規登録
             val botDetail = BotDetail(appUser = appUser, rooms = groups, message = message)
-            print("testd:newObject")
             if (id != null) {
                 // 更新
-                print("testd:update")
                 botDetail.id = id
             }
             val savedBotDetail = botDetailRepository.saveAndFlush(botDetail)
-            print("testd:saved")
 
+            // 関連テーブルのボット条件を保存
             if (replyCondition != null) {
                 replyCondition.botDetail = savedBotDetail
                 botReplyConditionRepository.save(replyCondition)

@@ -17,7 +17,7 @@ data class BotDetail(
         @ManyToMany(cascade = [CascadeType.ALL])
         var rooms: List<Room>? = null,
 
-        @ManyToOne(cascade = [CascadeType.ALL])
+        @ManyToOne(cascade = [CascadeType.ALL], optional = false)
         @NotNull
         var appUser: AppUser? = null,
 
