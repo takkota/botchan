@@ -19,18 +19,30 @@ class BotService {
     @Autowired
     private lateinit var botDetailRepository: BotDetailRepository
 
+    @Autowired
+    private lateinit var botReplyConditionRepository: BotReplyConditionRepository
+
     @Transactional
     fun saveBotDetail(id: Long? = null, userId: String, groupIds: List<String> = listOf(), replyCondition: BotReplyCondition? = null, pushCondition: BotPushCondition? = null, message: Message) {
         try {
             val appUser = appUserRepository.findById(userId).get()
             val groups = roomRepository.findAllById(groupIds)
             // 新規登録
-            val botDetail = BotDetail(appUser = appUser, rooms = groups, botReplyCondition = replyCondition, botPushCondition = pushCondition, message = message)
+            val botDetail = BotDetail(appUser = appUser, rooms = groups, message = message)
+            print("testd:newObject")
             if (id != null) {
                 // 更新
+                print("testd:update")
                 botDetail.id = id
             }
-            botDetailRepository.save(botDetail)
+            val savedBotDetail = botDetailRepository.saveAndFlush(botDetail)
+            print("testd:saved")
+
+            if (replyCondition != null) {
+                replyCondition.botDetail = savedBotDetail
+                botReplyConditionRepository.save(replyCondition)
+            }
+
         } catch (e: NoSuchElementException) {
             return
         }
