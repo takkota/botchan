@@ -4,11 +4,11 @@ import com.linecorp.bot.model.message.Message
 import net.onlybiz.botchan.database.BotPushCondition
 import net.onlybiz.botchan.database.BotReplyCondition
 import net.onlybiz.botchan.model.api.parameter.BasicParameter
+import java.util.*
 
-class BotDetailSaveParameter: BasicParameter() {
+class BotPushParameter: BasicParameter() {
     var id: Long? = null
-    lateinit var groupIds: List<String>
-    var replyCondition: BotReplyCondition? = null
-    var pushCondition: BotPushCondition? = null
+    var groupIds: List<String> = listOf()
+    lateinit var scheduleTime: Date
     lateinit var message: Message
 }

@@ -17,7 +17,6 @@ data class BotReplyCondition(
 
         var reactToOwnerOnly: Boolean = false,
 
-        @ManyToOne(cascade = [CascadeType.ALL])
-        @NotNull
+        @ManyToOne(cascade = [CascadeType.ALL], optional = false)
         var botDetail: BotDetail? = null
 ) : CommonEntity()

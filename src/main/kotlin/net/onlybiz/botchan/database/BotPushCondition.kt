@@ -11,10 +11,7 @@ data class BotPushCondition(
         @Id
         @GeneratedValue(strategy= GenerationType.IDENTITY)
         var id: Long? = null,
-
         var scheduleTime: Date? = null,
-
-        @ManyToOne(cascade = [CascadeType.ALL])
-        @NotNull
+        @ManyToOne(cascade = [CascadeType.ALL], optional = false)
         var botDetail: BotDetail? = null
 ) : CommonEntity()

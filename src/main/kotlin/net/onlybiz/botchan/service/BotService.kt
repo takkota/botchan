@@ -20,7 +20,7 @@ class BotService {
     private lateinit var botReplyRepository: BotReplyRepository
 
     @Transactional
-    fun saveBotDetail(id: Long? = null, userId: String, groupIds: List<String> = listOf(), replyCondition: BotReplyCondition?, pushCondition: BotPushCondition?, message: Message) {
+    fun saveBotDetail(id: Long? = null, userId: String, groupIds: List<String> = listOf(), replyCondition: BotReplyCondition? = null, pushCondition: BotPushCondition? = null, message: Message) {
         try {
             val appUser = appUserRepository.findById(userId).get()
             val groups = groupRepository.findAllById(groupIds)
