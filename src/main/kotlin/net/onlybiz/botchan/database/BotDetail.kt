@@ -21,8 +21,11 @@ data class BotDetail(
         @NotNull
         var appUser: AppUser? = null,
 
-        @OneToMany(mappedBy = "botDetail", cascade = [CascadeType.ALL]) // 中間テーブルとのリレーション
-        var botReplyConditions: List<BotReplyCondition>? = null,
+        @OneToOne(mappedBy = "botDetail", cascade = [CascadeType.ALL])
+        var botReplyCondition: BotReplyCondition? = null,
+
+        @OneToOne(mappedBy = "botDetail", cascade = [CascadeType.ALL])
+        var botPushCondition: BotPushCondition? = null,
 
         @Column(nullable = false)
         @Convert(converter = MessageConverter::class)

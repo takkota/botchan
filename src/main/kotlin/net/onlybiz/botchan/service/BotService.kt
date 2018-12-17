@@ -20,16 +20,15 @@ class BotService {
     private lateinit var botReplyRepository: BotReplyRepository
 
     @Transactional
-    fun saveBotDetail(id: Long? = null, userId: String, groupIds: List<String> = listOf(), conditions: List<BotReplyCondition> = listOf(), message: Message) {
+    fun saveBotDetail(id: Long? = null, userId: String, groupIds: List<String> = listOf(), replyCondition: BotReplyCondition?, pushCondition: BotPushCondition?, message: Message) {
         try {
             val appUser = appUserRepository.findById(userId).get()
             val groups = groupRepository.findAllById(groupIds)
-            val botDetail = if (id == null) {
-                // 新規登録
-                BotDetail(appUser = appUser, groups = groups, botReplyConditions = conditions, message = message)
-            } else {
+            // 新規登録
+            val botDetail = BotDetail(appUser = appUser, groups = groups, botReplyCondition = replyCondition, botPushCondition = pushCondition, message = message)
+            if (id != null) {
                 // 更新
-                BotDetail(id = id, appUser = appUser, groups = groups, botReplyConditions = conditions, message = message)
+                botDetail.id = id
             }
             botReplyRepository.save(botDetail)
         } catch (e: NoSuchElementException) {
