@@ -22,22 +22,35 @@ class BotService {
     private lateinit var botPushScheduleRepository: BotPushScheduleRepository
 
     @Transactional
-    fun saveBotDetail(id: Long? = null, userId: String, roomIds: List<String> = listOf(), replyCondition: BotReplyCondition? = null, pushSchedule: BotPushSchedule? = null, message: Message) {
+    fun saveBotDetail(id: Long? = null, userId: String, roomIds: List<String> = listOf(), replyConditionParam: BotReplyCondition? = null, pushScheduleParam: BotPushSchedule? = null, message: Message) {
         try {
             val appUser = appUserRepository.findById(userId).get()
             val rooms = roomRepository.findAllById(roomIds)
             val botDetail = if (id == null) {
                 // 新規登録
-                BotDetail(appUser = appUser, rooms = rooms, message = message)
+                BotDetail(appUser = appUser, rooms = rooms, message = message).apply {
+                    if (botReplyCondition != null) {
+                        this.botReplyCondition = replyConditionParam
+                    }
+                    if (botPushSchedule!= null) {
+                        botPushSchedule = pushScheduleParam
+                    }
+                }
             } else {
                 // 更新
                 botDetailRepository.findById(id).get().apply {
                     this.rooms = rooms
-                    if (botReplyCondition != null) {
-                        this.botReplyCondition = replyCondition
+                    if (replyConditionParam != null) {
+                        this.botReplyCondition?.apply {
+                            keyword = replyConditionParam.keyword
+                            matchMethod = replyConditionParam.matchMethod
+                            reactToOwnerOnly = replyConditionParam.reactToOwnerOnly
+                        }
                     }
-                    if (botPushSchedule!= null) {
-                        botPushSchedule = pushSchedule
+                    if (pushScheduleParam != null) {
+                        botPushSchedule?.apply {
+                            this.scheduleTime = pushScheduleParam.scheduleTime
+                        }
                     }
                 }
             }

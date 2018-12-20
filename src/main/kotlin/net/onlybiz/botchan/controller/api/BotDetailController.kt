@@ -22,22 +22,20 @@ class BotDetailController {
     @RequestMapping(value = ["/reply/save"], method = [RequestMethod.POST])
     fun saveBotReply(@RequestBody body: BotReplyParameter) {
         val condition = BotReplyCondition(
-                id = body.id,
                 keyword =  body.keyword,
                 matchMethod =  body.matchMethod,
                 reactToOwnerOnly = body.reactToOwnerOnly
         )
-        botService.saveBotDetail(id = body.id, userId = body.userId, roomIds = body.roomIds, replyCondition = condition, message = body.message)
+        botService.saveBotDetail(id = body.botId, userId = body.userId, roomIds = body.roomIds, replyCondition = condition, message = body.message)
     }
 
     // ボット詳細を保存
     @RequestMapping(value = ["/push/save"], method = [RequestMethod.POST])
     fun saveBotPush(@RequestBody body: BotPushParameter) {
         val condition = BotPushSchedule(
-                id = body.id,
                 scheduleTime = body.scheduleTime
         )
-        botService.saveBotDetail(id = body.id, userId = body.userId, roomIds = body.roomIds, pushSchedule = condition, message = body.message)
+        botService.saveBotDetail(id = body.botId, userId = body.userId, roomIds = body.roomIds, pushSchedule = condition, message = body.message)
     }
 
     // ボット詳細を取得
