@@ -29,10 +29,10 @@ class BotService {
             val botDetail = if (id == null) {
                 // 新規登録
                 BotDetail(appUser = appUser, rooms = rooms, message = message).apply {
-                    if (botReplyCondition != null) {
+                    if (replyConditionParam != null) {
                         this.botReplyCondition = replyConditionParam
                     }
-                    if (botPushSchedule!= null) {
+                    if (pushScheduleParam != null) {
                         botPushSchedule = pushScheduleParam
                     }
                 }
