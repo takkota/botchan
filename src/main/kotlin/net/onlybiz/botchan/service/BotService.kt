@@ -54,6 +54,7 @@ class BotService {
                     }
                 }
             }
+            replyConditionParam?.botDetail = botDetail
             botDetailRepository.save(botDetail)
 
             // 関連テーブルを保存
