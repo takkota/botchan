@@ -12,34 +12,46 @@ class BotService {
 
     @Autowired
     private lateinit var appUserRepository: AppUserRepository
-
     @Autowired
     private lateinit var roomRepository: RoomRepository
-
     @Autowired
     private lateinit var botDetailRepository: BotDetailRepository
-
     @Autowired
     private lateinit var botReplyConditionRepository: BotReplyConditionRepository
+    @Autowired
+    private lateinit var botPushScheduleRepository: BotPushScheduleRepository
 
     @Transactional
-    fun saveBotDetail(id: Long? = null, userId: String, groupIds: List<String> = listOf(), replyCondition: BotReplyCondition? = null, pushCondition: BotPushCondition? = null, message: Message) {
+    fun saveBotDetail(id: Long? = null, userId: String, roomIds: List<String> = listOf(), replyCondition: BotReplyCondition? = null, pushSchedule: BotPushSchedule? = null, message: Message) {
         try {
             val appUser = appUserRepository.findById(userId).get()
-            val groups = roomRepository.findAllById(groupIds)
-            // 新規登録
-            val botDetail = BotDetail(appUser = appUser, rooms = groups, message = message)
-            if (id != null) {
+            val rooms = roomRepository.findAllById(roomIds)
+            val botDetail = if (id == null) {
+                // 新規登録
+                BotDetail(appUser = appUser, rooms = rooms, message = message)
+            } else {
                 // 更新
-                botDetail.id = id
+                botDetailRepository.findById(id).get().apply {
+                    this.rooms = rooms
+                    if (botReplyCondition != null) {
+                        this.botReplyCondition = replyCondition
+                    }
+                    if (botPushSchedule!= null) {
+                        botPushSchedule = pushSchedule
+                    }
+                }
             }
-            val savedBotDetail = botDetailRepository.saveAndFlush(botDetail)
+            botDetailRepository.save(botDetail)
 
-            // 関連テーブルのボット条件を保存
-            if (replyCondition != null) {
-                replyCondition.botDetail = savedBotDetail
-                botReplyConditionRepository.save(replyCondition)
-            }
+            // 関連テーブルを保存
+            //if (replyCondition != null) {
+            //    replyCondition.botDetail = savedBotDetail
+            //    botReplyConditionRepository.save(replyCondition)
+            //}
+            //if (pushSchedule != null) {
+            //    pushSchedule.botDetail = savedBotDetail
+            //    botPushScheduleRepository.save(pushSchedule)
+            //}
 
         } catch (e: NoSuchElementException) {
             return

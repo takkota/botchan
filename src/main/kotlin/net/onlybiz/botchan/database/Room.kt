@@ -14,6 +14,7 @@ data class Room(
         // mappedByを使うことでテーブルの作成を抑制する。(こちらはオーナーではないことを示す)
         var appUserRooms: List<AppUserRoom>? = null,
 
-        @ManyToMany(mappedBy = "rooms", cascade = [CascadeType.ALL])
+        @ManyToMany(mappedBy = "rooms", cascade = [CascadeType.PERSIST]) // CascadeType.Allだとdelete時にbotDetailまで消されるので
         var botDetails: List<BotDetail>? = null
-) : CommonEntity()
+) : CommonEntity() {
+}

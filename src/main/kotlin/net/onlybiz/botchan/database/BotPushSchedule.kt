@@ -7,7 +7,7 @@ import javax.validation.constraints.NotNull
 
 @Entity
 @Table(name = "bot_push_condition")
-data class BotPushCondition(
+data class BotPushSchedule(
         @Id
         @GeneratedValue(strategy= GenerationType.IDENTITY)
         var id: Long? = null,

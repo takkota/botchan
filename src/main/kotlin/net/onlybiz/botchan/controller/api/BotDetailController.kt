@@ -1,7 +1,7 @@
 package net.onlybiz.botchan.controller.api
 
 import net.onlybiz.botchan.database.BotDetail
-import net.onlybiz.botchan.database.BotPushCondition
+import net.onlybiz.botchan.database.BotPushSchedule
 import net.onlybiz.botchan.database.BotReplyCondition
 import net.onlybiz.botchan.model.api.parameter.BotDetailGetParameter
 import net.onlybiz.botchan.model.api.parameter.BotPushParameter
@@ -27,17 +27,17 @@ class BotDetailController {
                 matchMethod =  body.matchMethod,
                 reactToOwnerOnly = body.reactToOwnerOnly
         )
-        botService.saveBotDetail(id = body.id, userId = body.userId, groupIds = body.roomIds, replyCondition = condition, message = body.message)
+        botService.saveBotDetail(id = body.id, userId = body.userId, roomIds = body.roomIds, replyCondition = condition, message = body.message)
     }
 
     // ボット詳細を保存
     @RequestMapping(value = ["/push/save"], method = [RequestMethod.POST])
     fun saveBotPush(@RequestBody body: BotPushParameter) {
-        val condition = BotPushCondition(
+        val condition = BotPushSchedule(
                 id = body.id,
                 scheduleTime = body.scheduleTime
         )
-        botService.saveBotDetail(id = body.id, userId = body.userId, groupIds = body.roomIds, pushCondition = condition, message = body.message)
+        botService.saveBotDetail(id = body.id, userId = body.userId, roomIds = body.roomIds, pushSchedule = condition, message = body.message)
     }
 
     // ボット詳細を取得

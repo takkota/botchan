@@ -14,7 +14,7 @@ data class BotDetail(
         @GeneratedValue(strategy= GenerationType.IDENTITY)
         var id: Long? = null,
 
-        @ManyToMany(cascade = [CascadeType.ALL])
+        @ManyToMany(cascade = [CascadeType.PERSIST]) // CascadeType.Allだとdelete時にroomまで消されるので
         var rooms: List<Room>? = null,
 
         @ManyToOne(cascade = [CascadeType.ALL], optional = false)
@@ -25,7 +25,7 @@ data class BotDetail(
         var botReplyCondition: BotReplyCondition? = null,
 
         @OneToOne(mappedBy = "botDetail", cascade = [CascadeType.ALL])
-        var botPushCondition: BotPushCondition? = null,
+        var botPushSchedule: BotPushSchedule? = null,
 
         @Column(nullable = false)
         @Convert(converter = MessageConverter::class)
