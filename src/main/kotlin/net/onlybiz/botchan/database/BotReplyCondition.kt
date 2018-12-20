@@ -17,6 +17,6 @@ data class BotReplyCondition(
 
         var reactToOwnerOnly: Boolean = false,
 
-        @OneToOne(mappedBy = "botReplyCondition", optional = false)
+        @OneToOne(mappedBy = "botReplyCondition")
         var botDetail: BotDetail? = null
 ) : CommonEntity()
