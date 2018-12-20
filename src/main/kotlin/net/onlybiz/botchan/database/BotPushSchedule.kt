@@ -12,6 +12,6 @@ data class BotPushSchedule(
         @GeneratedValue(strategy= GenerationType.IDENTITY)
         var id: Long? = null,
         var scheduleTime: Date? = null,
-        @ManyToOne(cascade = [CascadeType.ALL], optional = false)
+        @OneToOne(mappedBy = "botPushSchedule", optional = false)
         var botDetail: BotDetail? = null
 ) : CommonEntity()
