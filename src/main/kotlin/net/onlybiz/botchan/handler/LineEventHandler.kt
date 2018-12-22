@@ -1,6 +1,7 @@
 package net.onlybiz.botchan.api
 
 import com.linecorp.bot.model.PushMessage
+import com.linecorp.bot.model.action.Action
 import com.linecorp.bot.model.action.URIAction
 import com.linecorp.bot.model.event.*
 import com.linecorp.bot.spring.boot.annotation.LineMessageHandler
@@ -18,6 +19,7 @@ import net.onlybiz.botchan.settings.Server
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.client.RestOperations
 import org.springframework.web.util.UriComponentsBuilder
+import java.net.URI
 import java.util.*
 
 @LineMessageHandler
@@ -40,7 +42,7 @@ class LineEventHandler {
 
     // BotをFollowした(アプリから or 直接)
     @EventMapping
-    fun handleFollowEvent(event: FollowEvent): TextMessage {
+    fun handleFollowEvent(event: FollowEvent): TemplateMessage {
         println("event: $event")
         val userId = event.source.userId
         val imageUri = UriComponentsBuilder.newInstance()
@@ -48,24 +50,31 @@ class LineEventHandler {
                 .host(server.hostName)
                 .path("/static/image/thank_you.png")
                 .build()
+        val linkParam = UriComponentsBuilder.newInstance()
+                .host(deeplink.linkBase)
+                .path("link_start")
+                .queryParam("userId", userId)
+                .build()
         val actionUri = UriComponentsBuilder.newInstance()
                 .scheme("https")
                 .host(deeplink.domain)
                 .path("link_start")
+                .queryParam("link", linkParam)
+                .queryParam("apn", deeplink.apn)
+                .queryParam("ibi", deeplink.ibi)
+                .queryParam("isi", deeplink.isi)
                 .build()
-        return TextMessage.builder()
-                .text("友たち追加ありがとうございます。\n以下のURLをタップして、アプリと連携しましょう!\n${actionUri.toString()}")
+        return TemplateMessage.builder()
+                .altText("友たち追加ありがとうございます。以下のボタンをタップして、アプリと連携しましょう!。")
+                .template(ButtonsTemplate.builder()
+                        .thumbnailImageUrl(imageUri.toString())
+                        .imageSize("contain")
+                        .title("Thank you!!")
+                        .text("友たち追加ありがとうございます。\n以下のボタンをタップして、アプリと連携しましょう!")
+                        .actions(listOf(URIAction("連携する", actionUri.toString())))
+                        .build()
+                )
                 .build()
-        //return TemplateMessage.builder()
-        //        .altText("友たち追加ありがとうございます。以下のボタンをタップして、アプリと連携しましょう!。")
-        //        .template(ButtonsTemplate.builder()
-        //                .thumbnailImageUrl(imageUri.toString())
-        //                .imageSize("contain")
-        //                .title("Thank you!!")
-        //                .text("友たち追加ありがとうございます。\n以下のURLをタップして、アプリと連携しましょう!\n${actionUri.toString()}")
-        //                .build()
-        //        )
-        //        .build()
     }
 
     @EventMapping

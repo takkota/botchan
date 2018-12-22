@@ -22,4 +22,8 @@ class Server {
 @ConfigurationProperties(prefix = "deeplink")
 class DeepLink {
     lateinit var domain: String
+    lateinit var linkBase: String
+    lateinit var apn: String
+    lateinit var ibi: String
+    lateinit var isi: String
 }

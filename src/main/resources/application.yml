@@ -37,3 +37,7 @@ server:
 # deeplink
 deeplink:
   domain: "botchan.page.link"
+  linkBase: "sheltered-scrubland-23764.herokuapp.com"
+  apn: "net.onlybiz.botchanclient"
+  ibi: "net.onlybiz.botchanClient"
+  isi: "123456789"
