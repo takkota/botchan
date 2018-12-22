@@ -1,10 +1,10 @@
 window.onload = function (e) {
     liff.init(function (data) {
         initializeApp(data);
-    });
-    liff.openWindow({
-        url: "http://botchan.page.link/link_start?userId=b",
-        external: true
+        liff.openWindow({
+            url: "http://botchan.page.link/link_start?userId=b",
+            external: true
+        });
     });
 };
 
