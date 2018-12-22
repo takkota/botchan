@@ -21,6 +21,14 @@ class UserService {
     @Autowired
     private lateinit var botDetailRepository: BotDetailRepository
 
+    // userIdを保存する
+    @Transactional
+    fun saveAppUser(userId: String) {
+        if (!appUserRepository.findById(userId).isPresent) {
+            appUserRepository.save(AppUser(id = userId))
+        }
+    }
+
     // userIdとroom_idを紐付ける
     @Transactional
     fun saveAppUserAndRoomId(userId: String, roomId: String): Boolean {

@@ -10,6 +10,7 @@ data class AppUser(
         @Id
         @Column(length = 36)
         // dataクラスで定義する場合、デフォルト値を入れておかないとInstantiationException: No default constructor for entityが発生する
+        // 実際はParameterで受け取るので、初期値は使われない
         var id: String = UUID.randomUUID().toString(),
 
         @Column(name = "line_id", unique = true)

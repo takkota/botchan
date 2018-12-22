@@ -1,6 +1,7 @@
 package net.onlybiz.botchan.controller.api
 
 import net.onlybiz.botchan.model.api.parameter.AppUserGroupSaveParameter
+import net.onlybiz.botchan.model.api.parameter.BasicParameter
 import net.onlybiz.botchan.service.UserService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.*
@@ -23,5 +24,11 @@ class AppUserController {
             // 新規登録(userId, roomId の紐付け)
             userService.saveAppUserAndRoomId(body.userId, body.roomId)
         }
+    }
+
+    // app_userを保存・更新
+    @RequestMapping(value = ["/user/save"], method = [RequestMethod.POST])
+    fun saveAppUser(@RequestBody body: BasicParameter) {
+        userService.saveAppUser(body.userId)
     }
 }
