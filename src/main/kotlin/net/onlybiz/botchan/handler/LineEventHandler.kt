@@ -65,7 +65,7 @@ class LineEventHandler {
                 .scheme("https")
                 .host(deeplink.domain)
                 .path("link_start")
-                .queryParam("token", reseponse.linkToken)
+                //.queryParam("token", reseponse.linkToken)
                 .build()
         return TemplateMessage.builder()
                 .altText("友たち追加ありがとうございます。以下のボタンをタップして、アプリと連携しましょう!。")
