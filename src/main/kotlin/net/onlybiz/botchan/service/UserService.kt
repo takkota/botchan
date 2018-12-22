@@ -23,10 +23,16 @@ class UserService {
 
     // userIdを保存する
     @Transactional
-    fun saveAppUser(userId: String) {
+    fun saveAppUserId(userId: String) {
         if (!appUserRepository.findById(userId).isPresent) {
             appUserRepository.save(AppUser(id = userId))
         }
+    }
+
+    // userIdを保存する
+    @Transactional
+    fun saveAppUserIdAndLineId(userId: String, lineId: String) {
+        appUserRepository.save(AppUser(id = userId, lineId = lineId))
     }
 
     // userIdとroom_idを紐付ける

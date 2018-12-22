@@ -43,20 +43,6 @@ class LineEventHandler {
     fun handleFollowEvent(event: FollowEvent): TextMessage {
         println("event: $event")
         val userId = event.source.userId
-        val reseponse = restOperations.postForObject("/bot/user/$userId/linkToken", "", LinkToken::class.java)
-        if (reseponse?.linkToken == null) {
-            val imageUri = "https://5ddb0f2d.ngrok.io/static/image/thank_you.png"
-            return TextMessage.builder()
-                    .text("")
-                    //.altText("連携に失敗しました。大変恐れ入りますが、このアカウントを一度ブロックし、再度友達に追加してください。")
-                    //.template(ButtonsTemplate.builder()
-                    //        .thumbnailImageUrl(imageUri)
-                    //        .imageSize("contain")
-                    //        .title("Thank you!!")
-                    //        .text("連携に失敗しました。大変恐れ入りますが、このアカウントを一度ブロックし、再度友達に追加してください。")
-                    //        .build())
-                    .build()
-        }
         val imageUri = UriComponentsBuilder.newInstance()
                 .scheme("https")
                 .host(server.hostName)

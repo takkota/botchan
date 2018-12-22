@@ -29,6 +29,6 @@ class AppUserController {
     // app_userを保存・更新
     @RequestMapping(value = ["/user/save"], method = [RequestMethod.POST])
     fun saveAppUser(@RequestBody body: BasicParameter) {
-        userService.saveAppUser(body.userId)
+        userService.saveAppUserId(body.userId)
     }
 }
