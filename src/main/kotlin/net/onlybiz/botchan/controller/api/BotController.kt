@@ -39,7 +39,7 @@ class BotController {
     }
 
     // ボット詳細(type=応答)を保存
-    @RequestMapping(value = ["/save"], method = [RequestMethod.POST])
+    @RequestMapping(value = ["/save/reply"], method = [RequestMethod.POST])
     fun saveBotReply(@RequestBody body: BotReplyParameter) {
         val condition = BotReplyCondition(
                 keyword =  body.keyword,
@@ -50,7 +50,7 @@ class BotController {
     }
 
     // ボット詳細を保存
-    @RequestMapping(value = ["/save"], method = [RequestMethod.POST])
+    @RequestMapping(value = ["/save/push"], method = [RequestMethod.POST])
     fun saveBotPush(@RequestBody body: BotPushParameter) {
         val condition = BotPushSchedule(
                 scheduleTime = body.scheduleTime
