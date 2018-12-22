@@ -41,3 +41,7 @@ deeplink:
   apn: "net.onlybiz.botchanclient"
   ibi: "net.onlybiz.botchanClient"
   isi: "123456789"
+
+# Liff endpoint
+liff:
+  linkAction: "line://app/1627641943-r63RoDm2"

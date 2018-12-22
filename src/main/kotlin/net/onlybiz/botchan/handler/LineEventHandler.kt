@@ -15,6 +15,7 @@ import net.onlybiz.botchan.database.*
 import net.onlybiz.botchan.model.line.response.LinkToken
 import net.onlybiz.botchan.service.UserService
 import net.onlybiz.botchan.settings.DeepLink
+import net.onlybiz.botchan.settings.Liff
 import net.onlybiz.botchan.settings.Server
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.client.RestOperations
@@ -30,6 +31,8 @@ class LineEventHandler {
 
     @Autowired
     lateinit var deeplink: DeepLink
+    @Autowired
+    lateinit var liff: Liff
 
     @Autowired
     lateinit var server: Server
@@ -50,20 +53,7 @@ class LineEventHandler {
                 .host(server.hostName)
                 .path("/static/image/thank_you.png")
                 .build()
-        val linkParam = UriComponentsBuilder.newInstance()
-                .host(deeplink.linkBase)
-                .path("link_start")
-                .queryParam("userId", userId)
-                .build()
-        val actionUri = UriComponentsBuilder.newInstance()
-                .scheme("https")
-                .host(deeplink.domain)
-                .path("link_start")
-                .queryParam("link", linkParam)
-                .queryParam("apn", deeplink.apn)
-                .queryParam("ibi", deeplink.ibi)
-                .queryParam("isi", deeplink.isi)
-                .build()
+        val actionUrl = liff.linkAction + "?userId=$userId"
         return TemplateMessage.builder()
                 .altText("友たち追加ありがとうございます。以下のボタンをタップして、アプリと連携しましょう!。")
                 .template(ButtonsTemplate.builder()
@@ -71,7 +61,7 @@ class LineEventHandler {
                         .imageSize("contain")
                         .title("Thank you!!")
                         .text("友たち追加ありがとうございます。\n以下のボタンをタップして、アプリと連携しましょう!")
-                        .actions(listOf(URIAction("連携する", actionUri.toString())))
+                        .actions(listOf(URIAction("連携する", actionUrl)))
                         .build()
                 )
                 .build()

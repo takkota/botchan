@@ -27,3 +27,9 @@ class DeepLink {
     lateinit var ibi: String
     lateinit var isi: String
 }
+
+@Component
+@ConfigurationProperties(prefix = "liff")
+class Liff {
+    lateinit var linkAction: String
+}

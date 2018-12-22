@@ -12,8 +12,15 @@
 <p>
     <span id="useridfield"></span>
 </p>
+<p>
+    <span th:text="${deeplink}"></span>!!!
+</p>
 
 <script src="https://d.line-scdn.net/liff/1.0/sdk.js"></script>
+<script th:inline="javascript">
+    const url = "/*[[${deeplink}]]*/";
+</script>
 <script src="/js/linkAction.js"></script>
+
 </body>
 </html>
