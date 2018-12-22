@@ -13,14 +13,14 @@ class AppUserController {
     @Autowired
     lateinit var userService: UserService
 
-    // ボット一覧を取得
+    // app_user_roomを保存・更新
     @RequestMapping(value = ["/rooms/save"], method = [RequestMethod.POST])
     fun saveAppUserGroup(@RequestBody body: AppUserGroupSaveParameter) {
         if (body.id != null && body.displayName != null) {
-            // 表示名更新
+            // 更新(表示名)
             userService.saveRoomDisplayName(body.id!!, body.displayName!!)
         } else {
-            // user groupの紐付け
+            // 新規登録(userId, roomId の紐付け)
             userService.saveAppUserAndRoomId(body.userId, body.roomId)
         }
     }

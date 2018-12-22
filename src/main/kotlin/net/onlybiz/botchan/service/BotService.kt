@@ -30,7 +30,7 @@ class BotService {
                 // 新規登録
                 BotDetail(appUser = appUser, rooms = rooms, message = message).apply {
                     if (replyConditionParam != null) {
-                        this.botReplyCondition = replyConditionParam
+                        botReplyCondition = replyConditionParam
                     }
                     if (pushScheduleParam != null) {
                         botPushSchedule = pushScheduleParam
@@ -39,6 +39,7 @@ class BotService {
             } else {
                 // 更新
                 botDetailRepository.findById(id).get().apply {
+                    this.message = message
                     this.rooms = rooms
                     if (replyConditionParam != null) {
                         this.botReplyCondition?.apply {
@@ -88,6 +89,15 @@ class BotService {
             botDetailRepository.findByAppUserId(userId)
         } catch (e: NoSuchElementException) {
             null
+        }
+    }
+
+    @Transactional
+    fun deleteBot(botId: Long) {
+        return try {
+            botDetailRepository.deleteById(botId)
+        } catch (e: NoSuchElementException) {
+            print(e)
         }
     }
 }

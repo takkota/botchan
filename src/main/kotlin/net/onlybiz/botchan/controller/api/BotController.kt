@@ -1,7 +1,12 @@
 package net.onlybiz.botchan.controller.api
 
 import net.onlybiz.botchan.database.BotDetail
+import net.onlybiz.botchan.database.BotPushSchedule
+import net.onlybiz.botchan.database.BotReplyCondition
 import net.onlybiz.botchan.model.api.parameter.BasicParameter
+import net.onlybiz.botchan.model.api.parameter.BotDetailParameter
+import net.onlybiz.botchan.model.api.parameter.BotPushParameter
+import net.onlybiz.botchan.model.api.parameter.BotReplyParameter
 import net.onlybiz.botchan.service.BotService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.*
@@ -19,4 +24,38 @@ class BotController {
     fun getBotList(@RequestBody basicParam: BasicParameter): List<BotDetail>? {
         return botService.findBotList(basicParam.userId)
     }
+
+    // ボット詳細を取得
+    @RequestMapping(value = ["/detail"], method = [RequestMethod.POST])
+    fun getBotDetail(@RequestBody body: BotDetailParameter): BotDetail? {
+        body.id ?: return null
+        return botService.findBotDetail(body.id!!)
+    }
+
+    @RequestMapping(value = ["/delete"], method = [RequestMethod.POST])
+    fun deleteBot(@RequestBody body: BotDetailParameter) {
+        body.id ?: return
+        return botService.deleteBot(body.id!!)
+    }
+
+    // ボット詳細(type=応答)を保存
+    @RequestMapping(value = ["/save"], method = [RequestMethod.POST])
+    fun saveBotReply(@RequestBody body: BotReplyParameter) {
+        val condition = BotReplyCondition(
+                keyword =  body.keyword,
+                matchMethod =  body.matchMethod,
+                reactToOwnerOnly = body.reactToOwnerOnly
+        )
+        botService.saveBotDetail(id = body.botId, userId = body.userId, roomIds = body.roomIds, replyConditionParam = condition, message = body.message)
+    }
+
+    // ボット詳細を保存
+    @RequestMapping(value = ["/save"], method = [RequestMethod.POST])
+    fun saveBotPush(@RequestBody body: BotPushParameter) {
+        val condition = BotPushSchedule(
+                scheduleTime = body.scheduleTime
+        )
+        botService.saveBotDetail(id = body.botId, userId = body.userId, roomIds = body.roomIds, pushScheduleParam = condition, message = body.message)
+    }
+
 }

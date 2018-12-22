@@ -37,7 +37,8 @@ class UserService {
     // roomの表示名を更新する
     @Transactional
     fun saveRoomDisplayName(id: Long, displayName: String) {
-        appUserRoomRepository.save(AppUserRoom(id = id, displayName = displayName))
+        val appUserRoom = AppUserRoom(id = id, displayName = displayName)
+        appUserRoomRepository.save(appUserRoom)
     }
 
     // line_userIdとroom_idを紐付ける(未使用)
