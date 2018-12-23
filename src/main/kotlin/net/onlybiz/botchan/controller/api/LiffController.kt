@@ -8,6 +8,7 @@ import org.springframework.ui.Model
 import org.springframework.web.bind.annotation.RequestMethod
 import org.springframework.web.bind.annotation.RequestParam
 import org.springframework.web.util.UriComponentsBuilder
+import java.net.URLEncoder
 
 @Controller
 @RequestMapping(value = ["/liff"])
@@ -24,17 +25,15 @@ class LiffController {
                 .path("link_start")
                 .queryParam("userId", userId)
                 .build()
-        print("testd" + linkParam.toString())
         val actionUri = UriComponentsBuilder.newInstance()
                 .scheme("https")
                 .host(deeplink.domain)
                 .path("link_start")
-                .queryParam("link", linkParam.toString())
+                .queryParam("link", URLEncoder.encode(linkParam.toString(), "UTF-8"))
                 .queryParam("apn", deeplink.apn)
                 .queryParam("ibi", deeplink.ibi)
                 .queryParam("isi", deeplink.isi)
                 .build()
-        print("testd" + actionUri.toString())
         model.addAttribute("message", "Hello Springboot")
         model.addAttribute("deeplink", actionUri.toString())
         return "linkAction"
