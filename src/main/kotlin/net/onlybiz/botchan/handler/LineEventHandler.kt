@@ -1,7 +1,5 @@
 package net.onlybiz.botchan.api
 
-import com.linecorp.bot.model.PushMessage
-import com.linecorp.bot.model.action.Action
 import com.linecorp.bot.model.action.URIAction
 import com.linecorp.bot.model.event.*
 import com.linecorp.bot.spring.boot.annotation.LineMessageHandler
@@ -12,7 +10,6 @@ import com.linecorp.bot.model.event.link.LinkContent
 import com.linecorp.bot.model.message.TemplateMessage
 import com.linecorp.bot.model.message.template.ButtonsTemplate
 import net.onlybiz.botchan.database.*
-import net.onlybiz.botchan.model.line.response.LinkToken
 import net.onlybiz.botchan.service.UserService
 import net.onlybiz.botchan.settings.DeepLink
 import net.onlybiz.botchan.settings.Liff
@@ -20,7 +17,6 @@ import net.onlybiz.botchan.settings.Server
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.client.RestOperations
 import org.springframework.web.util.UriComponentsBuilder
-import java.net.URI
 import java.util.*
 
 @LineMessageHandler
@@ -47,13 +43,13 @@ class LineEventHandler {
     @EventMapping
     fun handleFollowEvent(event: FollowEvent): TemplateMessage {
         println("event: $event")
-        val userId = event.source.userId
+        val lineId = event.source.userId
         val imageUri = UriComponentsBuilder.newInstance()
                 .scheme("https")
                 .host(server.hostName)
                 .path("/static/image/thank_you.png")
                 .build()
-        val actionUrl = liff.linkAction + "?userId=$userId"
+        val actionUrl = liff.linkAction + "?lineId=$lineId"
         return TemplateMessage.builder()
                 .altText("友たち追加ありがとうございます。以下のボタンをタップして、アプリと連携しましょう!。")
                 .template(ButtonsTemplate.builder()
