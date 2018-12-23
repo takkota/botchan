@@ -32,4 +32,5 @@ class DeepLink {
 @ConfigurationProperties(prefix = "liff")
 class Liff {
     lateinit var linkAction: String
+    lateinit var addGroupAction: String
 }

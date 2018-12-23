@@ -4,6 +4,7 @@ import net.onlybiz.botchan.database.*
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
+import java.util.*
 
 
 @Service
@@ -13,10 +14,10 @@ class UserService {
     private lateinit var appUserRepository: AppUserRepository
 
     @Autowired
-    private lateinit var appUserRoomRepository: AppUserRoomRepository
+    private lateinit var appUserLineGroupRepository: AppUserLineGroupRepository
 
     @Autowired
-    private lateinit var roomRepository: RoomRepository
+    private lateinit var lineGroupRepository: LineGroupRepository
 
     @Autowired
     private lateinit var botDetailRepository: BotDetailRepository
@@ -32,40 +33,27 @@ class UserService {
     // userIdを保存する
     @Transactional
     fun saveAppUserIdAndLineId(userId: String, lineId: String) {
-        appUserRepository.save(AppUser(id = userId, lineId = lineId))
+        appUserRepository.save(AppUser(id = userId, lineId = lineId, linkDateTime = Date()))
     }
 
-    // userIdとroom_idを紐付ける
+    // userIdとline_group_idを紐付ける
     @Transactional
-    fun saveAppUserAndRoomId(userId: String, roomId: String): Boolean {
+    fun saveAppUserAndLineGroupId(userId: String, groupId: String): Boolean {
         val appUser = appUserRepository.findById(userId).get()
 
-        val alreadyCombined = appUser.appUserRooms?.count { it.room?.id == roomId } ?: 0 > 0
+        val alreadyCombined = appUser.appUserLineGroups?.count { it.lineGroup?.id == groupId } ?: 0 > 0
         if (!alreadyCombined) {
-            appUserRoomRepository.save(AppUserRoom(appUser = appUser, room = Room(id = roomId)))
+            appUserLineGroupRepository.save(AppUserLineGroup(appUser = appUser, lineGroup = LineGroup(id = groupId)))
             return true
         }
         return false
     }
 
-    // roomの表示名を更新する
+    // groupの表示名を更新する
     @Transactional
-    fun saveRoomDisplayName(id: Long, displayName: String) {
-        val appUserRoom = AppUserRoom(id = id, displayName = displayName)
-        appUserRoomRepository.save(appUserRoom)
-    }
-
-    // line_userIdとroom_idを紐付ける(未使用)
-    @Transactional
-    fun saveAppUserRoomFromLineId(lineId: String, roomId: String): Boolean {
-        val appUser = appUserRepository.findByLineId(lineId)
-
-        val alreadyCombined = appUser.appUserRooms?.count { it.room?.id == roomId } ?: 0 > 0
-        if (!alreadyCombined) {
-            appUserRoomRepository.save(AppUserRoom(appUser = appUser, room = Room(id = roomId)))
-            return true
-        }
-        return false
+    fun saveGroupDisplayName(id: Long, displayName: String) {
+        val appUserGroup = AppUserLineGroup(id = id, displayName = displayName)
+        appUserLineGroupRepository.save(appUserGroup)
     }
 
     @Transactional(readOnly = true)

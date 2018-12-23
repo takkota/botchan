@@ -13,7 +13,7 @@ class BotService {
     @Autowired
     private lateinit var appUserRepository: AppUserRepository
     @Autowired
-    private lateinit var roomRepository: RoomRepository
+    private lateinit var lineGroupRepository: LineGroupRepository
     @Autowired
     private lateinit var botDetailRepository: BotDetailRepository
     @Autowired
@@ -22,13 +22,13 @@ class BotService {
     private lateinit var botPushScheduleRepository: BotPushScheduleRepository
 
     @Transactional
-    fun saveBotDetail(id: Long? = null, userId: String, roomIds: List<String> = listOf(), replyConditionParam: BotReplyCondition? = null, pushScheduleParam: BotPushSchedule? = null, message: Message) {
+    fun saveBotDetail(id: Long? = null, userId: String, groupIds: List<String> = listOf(), replyConditionParam: BotReplyCondition? = null, pushScheduleParam: BotPushSchedule? = null, message: Message) {
         try {
             val appUser = appUserRepository.findById(userId).get()
-            val rooms = roomRepository.findAllById(roomIds)
+            val groups = lineGroupRepository.findAllById(groupIds)
             val botDetail = if (id == null) {
                 // 新規登録
-                BotDetail(appUser = appUser, rooms = rooms, message = message).apply {
+                BotDetail(appUser = appUser, lineGroups = groups, message = message).apply {
                     if (replyConditionParam != null) {
                         botReplyCondition = replyConditionParam
                     }
@@ -40,7 +40,7 @@ class BotService {
                 // 更新
                 botDetailRepository.findById(id).get().apply {
                     this.message = message
-                    this.rooms = rooms
+                    this.lineGroups = groups
                     if (replyConditionParam != null) {
                         this.botReplyCondition?.apply {
                             keyword = replyConditionParam.keyword

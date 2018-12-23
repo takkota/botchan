@@ -5,6 +5,6 @@ import net.onlybiz.botchan.database.BotReplyCondition
 import net.onlybiz.botchan.model.api.parameter.BasicParameter
 
 class AppUserSaveParameter: BasicParameter() {
-    lateinit var roomId: String
+    lateinit var lineGroupId: String
     var displayName: String? = null
 }

@@ -4,7 +4,7 @@ import com.linecorp.bot.model.message.Message
 
 class BotReplyParameter: BasicParameter() {
     var botId: Long? = null
-    var roomIds: List<String> = listOf()
+    var lineGroupIds: List<String> = listOf()
     lateinit var keyword: String
     lateinit var matchMethod: String
     var reactToOwnerOnly: Boolean = false

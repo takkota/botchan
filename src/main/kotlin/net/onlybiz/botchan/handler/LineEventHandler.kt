@@ -64,54 +64,6 @@ class LineEventHandler {
     }
 
     @EventMapping
-    fun handleAccountLinkEvent(event: AccountLinkEvent): TemplateMessage {
-        println("event: $event")
-        return if (event.link.result == LinkContent.Result.OK) {
-            val appUser = appUserRepository.findByNonce(event.link.nonce)
-            if (appUser != null) {
-                appUser.linkDateTime = Date()
-                appUser.lineId = event.source.userId
-                appUserRepository.save(appUser)
-                val actionUri = UriComponentsBuilder.newInstance()
-                        .scheme("https")
-                        .host(deeplink.domain)
-                        .path("link_complete")
-                        .build()
-                TemplateMessage.builder()
-                        .altText("アプリに戻って自分好みのボットを作りましょう！")
-                        .template(ButtonsTemplate.builder()
-                                .title("連携が完了しました")
-                                .text("アプリに戻って自分好みのボットを作りましょう！\n${actionUri.toString()}")
-                                .build()
-                        )
-                        .build()
-            } else {
-                TemplateMessage.builder()
-                        .altText("失敗しました")
-                        .template(ButtonsTemplate.builder()
-                                .title("失敗しました")
-                                .text("失敗しました")
-                                .build()
-                        )
-                        .build()
-            }
-        } else {
-            val actionUri = UriComponentsBuilder.newInstance()
-                    .scheme("https")
-                    .host(deeplink.domain)
-                    .build()
-            TemplateMessage.builder()
-                    .altText("連携に失敗しました。")
-                    .template(ButtonsTemplate.builder()
-                            .title("連携に失敗しました。")
-                            .text("もう一度最初からやり直してください")
-                            .build()
-                    )
-                    .build()
-        }
-    }
-
-    @EventMapping
     fun handleJoinEvent(event: JoinEvent): TemplateMessage {
         println("event: $event")
         val groupId  = event.source.senderId
@@ -121,17 +73,15 @@ class LineEventHandler {
                 .host(server.hostName)
                 .path("/static/image/thank_you.png")
                 .build()
-        val actionUri = UriComponentsBuilder.newInstance()
-                .scheme("https")
-                .host(deeplink.domain)
-                .path("link_start")
-                .queryParam("group_id", groupId)
-                .build()
+        val actionUrl = liff.addGroupAction + "?groupId=$groupId"
         return TemplateMessage.builder()
                 .altText("アプリでBotの設定をしましょう!")
                 .template(ButtonsTemplate.builder()
+                        .thumbnailImageUrl(imageUri.toString())
+                        .imageSize("contain")
                         .title("グループへ招待ありがとうございます!")
-                        .text("アプリでBotの設定をしましょう!\n${actionUri.toUriString()}")
+                        .text("アプリでBotの設定をしましょう!")
+                        .actions(listOf(URIAction("アプリにグループを追加", actionUrl)))
                         .build()
                 )
                 .build()

@@ -46,7 +46,7 @@ class BotController {
                 matchMethod =  body.matchMethod,
                 reactToOwnerOnly = body.reactToOwnerOnly
         )
-        botService.saveBotDetail(id = body.botId, userId = body.userId, roomIds = body.roomIds, replyConditionParam = condition, message = body.message)
+        botService.saveBotDetail(id = body.botId, userId = body.userId, groupIds = body.lineGroupIds, replyConditionParam = condition, message = body.message)
     }
 
     // ボット詳細を保存
@@ -55,7 +55,7 @@ class BotController {
         val condition = BotPushSchedule(
                 scheduleTime = body.scheduleTime
         )
-        botService.saveBotDetail(id = body.botId, userId = body.userId, roomIds = body.roomIds, pushScheduleParam = condition, message = body.message)
+        botService.saveBotDetail(id = body.botId, userId = body.userId, groupIds = body.lineGroupIds, pushScheduleParam = condition, message = body.message)
     }
 
 }

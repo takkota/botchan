@@ -6,12 +6,12 @@ import javax.validation.constraints.NotNull
 
 @Entity
 @Table(
-        name = "app_user_room",
+        name = "app_user_line_group",
         uniqueConstraints = [
-                UniqueConstraint(columnNames = ["app_user_id", "room_id"])
+                UniqueConstraint(columnNames = ["app_user_id", "line_group_id"])
         ]
 )
-data class AppUserRoom(
+data class AppUserLineGroup(
         @Id
         @GeneratedValue(strategy= GenerationType.IDENTITY)
         var id: Long? = null,
@@ -21,10 +21,10 @@ data class AppUserRoom(
         @NotNull
         var appUser: AppUser? = null,
 
-        // Roomを新規で登録できるように
+        // LineGroupを新規で登録できるように
         @ManyToOne(cascade = [CascadeType.ALL])
         @NotNull
-        var room: Room? = null,
+        var lineGroup: LineGroup? = null,
 
         @Column(name="display_name")
         var displayName: String? = null

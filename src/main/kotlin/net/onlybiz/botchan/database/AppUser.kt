@@ -24,7 +24,7 @@ data class AppUser(
 
         @OneToMany(mappedBy = "appUser", cascade = [CascadeType.ALL]) // 中間テーブルとのリレーション
         // mappedByを使うことでテーブルの作成を抑制する。(こちらはオーナーではないことを示す)
-        var appUserRooms: List<AppUserRoom>? = null,
+        var appUserLineGroups: List<AppUserLineGroup>? = null,
 
         @OneToMany(mappedBy = "appUser", cascade = [CascadeType.ALL], orphanRemoval = true)
         var botDetails: List<BotDetail>? = null

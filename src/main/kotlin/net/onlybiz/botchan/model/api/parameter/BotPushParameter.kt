@@ -5,7 +5,7 @@ import java.util.*
 
 class BotPushParameter: BasicParameter() {
     var botId: Long? = null
-    var roomIds: List<String> = listOf()
+    var lineGroupIds: List<String> = listOf()
     lateinit var scheduleTime: Date
     lateinit var message: Message
 }

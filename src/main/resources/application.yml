@@ -45,3 +45,4 @@ deeplink:
 # Liff endpoint
 liff:
   linkAction: "line://app/1627641943-r63RoDm2"
+  addGroupAction: "line://app/1627641943-r63RoDm2"
