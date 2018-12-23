@@ -7,6 +7,7 @@ import net.onlybiz.botchan.model.api.parameter.BasicParameter
 import net.onlybiz.botchan.model.api.parameter.BotDetailParameter
 import net.onlybiz.botchan.model.api.parameter.BotPushParameter
 import net.onlybiz.botchan.model.api.parameter.BotReplyParameter
+import net.onlybiz.botchan.model.api.response.BotListResponse
 import net.onlybiz.botchan.service.BotService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.*
@@ -21,8 +22,8 @@ class BotController {
 
     // ボット一覧を取得
     @RequestMapping(method = [RequestMethod.POST])
-    fun getBotList(@RequestBody basicParam: BasicParameter): List<BotDetail>? {
-        return botService.findBotList(basicParam.userId)
+    fun getBotList(@RequestBody basicParam: BasicParameter): BotListResponse? {
+        return BotListResponse(botService.findBotList(basicParam.userId) ?: listOf())
     }
 
     // ボット詳細を取得
