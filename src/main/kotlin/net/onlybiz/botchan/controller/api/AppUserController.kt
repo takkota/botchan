@@ -15,14 +15,14 @@ class AppUserController {
     lateinit var userService: UserService
 
     // app_user_line_groupを保存・更新
-    @RequestMapping(value = ["/lineGroups/save"], method = [RequestMethod.POST])
+    @RequestMapping(value = ["/lineGroup/save"], method = [RequestMethod.POST])
     fun saveAppUserGroup(@RequestBody body: AppUserGroupSaveParameter) {
         if (body.id != null && body.displayName != null) {
             // 更新(表示名)
             userService.saveGroupDisplayName(body.id!!, body.displayName!!)
         } else {
             // 新規登録(userId, lineGroupId の紐付け)
-            userService.saveAppUserAndLineGroupId(body.userId, body.lineGroupId)
+            userService.saveAppUserAndLineGroupId(body.userId, body.lineGroupId, body.displayName!!)
         }
     }
 
