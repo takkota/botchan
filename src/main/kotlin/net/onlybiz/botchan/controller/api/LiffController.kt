@@ -33,18 +33,17 @@ class LiffController {
                 .queryParam("isi", deeplink.isi)
                 .queryParam("link", URLEncoder.encode(linkParam.toString(), "UTF-8"))
                 .build()
-        model.addAttribute("message", "Hello Springboot")
         model.addAttribute("deeplink", actionUri.toString())
-        return "linkAction"
+        return "deeplink"
     }
 
     @RequestMapping(value =["/addGroupAction"], method = [RequestMethod.GET])
-    fun addGroupAction(model: Model, @RequestParam(name = "groupId") groupId: String): String {
+    fun addGroupAction(model: Model, @RequestParam(name = "lineGroupId") groupId: String): String {
         val linkParam = UriComponentsBuilder.newInstance()
                 .scheme("https")
                 .host(deeplink.linkBase)
                 .path("addGroup")
-                .queryParam("groupId", groupId)
+                .queryParam("lineGroupId", groupId)
                 .build()
         val actionUri = UriComponentsBuilder.newInstance()
                 .scheme("https")
@@ -54,8 +53,7 @@ class LiffController {
                 .queryParam("isi", deeplink.isi)
                 .queryParam("link", URLEncoder.encode(linkParam.toString(), "UTF-8"))
                 .build()
-        model.addAttribute("message", "Hello Springboot")
         model.addAttribute("deeplink", actionUri.toString())
-        return "linkAction"
+        return "deeplink"
     }
 }

@@ -5,22 +5,16 @@
     <meta charset="utf-8" />
 </head>
 <body>
-<h1>Springboot Hello Sample</h1>
 <p>
-    <span th:text="${message}"></span>!!!
-</p>
-<p>
-    <span id="useridfield"></span>
-</p>
-<p>
-    <span th:text="${deeplink}"></span>!!!
+    <span>画面遷移しない場合、こちらをクリックしてください。</span>
+    <span th:text="${deeplink}"></span>
 </p>
 
 <script src="https://d.line-scdn.net/liff/1.0/sdk.js"></script>
 <script th:inline="javascript">
     const url = /*[[ ${deeplink} ]]*/ null;
 </script>
-<script src="/js/linkAction.js"></script>
+<script src="/js/deeplink.js"></script>
 
 </body>
 </html>

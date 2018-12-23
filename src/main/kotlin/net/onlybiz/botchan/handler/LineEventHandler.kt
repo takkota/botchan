@@ -73,7 +73,7 @@ class LineEventHandler {
                 .host(server.hostName)
                 .path("/static/image/thank_you.png")
                 .build()
-        val actionUrl = liff.addGroupAction + "?groupId=$groupId"
+        val actionUrl = liff.addGroupAction + "?lineGroupId=$groupId"
         return TemplateMessage.builder()
                 .altText("アプリでBotの設定をしましょう!")
                 .template(ButtonsTemplate.builder()
