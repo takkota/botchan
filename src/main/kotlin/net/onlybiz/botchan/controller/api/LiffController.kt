@@ -19,6 +19,7 @@ class LiffController {
     @RequestMapping(value =["/linkAction"], method = [RequestMethod.GET])
     fun linkAction(model: Model, @RequestParam(name = "userId") userId: String): String {
         val linkParam = UriComponentsBuilder.newInstance()
+                .scheme("https")
                 .host(deeplink.linkBase)
                 .path("link_start")
                 .queryParam("userId", userId)
