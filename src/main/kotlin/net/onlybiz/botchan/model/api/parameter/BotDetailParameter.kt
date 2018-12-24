@@ -5,5 +5,5 @@ import net.onlybiz.botchan.database.BotReplyCondition
 import net.onlybiz.botchan.model.api.parameter.BasicParameter
 
 class BotDetailParameter: BasicParameter() {
-    var id: Long? = null
+    var botId: Long? = null
 }

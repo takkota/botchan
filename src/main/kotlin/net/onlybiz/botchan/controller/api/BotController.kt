@@ -29,14 +29,14 @@ class BotController {
     // ボット詳細を取得
     @RequestMapping(value = ["/detail"], method = [RequestMethod.POST])
     fun getBotDetail(@RequestBody body: BotDetailParameter): BotDetail? {
-        body.id ?: return null
-        return botService.findBotDetail(body.id!!)
+        body.botId ?: return null
+        return botService.findBotDetail(body.botId!!)
     }
 
     @RequestMapping(value = ["/delete"], method = [RequestMethod.POST])
     fun deleteBot(@RequestBody body: BotDetailParameter) {
-        body.id ?: return
-        return botService.deleteBot(body.id!!)
+        body.botId ?: return
+        return botService.deleteBot(body.botId!!)
     }
 
     // ボット詳細(type=応答)を保存
@@ -44,8 +44,7 @@ class BotController {
     fun saveBotReply(@RequestBody body: BotReplyParameter) {
         val condition = BotReplyCondition(
                 keyword =  body.keyword,
-                matchMethod =  body.matchMethod,
-                reactToOwnerOnly = body.reactToOwnerOnly
+                matchMethod =  body.matchMethod
         )
         botService.saveBotDetail(id = body.botId, userId = body.userId, groupIds = body.lineGroupIds, replyConditionParam = condition, message = body.message)
     }

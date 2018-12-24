@@ -6,6 +6,5 @@ import org.springframework.stereotype.Repository
 
 @Repository
 interface AppUserRepository: JpaRepository<AppUser, String> {
-    fun findByNonce(nonce: String): AppUser
-    fun findByLineId(lineId: String): AppUser
+    fun findByLineId(lineId: String): AppUser?
 }

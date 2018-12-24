@@ -7,6 +7,5 @@ class BotReplyParameter: BasicParameter() {
     var lineGroupIds: List<String> = listOf()
     lateinit var keyword: String
     lateinit var matchMethod: String
-    var reactToOwnerOnly: Boolean = false
     lateinit var message: Message
 }

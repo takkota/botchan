@@ -12,9 +12,14 @@ data class BotPushSchedule(
         @GeneratedValue(strategy= GenerationType.IDENTITY)
         var id: Long? = null,
 
+        @Column
         var scheduleTime: Date? = null,
+
+        @Column
+        var days: Int? = null,
 
         @OneToOne(fetch = FetchType.LAZY, optional = false)
         @JoinColumn(name = "bot_detail_id", nullable = false)
         var botDetail: BotDetail? = null
+
 ) : CommonEntity()

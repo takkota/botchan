@@ -33,6 +33,11 @@ class UserService {
     // userIdを保存する
     @Transactional
     fun saveAppUserIdAndLineId(userId: String, lineId: String) {
+        appUserRepository.findByLineId(lineId)?.let { appUser ->
+            // すでに存在するLINE IDで来たときは、userIdを更新する
+            appUserRepository.save(appUser.apply { id = userId })
+            return
+        }
         appUserRepository.save(AppUser(id = userId, lineId = lineId, linkDateTime = Date()))
     }
 

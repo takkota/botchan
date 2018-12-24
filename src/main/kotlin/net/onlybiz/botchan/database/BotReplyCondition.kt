@@ -11,11 +11,11 @@ data class BotReplyCondition(
         @GeneratedValue(strategy= GenerationType.IDENTITY)
         var id: Long? = null,
 
+        @Column
         var keyword: String? = null,
 
+        @Column
         var matchMethod: String? = null,
-
-        var reactToOwnerOnly: Boolean = false,
 
         @OneToOne(fetch = FetchType.LAZY, optional = false)
         @JoinColumn(name = "bot_detail_id", nullable = false)
