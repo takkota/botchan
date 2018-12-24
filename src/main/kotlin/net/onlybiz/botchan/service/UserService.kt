@@ -34,9 +34,8 @@ class UserService {
     @Transactional
     fun saveAppUserIdAndLineId(userId: String, lineId: String) {
         appUserRepository.findByLineId(lineId)?.let { appUser ->
-            // すでに存在するLINE IDで来たときは、userIdを更新する
-            appUserRepository.save(appUser.apply { id = userId })
-            return
+            // すでに存在するLINE IDで来たときは、レコードを削除してから保存する
+            appUserRepository.deleteById(appUser.id)
         }
         appUserRepository.save(AppUser(id = userId, lineId = lineId, linkDateTime = Date()))
     }
