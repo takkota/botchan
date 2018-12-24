@@ -45,7 +45,6 @@ class BotService {
                         this.botReplyCondition?.apply {
                             keyword = replyConditionParam.keyword
                             matchMethod = replyConditionParam.matchMethod
-                            reactToOwnerOnly = replyConditionParam.reactToOwnerOnly
                         }
                     }
                     if (pushScheduleParam != null) {
