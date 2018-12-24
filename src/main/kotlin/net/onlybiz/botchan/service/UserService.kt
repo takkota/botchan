@@ -36,6 +36,7 @@ class UserService {
         appUserRepository.findByLineId(lineId)?.let { appUser ->
             // すでに存在するLINE IDで来たときは、レコードを削除してから保存する
             appUserRepository.deleteById(appUser.id)
+            appUserRepository.flush()
         }
         appUserRepository.save(AppUser(id = userId, lineId = lineId, linkDateTime = Date()))
     }
