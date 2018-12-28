@@ -17,10 +17,17 @@ class UserService {
     private lateinit var appUserLineGroupRepository: AppUserLineGroupRepository
 
     @Autowired
-    private lateinit var lineGroupRepository: LineGroupRepository
-
-    @Autowired
     private lateinit var botDetailRepository: BotDetailRepository
+
+    // lineGroupを取得する
+    @Transactional
+    fun getAppUserLineGroups(userId: String): List<AppUserLineGroup> {
+        return if (appUserRepository.findById(userId).isPresent) {
+            appUserRepository.findById(userId).get().appUserLineGroups ?: listOf()
+        } else {
+            listOf()
+        }
+    }
 
     // userIdを保存する
     @Transactional
