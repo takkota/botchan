@@ -19,10 +19,7 @@ class LineGroupController {
     // app_user_line_groupを取得
     @RequestMapping(method = [RequestMethod.POST])
     fun getAppUserLineGroup(@RequestBody body: BasicParameter): AppUserLineGroupResponse {
-        println("testd:lineGroup")
-        val group = AppUserLineGroupResponse(userService.getAppUserLineGroups(body.userId))
-        println("testd:lineGroup" + group.lineGroupList)
-        return group
+        return AppUserLineGroupResponse(userService.getAppUserLineGroups(body.userId))
     }
 
     // app_user_line_groupを保存・更新
