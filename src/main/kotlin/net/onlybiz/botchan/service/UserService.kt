@@ -23,9 +23,7 @@ class UserService {
     @Transactional(readOnly = true)
     fun getAppUserLineGroups(userId: String): List<AppUserLineGroup> {
         val user = appUserRepository.findById(userId)
-        println("testd:getUser")
         return if (user.isPresent) {
-            println("testd:userIsPresent")
             user.get().appUserLineGroups ?: listOf()
         } else {
             listOf()
