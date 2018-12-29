@@ -22,8 +22,9 @@ class UserService {
     // lineGroupを取得する
     @Transactional
     fun getAppUserLineGroups(userId: String): List<AppUserLineGroup> {
-        return if (appUserRepository.findById(userId).isPresent) {
-            appUserRepository.findById(userId).get().appUserLineGroups ?: listOf()
+        val user = appUserRepository.findById(userId)
+        return if (user.isPresent) {
+            user.get().appUserLineGroups ?: listOf()
         } else {
             listOf()
         }
@@ -32,7 +33,8 @@ class UserService {
     // userIdを保存する
     @Transactional
     fun saveAppUserId(userId: String): AppUser? {
-        return if (!appUserRepository.findById(userId).isPresent) {
+        val user = appUserRepository.findById(userId)
+        return if (!user.isPresent) {
             appUserRepository.save(AppUser(id = userId))
         } else {
             null
