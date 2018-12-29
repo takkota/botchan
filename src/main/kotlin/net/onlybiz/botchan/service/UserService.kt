@@ -20,10 +20,12 @@ class UserService {
     private lateinit var botDetailRepository: BotDetailRepository
 
     // lineGroupを取得する
-    @Transactional
+    @Transactional(readOnly = true)
     fun getAppUserLineGroups(userId: String): List<AppUserLineGroup> {
         val user = appUserRepository.findById(userId)
+        println("testd:getUser")
         return if (user.isPresent) {
+            println("testd:userIsPresent")
             user.get().appUserLineGroups ?: listOf()
         } else {
             listOf()
