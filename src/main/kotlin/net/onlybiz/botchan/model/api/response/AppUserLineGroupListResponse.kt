@@ -1,6 +1,6 @@
 package net.onlybiz.botchan.model.api.response
 
-class AppUserLineGroupListResponse(val lineGroupResponseList: List<AppUserLineGroupResponse>)
+class AppUserLineGroupListResponse(val lineGroupList: List<AppUserLineGroupResponse>)
 
 data class AppUserLineGroupResponse(
         val id: Long?,
