@@ -54,12 +54,16 @@ class UserService {
 
     // userIdとline_group_idを紐付ける
     @Transactional
-    fun saveAppUserAndLineGroupId(userId: String, groupId: String, displayName: String): AppUserLineGroup? {
+    fun saveAppUserAndLineGroupId(userId: String, lineGroupId: String, displayName: String): AppUserLineGroup? {
         val appUser = appUserRepository.findById(userId).get()
 
-        val alreadyCombined = appUser.appUserLineGroups?.count { it.lineGroup?.id == groupId } ?: 0 > 0
+        print("testd:findDone")
+        val alreadyCombined = appUser.appUserLineGroups?.count { it.lineGroup?.id == lineGroupId } ?: 0 > 0
         if (!alreadyCombined) {
-            return appUserLineGroupRepository.save(AppUserLineGroup(appUser = appUser, lineGroup = LineGroup(id = groupId), displayName = displayName))
+            print("testd:firstCombine")
+            val appUserLineGroup = AppUserLineGroup(appUser = appUser, lineGroup = LineGroup(id = lineGroupId), displayName = displayName)
+            print("testd:dooooo")
+            return appUserLineGroupRepository.save(appUserLineGroup)
         }
         return null
     }
