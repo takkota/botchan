@@ -21,12 +21,12 @@ class UserService {
 
     // lineGroupを取得する
     @Transactional(readOnly = true)
-    fun getAppUserLineGroups(userId: String): List<AppUserLineGroup> {
+    fun getAppUserLineGroups(userId: String): List<AppUserLineGroup>? {
         val user = appUserRepository.findById(userId)
         return if (user.isPresent) {
-            user.get().appUserLineGroups ?: listOf()
+            user.get().appUserLineGroups
         } else {
-            listOf()
+            null
         }
     }
 
