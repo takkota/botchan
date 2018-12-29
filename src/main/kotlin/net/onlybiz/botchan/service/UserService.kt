@@ -67,8 +67,15 @@ class UserService {
     // groupの表示名を更新する
     @Transactional
     fun saveGroupDisplayName(id: Long, displayName: String): AppUserLineGroup? {
-        val appUserGroup = AppUserLineGroup(id = id, displayName = displayName)
-        return appUserLineGroupRepository.save(appUserGroup)
+        val appUserLineGroup = appUserLineGroupRepository.findById(id.toInt())
+        if (appUserLineGroup.isPresent) {
+            return appUserLineGroupRepository.save(
+                    appUserLineGroup.get().apply {
+                        this.displayName = displayName
+                    }
+            )
+        }
+        return null
     }
 
     @Transactional(readOnly = true)

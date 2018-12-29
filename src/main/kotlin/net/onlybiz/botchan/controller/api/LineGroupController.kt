@@ -33,7 +33,7 @@ class LineGroupController {
     @RequestMapping(value = ["/save"], method = [RequestMethod.POST])
     fun saveAppUserLineGroup(@RequestBody body: AppUserLineGroupSaveParameter): AppUserLineGroupResponse? {
         val userLineGroup = if (body.id != null && body.displayName != null) {
-            // 更新(表示名)
+            // 表示名更新
             userService.saveGroupDisplayName(body.id!!, body.displayName!!)
         } else {
             // 新規登録(userId, lineGroupId の紐付け)
