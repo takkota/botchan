@@ -41,21 +41,21 @@ class BotController {
 
     // ボット詳細(type=応答)を保存
     @RequestMapping(value = ["/reply/save"], method = [RequestMethod.POST])
-    fun saveBotReply(@RequestBody body: BotReplyParameter) {
+    fun saveBotReply(@RequestBody body: BotReplyParameter): BotDetail? {
         val condition = BotReplyCondition(
                 keyword =  body.keyword,
                 matchMethod =  body.matchMethod
         )
-        botService.saveBotDetail(id = body.botId, userId = body.userId, groupIds = body.lineGroupIds, replyConditionParam = condition, message = body.message)
+        return botService.saveBotDetail(id = body.botId, userId = body.userId, groupIds = body.lineGroupIds, replyConditionParam = condition, message = body.message)
     }
 
     // ボット詳細を保存
     @RequestMapping(value = ["/push/save"], method = [RequestMethod.POST])
-    fun saveBotPush(@RequestBody body: BotPushParameter) {
+    fun saveBotPush(@RequestBody body: BotPushParameter): BotDetail? {
         val condition = BotPushSchedule(
                 scheduleTime = body.scheduleTime
         )
-        botService.saveBotDetail(id = body.botId, userId = body.userId, groupIds = body.lineGroupIds, pushScheduleParam = condition, message = body.message)
+        return botService.saveBotDetail(id = body.botId, userId = body.userId, groupIds = body.lineGroupIds, pushScheduleParam = condition, message = body.message)
     }
 
 }

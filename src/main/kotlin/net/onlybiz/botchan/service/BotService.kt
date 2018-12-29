@@ -22,7 +22,7 @@ class BotService {
     private lateinit var botPushScheduleRepository: BotPushScheduleRepository
 
     @Transactional
-    fun saveBotDetail(id: Long? = null, userId: String, groupIds: List<String> = listOf(), replyConditionParam: BotReplyCondition? = null, pushScheduleParam: BotPushSchedule? = null, message: Message) {
+    fun saveBotDetail(id: Long? = null, userId: String, groupIds: List<String> = listOf(), replyConditionParam: BotReplyCondition? = null, pushScheduleParam: BotPushSchedule? = null, message: Message): BotDetail? {
         try {
             val appUser = appUserRepository.findById(userId).get()
             val groups = lineGroupRepository.findAllById(groupIds)
@@ -55,20 +55,10 @@ class BotService {
                 }
             }
             replyConditionParam?.botDetail = botDetail
-            botDetailRepository.save(botDetail)
-
-            // 関連テーブルを保存
-            //if (replyCondition != null) {
-            //    replyCondition.botDetail = savedBotDetail
-            //    botReplyConditionRepository.save(replyCondition)
-            //}
-            //if (pushSchedule != null) {
-            //    pushSchedule.botDetail = savedBotDetail
-            //    botPushScheduleRepository.save(pushSchedule)
-            //}
+            return botDetailRepository.save(botDetail)
 
         } catch (e: NoSuchElementException) {
-            return
+            return null
         }
     }
 

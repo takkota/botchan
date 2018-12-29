@@ -16,7 +16,7 @@ class LineGroupController {
     @Autowired
     lateinit var userService: UserService
 
-    // app_user_line_groupを保存・更新
+    // app_user_line_groupを取得
     @RequestMapping(method = [RequestMethod.POST])
     fun getAppUserLineGroup(@RequestBody body: BasicParameter): AppUserLineGroupResponse {
             // 更新(表示名)
@@ -25,8 +25,8 @@ class LineGroupController {
 
     // app_user_line_groupを保存・更新
     @RequestMapping(value = ["/save"], method = [RequestMethod.POST])
-    fun saveAppUserGroup(@RequestBody body: AppUserLineGroupSaveParameter) {
-        if (body.id != null && body.displayName != null) {
+    fun saveAppUserLineGroup(@RequestBody body: AppUserLineGroupSaveParameter): AppUserLineGroup? {
+        return if (body.id != null && body.displayName != null) {
             // 更新(表示名)
             userService.saveGroupDisplayName(body.id!!, body.displayName!!)
         } else {

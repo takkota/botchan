@@ -31,9 +31,11 @@ class UserService {
 
     // userIdを保存する
     @Transactional
-    fun saveAppUserId(userId: String) {
-        if (!appUserRepository.findById(userId).isPresent) {
+    fun saveAppUserId(userId: String): AppUser? {
+        return if (!appUserRepository.findById(userId).isPresent) {
             appUserRepository.save(AppUser(id = userId))
+        } else {
+            null
         }
     }
 
@@ -50,22 +52,21 @@ class UserService {
 
     // userIdとline_group_idを紐付ける
     @Transactional
-    fun saveAppUserAndLineGroupId(userId: String, groupId: String, displayName: String): Boolean {
+    fun saveAppUserAndLineGroupId(userId: String, groupId: String, displayName: String): AppUserLineGroup? {
         val appUser = appUserRepository.findById(userId).get()
 
         val alreadyCombined = appUser.appUserLineGroups?.count { it.lineGroup?.id == groupId } ?: 0 > 0
         if (!alreadyCombined) {
-            appUserLineGroupRepository.save(AppUserLineGroup(appUser = appUser, lineGroup = LineGroup(id = groupId), displayName = displayName))
-            return true
+            return appUserLineGroupRepository.save(AppUserLineGroup(appUser = appUser, lineGroup = LineGroup(id = groupId), displayName = displayName))
         }
-        return false
+        return null
     }
 
     // groupの表示名を更新する
     @Transactional
-    fun saveGroupDisplayName(id: Long, displayName: String) {
+    fun saveGroupDisplayName(id: Long, displayName: String): AppUserLineGroup? {
         val appUserGroup = AppUserLineGroup(id = id, displayName = displayName)
-        appUserLineGroupRepository.save(appUserGroup)
+        return appUserLineGroupRepository.save(appUserGroup)
     }
 
     @Transactional(readOnly = true)
