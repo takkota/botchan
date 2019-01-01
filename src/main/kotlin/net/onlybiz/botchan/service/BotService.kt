@@ -77,6 +77,7 @@ class BotService {
     fun findBotList(userId: String): List<BotDetail>? {
         return try {
             val user = appUserRepository.findById(userId)
+            return listOf()
             return user.get().botDetails
         } catch (e: Exception) {
             print(e.message)
