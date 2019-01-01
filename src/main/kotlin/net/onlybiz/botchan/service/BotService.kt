@@ -78,11 +78,6 @@ class BotService {
         return try {
             val bots = botDetailRepository.findByAppUserId(userId)
             print("fetched")
-            bots.forEach { b ->
-                print(b.id ?: "noId")
-                print(b.message ?: "noMessage")
-                print(b.botReplyCondition?: "noCondition")
-            }
             return bots
         } catch (e: Exception) {
             print(e.message)
