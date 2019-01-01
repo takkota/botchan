@@ -1,10 +1,23 @@
 package net.onlybiz.botchan.database
 
+import com.google.cloud.storage.*
+import com.linecorp.bot.model.message.ImageMessage
 import javax.persistence.*
 import javax.validation.constraints.NotNull
 import com.linecorp.bot.model.message.Message
 import com.linecorp.bot.model.objectmapper.ModelObjectMapper
 import javax.persistence.AttributeConverter
+import com.google.cloud.storage.BlobId
+import org.springframework.cglib.core.CollectionUtils.bucket
+import com.google.auth.oauth2.GoogleCredentials
+import com.google.firebase.FirebaseApp
+import com.google.firebase.FirebaseOptions
+import com.google.firebase.cloud.StorageClient
+import java.io.FileInputStream
+
+
+
+
 
 
 @Entity
@@ -30,6 +43,7 @@ data class BotDetail(
         @Column(nullable = false)
         @Convert(converter = MessageConverter::class)
         var message: Message? = null
+
 ): CommonEntity()
 
 class MessageConverter: AttributeConverter<Message, String> {
