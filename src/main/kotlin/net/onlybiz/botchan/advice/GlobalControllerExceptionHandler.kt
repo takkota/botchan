@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServletRequest
 
 
 @ControllerAdvice  // Makes this the default behaviour of all controllers
-@ConditionalOnProperty(prefix = "app", name = arrayOf("disable-default-exception-handling"))
 class GlobalControllerExceptionHandler {
     @ExceptionHandler(Exception::class)  // Catch any exception
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)  // Returns an error code 500

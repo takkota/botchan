@@ -79,7 +79,7 @@ class BotService {
             val bots = botDetailRepository.findByAppUserId(userId)
             print("fetched")
             bots.forEach { b ->
-                print(b.id)
+                print(b.id ?: "noId")
                 print(b.message ?: "noMessage")
                 print(b.botReplyCondition?: "noCondition")
             }
