@@ -22,11 +22,11 @@ data class AppUser(
         @Column(name = "link_date_time")
         var linkDateTime: Date? = null,
 
-        @OneToMany(mappedBy = "appUser", cascade = [CascadeType.ALL]) // 中間テーブルとのリレーション
+        @OneToMany(fetch = FetchType.LAZY, mappedBy = "appUser", cascade = [CascadeType.ALL]) // 中間テーブルとのリレーション
         // mappedByを使うことでテーブルの作成を抑制する。(こちらはオーナーではないことを示す)
         var appUserLineGroups: List<AppUserLineGroup>? = null,
 
-        @OneToMany(mappedBy = "appUser", cascade = [CascadeType.ALL], orphanRemoval = true)
+        @OneToMany(fetch = FetchType.LAZY, mappedBy = "appUser", cascade = [CascadeType.ALL], orphanRemoval = true)
         var botDetails: List<BotDetail>? = null
 ) : CommonEntity()
 
