@@ -77,7 +77,9 @@ class BotService {
     fun findBotList(userId: String): List<BotDetail>? {
         return try {
             botDetailRepository.findByAppUserId(userId)
-        } catch (e: NoSuchElementException) {
+        } catch (e: Exception) {
+            print(e.message)
+            print(e.cause?.message)
             null
         }
     }

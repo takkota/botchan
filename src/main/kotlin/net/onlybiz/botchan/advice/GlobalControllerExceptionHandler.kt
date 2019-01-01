@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.ResponseStatus
 
 @ControllerAdvice  // Makes this the default behaviour of all controllers
 @ConditionalOnProperty(prefix = "app", name = arrayOf("disable-default-exception-handling"))
-internal class GlobalControllerExceptionHandler {
+class GlobalControllerExceptionHandler {
     @ExceptionHandler(Exception::class)  // Catch any exception
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)  // Returns an error code 500
     fun handleException() {
