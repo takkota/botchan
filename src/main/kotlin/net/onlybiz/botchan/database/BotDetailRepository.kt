@@ -5,5 +5,4 @@ import org.springframework.stereotype.Repository
 
 @Repository
 interface BotDetailRepository: JpaRepository<BotDetail, Long> {
-    fun findByAppUserId(userId: String): List<BotDetail>
 }
