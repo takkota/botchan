@@ -27,17 +27,21 @@ class BotService {
             val appUser = appUserRepository.findById(userId).get()
             val groups = lineGroupRepository.findAllById(groupIds)
             val botDetail = if (id == null) {
+                print("testd:new")
                 // 新規登録
                 BotDetail(appUser = appUser, lineGroups = groups, message = message).apply {
                     if (replyConditionParam != null) {
+                        print("testd:haveReply")
                         botReplyCondition = replyConditionParam
                     }
                     if (pushScheduleParam != null) {
+                        print("testd:havePush")
                         botPushSchedule = pushScheduleParam
                     }
                 }
             } else {
                 // 更新
+                print("testd:update")
                 botDetailRepository.findById(id).get().apply {
                     this.message = message
                     this.lineGroups = groups
@@ -55,6 +59,8 @@ class BotService {
                 }
             }
             replyConditionParam?.botDetail = botDetail
+            pushScheduleParam?.botDetail = botDetail
+            print("testd:beforeSave" + botDetail.toString())
             return botDetailRepository.save(botDetail)
 
         } catch (e: NoSuchElementException) {
