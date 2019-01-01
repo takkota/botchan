@@ -46,3 +46,9 @@ deeplink:
 liff:
   linkAction: "line://app/1627641943-r63RoDm2"
   addGroupAction: "line://app/1627641943-Zo4M3Kja"
+
+app:
+  disable-default-exception-handling: true
+error:
+  whitelabel:
+    enabled: false
