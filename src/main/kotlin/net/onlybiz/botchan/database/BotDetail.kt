@@ -4,6 +4,7 @@ import javax.persistence.*
 import javax.validation.constraints.NotNull
 import com.linecorp.bot.model.message.Message
 import com.linecorp.bot.model.objectmapper.ModelObjectMapper
+import javax.annotation.Nullable
 import javax.persistence.AttributeConverter
 
 @Entity
@@ -20,12 +21,12 @@ data class BotDetail(
         @NotNull
         var appUser: AppUser? = null,
 
-        @Column(nullable = true)
-        @OneToOne(fetch = FetchType.LAZY, cascade = [CascadeType.ALL], mappedBy = "botDetail")
+        @OneToOne(cascade = [CascadeType.ALL], mappedBy = "botDetail")
+        @Nullable
         var botReplyCondition: BotReplyCondition? = null,
 
-        @Column(nullable = true)
-        @OneToOne(fetch = FetchType.LAZY, cascade = [CascadeType.ALL], mappedBy = "botDetail")
+        @OneToOne(cascade = [CascadeType.ALL], mappedBy = "botDetail")
+        @Nullable
         var botPushSchedule: BotPushSchedule? = null,
 
         @Convert(converter = MessageConverter::class)
