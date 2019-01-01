@@ -20,9 +20,11 @@ data class BotDetail(
         @NotNull
         var appUser: AppUser? = null,
 
+        @Column(nullable = true)
         @OneToOne(fetch = FetchType.LAZY, cascade = [CascadeType.ALL], mappedBy = "botDetail")
         var botReplyCondition: BotReplyCondition? = null,
 
+        @Column(nullable = true)
         @OneToOne(fetch = FetchType.LAZY, cascade = [CascadeType.ALL], mappedBy = "botDetail")
         var botPushSchedule: BotPushSchedule? = null,
 

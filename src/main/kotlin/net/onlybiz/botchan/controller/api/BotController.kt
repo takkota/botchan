@@ -23,6 +23,7 @@ class BotController {
     // ボット一覧を取得
     @RequestMapping(method = [RequestMethod.POST])
     fun getBotList(@RequestBody basicParam: BasicParameter): BotListResponse? {
+        print("testd:getBot")
         return BotListResponse(botService.findBotList(basicParam.userId) ?: listOf())
     }
 
