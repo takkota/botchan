@@ -53,7 +53,7 @@ class BotController {
                                 matchMethod = bot.botReplyCondition!!.first().matchMethod!!
                         )
                     } else null,
-                    pushSchedule = if (bot.botPushSchedule != null) {
+                    pushSchedule = if (bot.botPushSchedule?.isNotEmpty() == true) {
                         BotPushScheduleResponse(
                                 id = bot.botPushSchedule!!.first().id!!,
                                 scheduleTime = bot.botPushSchedule!!.first().scheduleTime!!
