@@ -16,10 +16,6 @@ class BotService {
     private lateinit var lineGroupRepository: LineGroupRepository
     @Autowired
     private lateinit var botDetailRepository: BotDetailRepository
-    @Autowired
-    private lateinit var botReplyConditionRepository: BotReplyConditionRepository
-    @Autowired
-    private lateinit var botPushScheduleRepository: BotPushScheduleRepository
 
     @Transactional
     fun saveBotDetail(id: Long? = null, title: String, userId: String, groupIds: List<String> = listOf(), replyConditionParam: BotReplyCondition? = null, pushScheduleParam: BotPushSchedule? = null, message: Message): BotDetail? {

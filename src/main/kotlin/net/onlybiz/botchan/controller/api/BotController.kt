@@ -8,6 +8,7 @@ import net.onlybiz.botchan.model.api.parameter.BotPushParameter
 import net.onlybiz.botchan.model.api.parameter.BotReplyParameter
 import net.onlybiz.botchan.model.api.response.*
 import net.onlybiz.botchan.service.BotService
+import net.onlybiz.botchan.service.UserService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.*
 
@@ -19,14 +20,27 @@ class BotController {
     @Autowired
     lateinit var botService: BotService
 
+    @Autowired
+    lateinit var appUserService: UserService
+
     // ボット一覧を取得
     @RequestMapping(method = [RequestMethod.POST])
     fun getBotList(@RequestBody basicParam: BasicParameter): BotListResponse {
-        val botDetails = botService.findBotList(basicParam.userId).map { bot ->
+        val botDetails = botService.findBotList(basicParam.userId)
+        //val appUserLineGroups = appUserService.getAppUserLineGroups(basicParam.userId)
+
+        val botList = botDetails.map { bot ->
+            bot.lineGroups
             BotDetailResponse(
                     botId = bot.id!!,
                     message = bot.message,
-                    groupIds = bot.lineGroups?.map { it.id!! } ?: listOf(),
+                    lineGroups = bot.appUser?.appUserLineGroups?.map {
+                        AppUserLineGroupResponse(
+                                id = it.id,
+                                lineGroupId = it.lineGroup?.id,
+                                displayName = it.displayName
+                        )
+                    } ?: listOf(),
                     botType = if (bot.botReplyCondition?.isEmpty() == true ) "push" else "reply",
                     title = bot.title!!,
                     replyCondition = if (bot.botReplyCondition?.isNotEmpty() == true) {
@@ -45,7 +59,7 @@ class BotController {
             )
         }
 
-        return BotListResponse(botDetails)
+        return BotListResponse(botList)
     }
 
     // ボット詳細を取得
@@ -56,8 +70,14 @@ class BotController {
             val botDetail = BotDetailResponse(
                     botId = bot.id!!,
                     message = bot.message,
-                    groupIds = bot.lineGroups?.map { it.id!! } ?: listOf(),
                     botType = if (bot.botReplyCondition?.isEmpty() == true ) "push" else "reply",
+                    lineGroups = bot.appUser?.appUserLineGroups?.map {
+                        AppUserLineGroupResponse(
+                                id = it.id,
+                                lineGroupId = it.lineGroup?.id,
+                                displayName = it.displayName
+                        )
+                    } ?: listOf(),
                     title = bot.title!!,
                     replyCondition = if (bot.botReplyCondition?.isNotEmpty() == true) {
                         BotReplyConditionResponse(
