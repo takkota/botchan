@@ -27,20 +27,24 @@ class BotController {
     @RequestMapping(method = [RequestMethod.POST])
     fun getBotList(@RequestBody basicParam: BasicParameter): BotListResponse {
         val botDetails = botService.findBotList(basicParam.userId)
-        //val appUserLineGroups = appUserService.getAppUserLineGroups(basicParam.userId)
 
         val botList = botDetails.map { bot ->
-            bot.lineGroups
+            // 接続されたグループを抽出する。
+            val attachedLineGroupIds = bot.lineGroups?.map { it.id } ?: listOf()
+            val attachedLineGroups = bot.appUser?.appUserLineGroups?.filter {
+                it.lineGroup?.id in attachedLineGroupIds
+            } ?: listOf()
+
             BotDetailResponse(
                     botId = bot.id!!,
                     message = bot.message,
-                    lineGroups = bot.appUser?.appUserLineGroups?.map {
+                    lineGroups = attachedLineGroups.map {
                         AppUserLineGroupResponse(
                                 id = it.id,
                                 lineGroupId = it.lineGroup?.id,
                                 displayName = it.displayName
                         )
-                    } ?: listOf(),
+                    },
                     botType = if (bot.botReplyCondition?.isEmpty() == true ) "push" else "reply",
                     title = bot.title!!,
                     replyCondition = if (bot.botReplyCondition?.isNotEmpty() == true) {
@@ -67,17 +71,23 @@ class BotController {
     fun getBotDetail(@RequestBody body: BotDetailParameter): BotDetailResponse? {
         body.botId ?: return null
         return botService.findBotDetail(body.botId!!)?.let { bot ->
+            // 接続されたグループを抽出する。
+            val attachedLineGroupIds = bot.lineGroups?.map { it.id } ?: listOf()
+            val attachedLineGroups = bot.appUser?.appUserLineGroups?.filter {
+                it.lineGroup?.id in attachedLineGroupIds
+            } ?: listOf()
+
             val botDetail = BotDetailResponse(
                     botId = bot.id!!,
                     message = bot.message,
                     botType = if (bot.botReplyCondition?.isEmpty() == true ) "push" else "reply",
-                    lineGroups = bot.appUser?.appUserLineGroups?.map {
+                    lineGroups = attachedLineGroups.map {
                         AppUserLineGroupResponse(
                                 id = it.id,
                                 lineGroupId = it.lineGroup?.id,
                                 displayName = it.displayName
                         )
-                    } ?: listOf(),
+                    },
                     title = bot.title!!,
                     replyCondition = if (bot.botReplyCondition?.isNotEmpty() == true) {
                         BotReplyConditionResponse(
