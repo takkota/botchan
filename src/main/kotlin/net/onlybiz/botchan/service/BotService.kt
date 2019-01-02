@@ -22,13 +22,17 @@ class BotService {
     private lateinit var botPushScheduleRepository: BotPushScheduleRepository
 
     @Transactional
-    fun saveBotDetail(id: Long? = null, userId: String, groupIds: List<String> = listOf(), replyConditionParam: BotReplyCondition? = null, pushScheduleParam: BotPushSchedule? = null, message: Message): BotDetail? {
+    fun saveBotDetail(id: Long? = null, title: String, userId: String, groupIds: List<String> = listOf(), replyConditionParam: BotReplyCondition? = null, pushScheduleParam: BotPushSchedule? = null, message: Message): BotDetail? {
         try {
             val appUser = appUserRepository.findById(userId).get()
             val groups = lineGroupRepository.findAllById(groupIds)
             val botDetail = if (id == null) {
                 // 新規登録
-                BotDetail(appUser = appUser, lineGroups = groups, message = message).apply {
+                BotDetail().apply {
+                    this.appUser = appUser
+                    this.title = title
+                    this.message = message
+                    this.lineGroups = groups
                     if (replyConditionParam != null) {
                         botReplyCondition?.add(replyConditionParam)
                     }
@@ -39,6 +43,7 @@ class BotService {
             } else {
                 // 更新
                 botDetailRepository.findById(id).get().apply {
+                    this.title = title
                     this.message = message
                     this.lineGroups = groups
                     if (replyConditionParam != null) {

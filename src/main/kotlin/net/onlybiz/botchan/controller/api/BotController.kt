@@ -78,7 +78,7 @@ class BotController {
                 keyword =  body.keyword,
                 matchMethod =  body.matchMethod
         )
-        botService.saveBotDetail(id = body.botId, userId = body.userId, groupIds = body.lineGroupIds, replyConditionParam = condition, message = body.message)
+        botService.saveBotDetail(id = body.botId, title = body.title, userId = body.userId, groupIds = body.lineGroupIds, replyConditionParam = condition, message = body.message)
     }
 
     // ボット詳細を保存
@@ -88,7 +88,7 @@ class BotController {
                 id = body.pushScheduleId,
                 scheduleTime = body.scheduleTime
         )
-        botService.saveBotDetail(id = body.botId, userId = body.userId, groupIds = body.lineGroupIds, pushScheduleParam = condition, message = body.message)
+        botService.saveBotDetail(id = body.botId, title = body.title, userId = body.userId, groupIds = body.lineGroupIds, pushScheduleParam = condition, message = body.message)
     }
 
 }
