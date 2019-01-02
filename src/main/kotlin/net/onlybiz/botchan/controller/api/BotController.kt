@@ -57,6 +57,7 @@ class BotController {
                     pushSchedule = if (bot.botPushSchedule?.isNotEmpty() == true) {
                         BotPushScheduleResponse(
                                 id = bot.botPushSchedule!!.first().id!!,
+                                days = bot.botPushSchedule!!.first().days!!,
                                 scheduleTime = bot.botPushSchedule!!.first().scheduleTime!!
                         )
                     } else null
@@ -99,6 +100,7 @@ class BotController {
                     pushSchedule = if (bot.botPushSchedule?.isNotEmpty() == true) {
                         BotPushScheduleResponse(
                                 id = bot.botPushSchedule!!.first().id!!,
+                                days = bot.botPushSchedule!!.first().days!!,
                                 scheduleTime = bot.botPushSchedule!!.first().scheduleTime!!
                         )
                     } else null
@@ -129,6 +131,7 @@ class BotController {
     fun saveBotPush(@RequestBody body: BotPushParameter) {
         val condition = BotPushSchedule(
                 id = body.pushScheduleId,
+                days = body.days,
                 scheduleTime = body.scheduleTime
         )
         botService.saveBotDetail(id = body.botId, title = body.title, userId = body.userId, groupIds = body.lineGroupIds, pushScheduleParam = condition, message = body.message)

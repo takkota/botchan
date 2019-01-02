@@ -24,11 +24,11 @@ data class BotDetail(
         @NotNull
         var appUser: AppUser? = null,
 
-        @OneToMany(cascade = [CascadeType.ALL], mappedBy = "botDetail")
+        @OneToMany(cascade = [CascadeType.ALL], mappedBy = "botDetail", orphanRemoval = true)
         @Nullable
         var botReplyCondition: MutableList<BotReplyCondition>? = mutableListOf(),
 
-        @OneToMany(cascade = [CascadeType.ALL], mappedBy = "botDetail")
+        @OneToMany(cascade = [CascadeType.ALL], mappedBy = "botDetail", orphanRemoval = true)
         @Nullable
         var botPushSchedule: MutableList<BotPushSchedule>? = mutableListOf(),
 

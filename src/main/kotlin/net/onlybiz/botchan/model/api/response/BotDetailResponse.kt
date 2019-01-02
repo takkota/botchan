@@ -22,5 +22,6 @@ data class BotReplyConditionResponse(
 
 data class BotPushScheduleResponse(
     val id: Long? = null,
+    val days: Int = 0,
     val scheduleTime: Date
 )
