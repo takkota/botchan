@@ -17,6 +17,7 @@ data class BotReplyCondition(
         @Column
         var matchMethod: String? = null,
 
-        @ManyToOne(fetch = FetchType.EAGER)
+        @ManyToOne(fetch = FetchType.EAGER, optional = false)
+        @JoinColumn(name = "bot_detail_id")
         var botDetail: BotDetail? = null
 ) : CommonEntity()
