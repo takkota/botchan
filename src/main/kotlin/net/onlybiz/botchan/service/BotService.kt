@@ -46,12 +46,12 @@ class BotService {
                     if (replyConditionParam != null) {
                         botReplyCondition?.add(replyConditionParam)
                         // スケジュールは削除
-                        botPushSchedule = null
+                        botPushSchedule?.clear()
                     }
                     if (pushScheduleParam != null) {
                         botPushSchedule?.add(pushScheduleParam)
                         // 返答条件は削除
-                        botReplyCondition = null
+                        botReplyCondition?.clear()
                     }
                 }
             }
