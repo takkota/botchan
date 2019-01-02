@@ -14,6 +14,9 @@ data class BotDetail(
         @GeneratedValue(strategy= GenerationType.IDENTITY)
         var id: Long? = null,
 
+        @Column
+        var title: String? = null,
+
         @ManyToMany(cascade = [CascadeType.PERSIST]) // CascadeType.Allだとdelete時にgroupまで消されるので
         var lineGroups: List<LineGroup>? = null,
 

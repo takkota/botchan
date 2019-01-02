@@ -74,16 +74,12 @@ class BotService {
     }
 
     @Transactional(readOnly = true)
-    fun findBotList(userId: String): List<BotDetail>? {
+    fun findBotList(userId: String): List<BotDetail> {
         return try {
             val user = appUserRepository.findById(userId)
-            print("testd:fetch" + user.isPresent)
-            print("testd:lineId" + user.get().lineId)
-            return user.get().botDetails
+            return user.get().botDetails ?: listOf()
         } catch (e: Exception) {
-            print(e.message)
-            print(e.cause?.message)
-            null
+            listOf()
         }
     }
 
