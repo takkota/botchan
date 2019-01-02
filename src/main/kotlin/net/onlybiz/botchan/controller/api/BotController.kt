@@ -74,7 +74,7 @@ class BotController {
     @RequestMapping(value = ["/reply/save"], method = [RequestMethod.POST])
     fun saveBotReply(@RequestBody body: BotReplyParameter) {
         val condition = BotReplyCondition(
-                id = body.id,
+                id = body.replyConditionId,
                 keyword =  body.keyword,
                 matchMethod =  body.matchMethod
         )
@@ -85,6 +85,7 @@ class BotController {
     @RequestMapping(value = ["/push/save"], method = [RequestMethod.POST])
     fun saveBotPush(@RequestBody body: BotPushParameter) {
         val condition = BotPushSchedule(
+                id = body.pushScheduleId,
                 scheduleTime = body.scheduleTime
         )
         botService.saveBotDetail(id = body.botId, userId = body.userId, groupIds = body.lineGroupIds, pushScheduleParam = condition, message = body.message)
