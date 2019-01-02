@@ -23,14 +23,14 @@ class BotController {
 
     // ボット一覧を取得
     @RequestMapping(method = [RequestMethod.POST])
-    fun getBotList(@RequestBody basicParam: BasicParameter): BotListResponse? {
-        val botDetails = botService.findBotList(basicParam.userId).map {
+    fun getBotList(@RequestBody basicParam: BasicParameter): BotListResponse {
+        val botDetails = botService.findBotList(basicParam.userId).map { bot ->
             BotDetailResponse(
-                    botId = it.id!!,
-                    botType = if (it.botReplyCondition != null) "reply" else "push",
-                    groupIds = it.lineGroups?.map { it.id!! } ?: listOf(),
-                    message = it.message,
-                    title = it.title!!
+                    botId = bot.id!!,
+                    botType = if (bot.botReplyCondition != null) "reply" else "push",
+                    groupIds = bot.lineGroups?.map { it.id!! } ?: listOf(),
+                    message = bot.message,
+                    title = bot.title!!
             )
         }
 
@@ -39,9 +39,17 @@ class BotController {
 
     // ボット詳細を取得
     @RequestMapping(value = ["/detail"], method = [RequestMethod.POST])
-    fun getBotDetail(@RequestBody body: BotDetailParameter): BotDetail? {
+    fun getBotDetail(@RequestBody body: BotDetailParameter): BotDetailResponse? {
         body.botId ?: return null
-        return botService.findBotDetail(body.botId!!)
+        return botService.findBotDetail(body.botId!!)?.let { bot ->
+            BotDetailResponse(
+                    botId = bot.id!!,
+                    message = bot.message,
+                    groupIds = bot.lineGroups?.map { it.id!! } ?: listOf(),
+                    botType = if (bot.botReplyCondition != null) "reply" else "push",
+                    title = bot.title!!
+            )
+        }
     }
 
     @RequestMapping(value = ["/delete"], method = [RequestMethod.POST])
