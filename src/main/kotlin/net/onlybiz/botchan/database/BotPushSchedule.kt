@@ -6,7 +6,7 @@ import javax.validation.constraints.NotNull
 
 
 @Entity
-@Table(name = "bot_push_condition")
+@Table(name = "bot_push_schedule")
 data class BotPushSchedule(
         @Id
         @GeneratedValue(strategy= GenerationType.IDENTITY)
@@ -18,8 +18,7 @@ data class BotPushSchedule(
         @Column
         var days: Int? = null,
 
-        @OneToOne(fetch = FetchType.LAZY, optional = false)
-        @JoinColumn(name = "bot_detail_id", nullable = false)
+        @OneToOne(fetch = FetchType.LAZY, mappedBy = "botReplyCondition")
         var botDetail: BotDetail? = null
 
 ) : CommonEntity()

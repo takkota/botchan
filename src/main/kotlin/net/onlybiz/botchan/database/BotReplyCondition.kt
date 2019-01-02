@@ -17,7 +17,6 @@ data class BotReplyCondition(
         @Column
         var matchMethod: String? = null,
 
-        @OneToOne(fetch = FetchType.LAZY, optional = false)
-        @JoinColumn(name = "bot_detail_id", nullable = false)
+        @OneToOne(fetch = FetchType.LAZY, mappedBy = "botReplyCondition")
         var botDetail: BotDetail? = null
 ) : CommonEntity()

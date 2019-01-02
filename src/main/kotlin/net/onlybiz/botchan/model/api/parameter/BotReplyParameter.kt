@@ -3,6 +3,7 @@ package net.onlybiz.botchan.model.api.parameter
 import com.linecorp.bot.model.message.Message
 
 class BotReplyParameter: BasicParameter() {
+    var id: Long? = null
     var botId: Long? = null
     var lineGroupIds: List<String> = listOf()
     lateinit var keyword: String

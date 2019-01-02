@@ -46,11 +46,15 @@ class BotService {
                             keyword = replyConditionParam.keyword
                             matchMethod = replyConditionParam.matchMethod
                         }
+                        // スケジュールは削除
+                        botPushSchedule = null
                     }
                     if (pushScheduleParam != null) {
                         botPushSchedule?.apply {
                             this.scheduleTime = pushScheduleParam.scheduleTime
                         }
+                        // 返答条件は削除
+                        botReplyCondition = null
                     }
                 }
             }

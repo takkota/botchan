@@ -24,11 +24,11 @@ data class BotDetail(
         @NotNull
         var appUser: AppUser? = null,
 
-        @OneToOne(cascade = [CascadeType.ALL], mappedBy = "botDetail")
+        @OneToOne(cascade = [CascadeType.ALL])
         @Nullable
         var botReplyCondition: BotReplyCondition? = null,
 
-        @OneToOne(cascade = [CascadeType.ALL], mappedBy = "botDetail")
+        @OneToOne(cascade = [CascadeType.ALL])
         @Nullable
         var botPushSchedule: BotPushSchedule? = null,
 

@@ -1,14 +1,12 @@
 package net.onlybiz.botchan.controller.api
 
-import net.onlybiz.botchan.database.BotDetail
 import net.onlybiz.botchan.database.BotPushSchedule
 import net.onlybiz.botchan.database.BotReplyCondition
 import net.onlybiz.botchan.model.api.parameter.BasicParameter
 import net.onlybiz.botchan.model.api.parameter.BotDetailParameter
 import net.onlybiz.botchan.model.api.parameter.BotPushParameter
 import net.onlybiz.botchan.model.api.parameter.BotReplyParameter
-import net.onlybiz.botchan.model.api.response.BotDetailResponse
-import net.onlybiz.botchan.model.api.response.BotListResponse
+import net.onlybiz.botchan.model.api.response.*
 import net.onlybiz.botchan.service.BotService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.*
@@ -25,7 +23,7 @@ class BotController {
     @RequestMapping(method = [RequestMethod.POST])
     fun getBotList(@RequestBody basicParam: BasicParameter): BotListResponse {
         val botDetails = botService.findBotList(basicParam.userId).map { bot ->
-            BotDetailResponse(
+            BotResponse(
                     botId = bot.id!!,
                     botType = if (bot.botReplyCondition != null) "reply" else "push",
                     groupIds = bot.lineGroups?.map { it.id!! } ?: listOf(),
@@ -42,13 +40,27 @@ class BotController {
     fun getBotDetail(@RequestBody body: BotDetailParameter): BotDetailResponse? {
         body.botId ?: return null
         return botService.findBotDetail(body.botId!!)?.let { bot ->
-            BotDetailResponse(
+            val botDetail = BotDetailResponse(
                     botId = bot.id!!,
                     message = bot.message,
                     groupIds = bot.lineGroups?.map { it.id!! } ?: listOf(),
                     botType = if (bot.botReplyCondition != null) "reply" else "push",
-                    title = bot.title!!
+                    title = bot.title!!,
+                    replyCondition = if (bot.botReplyCondition != null) {
+                        BotReplyConditionResponse(
+                                id = bot.botReplyCondition!!.id!!,
+                                keyword = bot.botReplyCondition!!.keyword!!,
+                                matchMethod = bot.botReplyCondition!!.matchMethod!!
+                        )
+                    } else null,
+                    pushSchedule = if (bot.botPushSchedule != null) {
+                        BotPushScheduleResponse(
+                                id = bot.botPushSchedule!!.id!!,
+                                scheduleTime = bot.botPushSchedule!!.scheduleTime!!
+                        )
+                    } else null
             )
+            botDetail
         }
     }
 
@@ -62,6 +74,7 @@ class BotController {
     @RequestMapping(value = ["/reply/save"], method = [RequestMethod.POST])
     fun saveBotReply(@RequestBody body: BotReplyParameter) {
         val condition = BotReplyCondition(
+                id = body.id,
                 keyword =  body.keyword,
                 matchMethod =  body.matchMethod
         )
