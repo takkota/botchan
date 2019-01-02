@@ -43,25 +43,17 @@ class BotService {
             } else {
                 // 更新
                 botDetailRepository.findById(id).get().apply {
+                    this.appUser = appUser
                     this.title = title
                     this.message = message
                     this.lineGroups = groups
                     if (replyConditionParam != null) {
-                        this.botReplyCondition?.apply {
-                            add(BotReplyCondition(
-                                    keyword = replyConditionParam.keyword,
-                                    matchMethod = replyConditionParam.matchMethod
-                            ))
-                        }
+                        botReplyCondition?.add(replyConditionParam)
                         // スケジュールは削除
                         botPushSchedule = null
                     }
                     if (pushScheduleParam != null) {
-                        botPushSchedule?.apply {
-                            add(BotPushSchedule(
-                                    scheduleTime = pushScheduleParam.scheduleTime
-                            ))
-                        }
+                        botPushSchedule?.add(pushScheduleParam)
                         // 返答条件は削除
                         botReplyCondition = null
                     }

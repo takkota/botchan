@@ -23,12 +23,25 @@ class BotController {
     @RequestMapping(method = [RequestMethod.POST])
     fun getBotList(@RequestBody basicParam: BasicParameter): BotListResponse {
         val botDetails = botService.findBotList(basicParam.userId).map { bot ->
-            BotResponse(
+            BotDetailResponse(
                     botId = bot.id!!,
-                    botType = if (bot.botReplyCondition?.isEmpty() == true) "push" else "reply",
-                    groupIds = bot.lineGroups?.map { it.id!! } ?: listOf(),
                     message = bot.message,
-                    title = bot.title!!
+                    groupIds = bot.lineGroups?.map { it.id!! } ?: listOf(),
+                    botType = if (bot.botReplyCondition?.isEmpty() == true ) "push" else "reply",
+                    title = bot.title!!,
+                    replyCondition = if (bot.botReplyCondition?.isNotEmpty() == true) {
+                        BotReplyConditionResponse(
+                                id = bot.botReplyCondition!!.first().id!!,
+                                keyword = bot.botReplyCondition!!.first().keyword!!,
+                                matchMethod = bot.botReplyCondition!!.first().matchMethod!!
+                        )
+                    } else null,
+                    pushSchedule = if (bot.botPushSchedule?.isNotEmpty() == true) {
+                        BotPushScheduleResponse(
+                                id = bot.botPushSchedule!!.first().id!!,
+                                scheduleTime = bot.botPushSchedule!!.first().scheduleTime!!
+                        )
+                    } else null
             )
         }
 
