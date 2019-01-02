@@ -24,13 +24,13 @@ data class BotDetail(
         @NotNull
         var appUser: AppUser? = null,
 
-        @OneToOne(cascade = [CascadeType.ALL])
+        @OneToMany(cascade = [CascadeType.ALL], mappedBy = "botDetail")
         @Nullable
-        var botReplyCondition: BotReplyCondition? = null,
+        var botReplyCondition: MutableList<BotReplyCondition>? = mutableListOf(),
 
-        @OneToOne(cascade = [CascadeType.ALL])
+        @OneToMany(cascade = [CascadeType.ALL], mappedBy = "botDetail")
         @Nullable
-        var botPushSchedule: BotPushSchedule? = null,
+        var botPushSchedule: MutableList<BotPushSchedule>? = mutableListOf(),
 
         @Convert(converter = MessageConverter::class)
         var message: Message? = null

@@ -30,10 +30,10 @@ class BotService {
                 // 新規登録
                 BotDetail(appUser = appUser, lineGroups = groups, message = message).apply {
                     if (replyConditionParam != null) {
-                        botReplyCondition = replyConditionParam
+                        botReplyCondition?.add(replyConditionParam)
                     }
                     if (pushScheduleParam != null) {
-                        botPushSchedule = pushScheduleParam
+                        botPushSchedule?.add(pushScheduleParam)
                     }
                 }
             } else {
@@ -43,15 +43,19 @@ class BotService {
                     this.lineGroups = groups
                     if (replyConditionParam != null) {
                         this.botReplyCondition?.apply {
-                            keyword = replyConditionParam.keyword
-                            matchMethod = replyConditionParam.matchMethod
+                            add(BotReplyCondition(
+                                    keyword = replyConditionParam.keyword,
+                                    matchMethod = replyConditionParam.matchMethod
+                            ))
                         }
                         // スケジュールは削除
                         botPushSchedule = null
                     }
                     if (pushScheduleParam != null) {
                         botPushSchedule?.apply {
-                            this.scheduleTime = pushScheduleParam.scheduleTime
+                            add(BotPushSchedule(
+                                    scheduleTime = pushScheduleParam.scheduleTime
+                            ))
                         }
                         // 返答条件は削除
                         botReplyCondition = null

@@ -17,6 +17,6 @@ data class BotReplyCondition(
         @Column
         var matchMethod: String? = null,
 
-        @OneToOne(fetch = FetchType.LAZY, mappedBy = "botReplyCondition")
+        @ManyToOne(fetch = FetchType.EAGER)
         var botDetail: BotDetail? = null
 ) : CommonEntity()

@@ -18,7 +18,7 @@ data class BotPushSchedule(
         @Column
         var days: Int? = null,
 
-        @OneToOne(fetch = FetchType.LAZY, mappedBy = "botPushSchedule")
+        @ManyToOne(fetch = FetchType.EAGER)
         var botDetail: BotDetail? = null
 
 ) : CommonEntity()

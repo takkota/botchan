@@ -25,7 +25,7 @@ class BotController {
         val botDetails = botService.findBotList(basicParam.userId).map { bot ->
             BotResponse(
                     botId = bot.id!!,
-                    botType = if (bot.botReplyCondition != null) "reply" else "push",
+                    botType = if (bot.botReplyCondition?.isEmpty() == true) "push" else "reply",
                     groupIds = bot.lineGroups?.map { it.id!! } ?: listOf(),
                     message = bot.message,
                     title = bot.title!!
@@ -44,19 +44,19 @@ class BotController {
                     botId = bot.id!!,
                     message = bot.message,
                     groupIds = bot.lineGroups?.map { it.id!! } ?: listOf(),
-                    botType = if (bot.botReplyCondition != null) "reply" else "push",
+                    botType = if (bot.botReplyCondition?.isEmpty() == true ) "push" else "reply",
                     title = bot.title!!,
-                    replyCondition = if (bot.botReplyCondition != null) {
+                    replyCondition = if (bot.botReplyCondition?.isNotEmpty() == true) {
                         BotReplyConditionResponse(
-                                id = bot.botReplyCondition!!.id!!,
-                                keyword = bot.botReplyCondition!!.keyword!!,
-                                matchMethod = bot.botReplyCondition!!.matchMethod!!
+                                id = bot.botReplyCondition!!.first().id!!,
+                                keyword = bot.botReplyCondition!!.first().keyword!!,
+                                matchMethod = bot.botReplyCondition!!.first().matchMethod!!
                         )
                     } else null,
                     pushSchedule = if (bot.botPushSchedule != null) {
                         BotPushScheduleResponse(
-                                id = bot.botPushSchedule!!.id!!,
-                                scheduleTime = bot.botPushSchedule!!.scheduleTime!!
+                                id = bot.botPushSchedule!!.first().id!!,
+                                scheduleTime = bot.botPushSchedule!!.first().scheduleTime!!
                         )
                     } else null
             )
