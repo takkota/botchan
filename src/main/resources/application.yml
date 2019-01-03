@@ -1,10 +1,9 @@
 # mysql
 spring:
   datasource:
-    url: ${SPRING_DATASOURCE_URL}?reconnect=true&encoding=utf8mb4&collation=utf8mb4_general_ci
+    url: ${SPRING_DATASOURCE_URL}?useUnicode=yes&characterEncoding=UTF-8
     username: ${SPRING_DATABASE_USERNAME}
     password: ${SPRING_DATABASE_PASSWORD}
-    connectionProperties: useUnicode=true;characterEncoding=utf-8;
     hikari:
       connection-test-query: SELECT 1
       minimum-idle: 5
