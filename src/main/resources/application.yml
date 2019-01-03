@@ -4,6 +4,7 @@ spring:
     url: ${SPRING_DATASOURCE_URL}?reconnect=true&encoding=utf8mb4&collation=utf8mb4_general_ci
     username: ${SPRING_DATABASE_USERNAME}
     password: ${SPRING_DATABASE_PASSWORD}
+    connectionProperties: useUnicode=true;characterEncoding=utf-8;
     hikari:
       connection-test-query: SELECT 1
       minimum-idle: 5
@@ -12,10 +13,16 @@ spring:
       idleTimeout: 40000
       leak-detection-threshold: 7000
       auto-commit: true
+    tomcat:
+      connection-properties: useUnicode=true;characterEncoding=utf-8;
   jpa:
     database: MYSQL
     hibernate:
       ddl-auto: update
+      connection:
+        characterEncoding: utf-8
+        CharSet: utf-8
+        useUnicode: true
 logging:
   level:
     jdbc: OFF
