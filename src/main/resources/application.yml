@@ -1,7 +1,7 @@
 # mysql
 spring:
   datasource:
-    url: ${SPRING_DATASOURCE_URL}
+    url: ${SPRING_DATASOURCE_URL}?reconnect=true&encoding=utf8mb4&collation=utf8mb4_general_ci
     username: ${SPRING_DATABASE_USERNAME}
     password: ${SPRING_DATABASE_PASSWORD}
     hikari:
