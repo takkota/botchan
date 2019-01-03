@@ -20,7 +20,7 @@ data class BotDetail(
         @ManyToMany(cascade = [CascadeType.PERSIST]) // CascadeType.Allだとdelete時にgroupまで消されるので
         var lineGroups: List<LineGroup>? = null,
 
-        @ManyToOne(cascade = [CascadeType.ALL], optional = false)
+        @ManyToOne(optional = false)
         @NotNull
         var appUser: AppUser? = null,
 
@@ -40,18 +40,14 @@ data class BotDetail(
 class MessageConverter: AttributeConverter<Message, String> {
         // LineSdkで使用しているObjectMapperを使う
         override fun convertToDatabaseColumn(message: Message?): String? {
-                print("testd:convert")
                 if (message != null) {
-                        print("testd:haveMessage")
                         val mapper = ModelObjectMapper.createNewObjectMapper()
                         return mapper.writeValueAsString(message)
                 }
                 return null
         }
         override fun convertToEntityAttribute(source: String?): Message? {
-                print("testd:convertFromDB")
                 if (source != null) {
-                        print("testd:noData")
                         val mapper = ModelObjectMapper.createNewObjectMapper()
                         return mapper.readValue(source, Message::class.java)
                 }
